@@ -1,5 +1,4 @@
-<div>
 <x-header/>
 <x-sider/>
+{{ $slot }}
 <x-footer/>
-</div>
