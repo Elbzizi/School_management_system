@@ -5,19 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Matier extends Model
+class Emploi_temp extends Model
 {
     use HasFactory;
     protected $guarded=[];
-    public function emploi()
+
+	public function salle()
 	{
-		return $this->hasMany(Emploi_temp::class);
+		return $this->belongsTo(Salle::class);
 	}
 
-	public function exam()
+	public function matier()
 	{
-		return $this->hasMany('Examen\Examen');
+		return $this->belongsTo(Matier::class);
 	}
-
-	
 }
