@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Matier extends Model
 {
-    use HasFactory;
-    protected $guarded=[];
-    public function emploi()
+	use HasFactory;
+	protected $guarded = [];
+	public function emploi()
 	{
 		return $this->hasMany(Emploi_temp::class);
 	}
 
-	public function exam()
+	public function examen()
 	{
-		return $this->hasMany('Examen\Examen');
+		return $this->hasMany(Examen::class);
 	}
 
-	
+
 }
