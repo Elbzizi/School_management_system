@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -14,9 +13,9 @@ return new class extends Migration
         Schema::create('emploi_temps', function (Blueprint $table) {
             $table->id();
             $table->foreignId("matier_id")->constrained();
-            $table->enum('jour', array('Landi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'));
-			$table->datetime('date_debute');
-			$table->datetime('date_fine');
+            $table->enum('jour', ['Landi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi']);
+            $table->datetime('date_debute');
+            $table->datetime('date_fine');
             $table->timestamps();
         });
     }

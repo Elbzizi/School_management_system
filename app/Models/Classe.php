@@ -15,14 +15,10 @@ class Classe extends Model
         return $this->belongsTo(Niveau_etude::class, 'niveau_etude_id');
     }
 
-    public function emploi()
-    {
-        return $this->hasOne('Emploi_temps\Emploi_temps', 'emploi_temp_id');
-    }
 
     public function etudient()
     {
-        return $this->hasMany('Etudent\Etudent');
+        return $this->hasMany(Etudent::class);
     }
 
     public function foemateur()
