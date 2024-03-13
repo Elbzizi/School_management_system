@@ -27,6 +27,6 @@ class Classe extends Model
 
 	public function foemateur()
 	{
-		return $this->belongsToMany('Formateur\Formateur');
+		return $this->belongsToMany(Formateur::class,"Matiers");
 	}
 }
