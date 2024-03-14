@@ -14,10 +14,10 @@ return new class extends Migration {
             $table->id();
             $table->foreignId("classe_id")->constrained();
             $table->foreignId("formateur_id")->constrained();
-            $table->primary(['classe_id', 'formateur_id']);
             $table->string('nom_matier', 50);
             $table->integer('Coefficient');
             $table->integer('duree');
+            $table->primary(['classe_id', 'formateur_id']);
             $table->timestamps();
         });
     }
