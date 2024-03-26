@@ -1,5 +1,4 @@
-@props(['type'])
-<x-header :typ2="$type" />
+<x-header />
 <x-sidbare />
 {{ $slot }}
 <x-footer />
