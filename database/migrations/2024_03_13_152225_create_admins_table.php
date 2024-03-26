@@ -10,21 +10,20 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('etudents', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->string('Nom_Fr', 50);
-            $table->string('Nom_AR', 50);
-            $table->string('Prenom_FR', 30);
-            $table->string('Prenom_AR', 30);
-            $table->foreignId("classe_id")->constrained();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('Prenom', 30);
             $table->date('date_naissance');
-            $table->string('lieu_Naissance_FR', 40);
-            $table->string('lieu_Naissance_AR', 40);
-            $table->enum('sexe', array ('homme', 'femme'));
+            $table->enum('sexe', array (''));
             $table->string('cin', 8)->unique();
-            $table->string('Cne', 12)->unique();
             $table->string('Image', 150);
             $table->string('Adress', 150);
+            $table->enum('roles', array ('Surville', 'directeur'));
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('etudents');
+        Schema::dropIfExists('admins');
     }
 };
