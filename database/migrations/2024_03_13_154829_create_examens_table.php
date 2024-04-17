@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->enum('Type_Examen', array ('ecrite', 'orale', 'devoir'));
             $table->date('date_examen');
             $table->datetime('duree_Examen');
-            $table->foreignId('matier_id')->constrained();
+            // $table->foreignId('matier_id')->constrained();
             $table->float('Note_Examen')->nullable()->default('0');
             $table->timestamps();
         });

@@ -45,4 +45,30 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+    public function authenticated(Request $request, $user)
+    {
+        // // This is where you can customize redirection based on user role
+        // if ($user->role === 'directeur') {
+        //     return redirect()->route('admin.home');
+        // } elseif ($user->role === 'surveillent') {
+        //     return redirect()->route('admin.home');
+        // }
+    //     if (Auth::guard('admin')->check()) {
+    //         $adminName = Auth::guard('admin')->user()->name;
+    //         $adminPrenom = Auth::guard('admin')->user()->prenom;
+    //         session()->flash('adminName', $adminName);
+    //         session()->flash('adminPrenom', $adminPrenom);
+    //         dd(session('adminName'));
+
+    //     }
+
+    //     return redirect()->intended($this->redirectPath());
+
+    //     // Redirect to a default route if the role doesn't match
+    //     // return redirect(RouteServiceProvider::HOME);
+    // }
+    // protected function redirectPath()
+    // {
+    //     return '/admin/home'; // Example custom redirect path
+    }
 }

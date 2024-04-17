@@ -18,6 +18,13 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'prenom',
+        'adress',
+        'tel',
+        'sexe',
+        'role',
+        'photo',
+        'cin',
         'email',
         'password',
     ];
@@ -44,4 +51,20 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function class(){
+        return $this->belongsTo(Classe::class, 'classe_id');  
+     }
+    public function parent(){
+        return $this->belongsTo(Parente::class, 'parent_id');  
+     }
+     public function note()
+    {
+        return $this->hasOne(Note::class);
+    }
+     public function absence()
+    {
+        return $this->hasMany(Absence::class);
+    }
+
 }
+

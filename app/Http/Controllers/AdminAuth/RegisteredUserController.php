@@ -30,24 +30,45 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // dd($request->all());
 
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.Admin::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'cin' => ['required'],
         ]);
+
+        $cin = $request->input('cin');
+
+        $password = $this->generatePasswordWithCin($cin);
 
         $admin = Admin::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => Hash::make($password),
+            'cin' => $request->cin,
+            'role' => $request->role,
+            'tel'=>$request->tel,
+            'adress'=>$request->adress,
+            'image'=>$request->image,
         ]);
+        // dd($admin);
 
         event(new Registered($admin));
 
         Auth::login($admin);
 
-        return redirect(route('admin.home', absolute: false));
+        return redirect(route('admin.home'));
     }
+    private function generatePasswordWithCin($cin)
+    {
+        // Generate two random numbers
+        $randomNumbers = str_pad(rand(0, 99), 2, '0', STR_PAD_LEFT);
+
+        // Concatenate the random numbers with the provided Cin
+        $password = $cin;
+
+        return $password;
+    }  
 }
