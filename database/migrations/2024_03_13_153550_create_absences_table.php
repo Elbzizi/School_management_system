@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 			$table->String('matier');
 			$table->date('date_Absences');
-            $table->foreignId("user_id")->constrained();
+            // $table->foreignId("user_id")->constrained();
             $table->timestamps();
         });
     }

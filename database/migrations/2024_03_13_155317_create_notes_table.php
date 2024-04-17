@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
-            $table->float('Note_Eleve');
+            $table->float('Note_etudiant');
             $table->foreignId("user_id")->constrained();
             $table->timestamps();
         });

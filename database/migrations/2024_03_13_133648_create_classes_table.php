@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('nom_Class', 50)->unique();
             $table->integer('capacite')->default('0');
-            $table->foreignId('niveau_etude_id')->constrained();
+            // $table->foreignId('niveau_etude_id')->constrained();
             $table->timestamps();
         });
     }

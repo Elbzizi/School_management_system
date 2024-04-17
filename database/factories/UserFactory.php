@@ -2,9 +2,10 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -23,12 +24,24 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        // $faker = Faker\Factory::create();
+        $sexe = Arr::random(['homme', 'femme']);
+        $role =  'etudiant';
+        $email = 'user@gmail.com';
+        $photo = 'assets/img/logonull.jpg';
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'name' => fake()->firstName(),
+            'prenom' =>fake()->lastName(),
+            'sexe' => $sexe,
+            'date_naissance' => fake()->date(),
+            'cin' => fake()->numberBetween(1000000, 9999999), // Generates an 8-digit number
+            'photo' =>$photo,
+            'role' => $role,
+            'adress' => fake()->address(),
+            'statut' => 'desactive',
+            'tel' => fake()->phoneNumber(),
+            'email' =>$email,
+            'password' => 'useruser',
         ];
     }
 

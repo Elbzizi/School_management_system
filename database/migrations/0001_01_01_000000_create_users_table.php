@@ -11,22 +11,24 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
+            Schema::disableForeignKeyConstraints();
+
             $table->id();
             $table->string('name', 50);
+            $table->string('prenom', 30)->nullable();
+            $table->enum('sexe', array ('homme', 'femme'))->nullable();
+            $table->date('date_naissance')->nullable();
+            $table->string('cin', 8)->unique()->nullable();
+            $table->string('adress', 150)->nullable();
+            $table->string('photo', 150)->nullable()->default('assets/img/logonull.jpg');
+            $table->enum('role',array ('etudiant','parent'))->default('etudiant');
+            $table->enum('statut', array ('active', 'desactive','bloque'))->default('desactive');
+            $table->string('tel')->unique();
             $table->string('email')->unique();
+            $table->foreignId("classe_id")->nullable()->constrained();
+            $table->foreignId("parent_id")->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId("note_id")->nullable()->constrained();
             $table->timestamp('email_verified_at')->nullable();
-            // $table->string('Nom_AR', 50);
-            $table->string('Prenom', 30);
-            // $table->string('Prenom_AR', 30);
-            // $table->foreignId("classe_id")->constrained();
-            $table->date('date_naissance');
-            $table->string('lieu_Naissance_FR', 40);
-            // $table->string('lieu_Naissance_AR', 40);
-            $table->enum('sexe', array ('homme', 'femme'));
-            $table->string('cin', 8)->unique();
-            $table->string('Cne', 12)->unique();
-            $table->string('photo', 150);
-            $table->string('Adress', 150);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

@@ -16,9 +16,9 @@ class Classe extends Model
     }
 
 
-    public function etudient()
+    public function users()
     {
-        return $this->hasMany(Etudent::class);
+        return $this->hasMany(User::class);
     }
 
     public function foemateur()

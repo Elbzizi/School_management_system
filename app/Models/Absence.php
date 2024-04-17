@@ -9,8 +9,9 @@ class Absence extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public function etudient()
+
+    public function user()
     {
-        return $this->belongsTo(Etudent::class);
+        return $this->belongsTo(User::class);
     }
 }

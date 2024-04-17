@@ -5,13 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Niveau_etude extends Model
+class Niveau extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $table = 'niveaux';
+    protected $fillable = ['nom_niveaux', 'cycle_id'];
+
     public function cycle()
     {
-        return $this->belongsTo(Cycle_detude::class, 'Cycle_detude_id');
+        return $this->belongsTo(cycle::class, 'cycle_id');
     }
 
     public function class()
