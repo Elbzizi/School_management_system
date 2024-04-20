@@ -59,10 +59,30 @@
 
                             </ul>
                         </li>
+                        <li class="nav-item  @yield('open-gestion-etudiant')">
+                            <a href="#" class="nav-link @yield('listetudiant') ">
+                                <i class="nav-icon fas fa-tachometer-alt "></i>
+                                <p>
+                                    Gestion Etudiants
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item ">
+                                    <a href="{{ route('admin.etudiant') }}" class="nav-link @yield('listetudiant')">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Liste Etudaint</p>
+                                    </a>
+                                </li>
+                                {{-- hna ndir les tabs dyal admin o surveillant --}}
+
+
+                            </ul>
+                        </li>
                         @if ($user->role === 'directeur')
                             <li class="nav-item  @yield('open-gestion-employer')">
                                 <a href="#" class="nav-link @yield('listemployer')">
-                                    <i class="nav-icon fa-solid fa-user-pen" style="color: #ffffff;"></i>
+                                    <i class="nav-icon fa-solid fa-user-pen" style="color: #cfcfcf;"></i>
                                     <p> 
                                         Gestion Employer
                                         <i class="right fas fa-angle-left"></i>

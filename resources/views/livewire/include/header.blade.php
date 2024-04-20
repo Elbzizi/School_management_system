@@ -148,7 +148,6 @@
 
                         <div class="dropdown-divider"></div>
 
-                        web
                         <a href="/profile/{{$user->id}}" class="dropdown-item">
 
                             <i class="fa-solid fa-user mr-2" style="color: black;"></i>

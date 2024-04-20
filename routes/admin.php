@@ -8,6 +8,7 @@ use App\Livewire\Profile;
 use App\Livewire\admin\Home;
 use App\Livewire\admin\CycleEtude;
 use App\Livewire\Admin\ListEmployer;
+use App\Livewire\Admin\ListEtudiant;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,6 +24,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
                 Route::get('Cycles_etude', CycleEtude::class)->name('Cycles');               
                 Route::get('profile/{id}', Profile::class)->name('profile'); 
                 Route::get('employer' , ListEmployer::class)->name('employer');             
+                Route::get('etudiant' , ListEtudiant::class)->name('etudiant'); 
+                            
             });               
 
 

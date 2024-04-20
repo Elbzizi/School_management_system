@@ -15,7 +15,7 @@
               <!-- Profile Image -->
               <div class="card card-primary card-outline">
                 <div class="card-body box-profile">
-                  <form class="form-horizontal" wire:submit.prevent='modifier' >
+                  <form class="form-horizontal" wire:submit.prevent='modifier({{ $id }})' >
                   <div class="text-center">
                     <img class="profile-user-img img-fluid img-circle"
                          src="{{ asset($photo) }}"
@@ -91,13 +91,18 @@
                                 <label for="role" class="col-form-label">Role</label>
                             </div>
                             <div class="col-md-5 ms-auto mb-3">
-                                <input type="text" id="role" class="form-control" wire:model='role'>
+                                {{-- <input type="text" id="role" class="form-control" wire:model='role'> --}}
+                                <select wire:model="role" id="role" class="form-control">
+                                  <option value="directeur">directeur</option>
+                                  <option value="surveillant">surveillant</option>
+                                  <option value="enseignant">enseignant</option>
+                                  <option value="etudiant">Etudiant</option>
+                          </select>
                             </div>
                             <div class="col-md-1 ms-auto">
                                 <label for="statut" class="col-form-label">Statut</label>
                             </div>
                             <div class="col-md-5 ms-auto mb-3">
-                                {{-- <input type="text" id="statut" class="form-control" wire:model='statut'> --}}
                               <select wire:model="statut" id="status" class="form-control">
                                       <option value="active">active</option>
                                       <option value="desactive">desactive</option>
@@ -121,7 +126,6 @@
                               <button type="submit" class="btn btn-primary " >Modiffier</button>
                               @else
                               <a href="#" class="disabled-link">Modifier</a>
-                                    
                               @endif
                             </div>
                         </div>

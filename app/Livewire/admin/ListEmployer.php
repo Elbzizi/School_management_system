@@ -12,7 +12,7 @@ class ListEmployer extends Component
     public $isAdd = true;
 
     public function mount(){
-        $this->Employers = Admin::All();
+        $this->Employers = Admin::where('role','!=','directeur')->get();
     }
     public function render()
     {
@@ -22,7 +22,7 @@ class ListEmployer extends Component
     public function filter(){
         // dd($this->role);
         if ($this->role==='all') {
-            $this->Employers = Admin::All();
+            $this->Employers = Admin::where('role','!=','directeur')->get();
         } else {
             // dd($this->role);
             $this->Employers = Admin::where('role',$this->role)->get();

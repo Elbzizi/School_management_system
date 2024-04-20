@@ -1,6 +1,6 @@
 <div class="content-wrapper">
-    @section('listemployer','active')
-    @section('open-gestion-employer','menu-open')
+    @section('listetudiant','active')
+    @section('open-gestion-etudiant','menu-open')
     <section class="content">
         <div class="row">   
             <div class="container" style="margin-top: 5px;">
@@ -8,15 +8,13 @@
                     <div class="col-md-12">
                       <div class="card">
                         <div class="card-header">
-                          <h6 style="float: left;"><strong>Liste des Employers</strong></h6>
+                          <h6 style="float: left;"><strong>Liste des Etudiant</strong></h6>
                           <form name="frm" wire:submit.prevent='filter'>
                             @csrf
-                            <select class="form-select " style="margin-left:10px;" wire:model='role' wire:change="filter">
-                                <option value="all">Tout</option>                      
-                                <option value="surveillant">surveillant</option>
-                                <option value="enseignant">enseignant</option>
-                            </select>
-                          {{-- <button class="btn btn-sm btn-info">Rechercher</button> --}}
+                            <div style=" margin-bottom: 10px; width: 200px;">
+                                <input type="text" class="form-control"  placeholder="Rechercher"  wire:model="search">
+                            </div> 
+                            <button class="btn btn-sm btn-info">Rechercher</button>
                           <a class="btn btn-sm btn-success" style="float: right;" >Ajouter Employer</a>
                         </form>
                         </div>
@@ -39,13 +37,13 @@
                           </tr>
                       </thead>
                       <tbody>
-                        @foreach ($Employers as $Emp)
+                        @foreach ($etudiants as $etudiant)
                             <tr>
   
-                              <td style="width: 50px;">{{ $Emp->id }}</td>
-                              <td style="width: 130px;">{{ $Emp->name}}</td>
-                              <td style="width: 160px;">{{ $Emp->prenom}}</td>
-                              <td style="width: 100px;">{{ $Emp->role}}</td>
+                              <td style="width: 50px;">{{ $etudiant->id }}</td>
+                              <td style="width: 130px;">{{ $etudiant->name}}</td>
+                              <td style="width: 160px;">{{ $etudiant->prenom}}</td>
+                              <td style="width: 100px;">{{ $etudiant->role}}</td>
   
                               
                               <td style="width: 200px;">
@@ -55,14 +53,15 @@
                                     <span class="sr-only">Toggle Dropdown</span>
                                   </button>
                                   <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item" href="/admin/profile/{{ $Emp->id }}">Afficher</a>
-                                    <a class="dropdown-item cursour-pointer"  href="#" wire:click.prevent='supprimer({{ $Emp->id }})'>supprimer</a>
+                                    <a class="dropdown-item" href="/admin/profile/{{ $etudiant->id }}?type=etudiant">Afficher</a>
+                                    <a class="dropdown-item cursour-pointer"  href="#" wire:click.prevent='delete({{ $etudiant->id }})'>supprimer</a>
                                   </div>
                                 </div>
                             </td>
                           </tr>
   
                         @endforeach
+                        {{-- {{ $etudiants->links() }} --}}
                           
                       </tbody>                    
                    </table>

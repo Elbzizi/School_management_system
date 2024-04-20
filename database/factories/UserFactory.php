@@ -27,7 +27,7 @@ class UserFactory extends Factory
         // $faker = Faker\Factory::create();
         $sexe = Arr::random(['homme', 'femme']);
         $role =  'etudiant';
-        $email = 'user@gmail.com';
+        // $email = 'user@gmail.com';
         $photo = 'assets/img/logonull.jpg';
         return [
             'name' => fake()->firstName(),
@@ -40,7 +40,7 @@ class UserFactory extends Factory
             'adress' => fake()->address(),
             'statut' => 'desactive',
             'tel' => fake()->phoneNumber(),
-            'email' =>$email,
+            'email' =>fake()->email(),
             'password' => 'useruser',
         ];
     }
