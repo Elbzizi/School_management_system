@@ -9,8 +9,11 @@ class CycleEtude extends Component
 {
 
     public $cycles ;
+    public $id;
     public $nom;
     public $description;
+    public $isAdd = true;
+
 
 
     public function mount(){
@@ -21,21 +24,52 @@ class CycleEtude extends Component
     {
         return view('livewire.admin.cycle-etude');
     }
+    // store ---------------------------------------------------------
     public function store(){
-        Cycle::create([
-            'nom_cycle' => $this->nom,
-            'description' => $this->description,
-        ]);
-        $this->reset(['nom','description']);
+        if($this->isAdd){
+            Cycle::create([
+                'nom_cycle' => $this->nom,
+                'description' => $this->description,
+
+            ]);
+        }else {
+            $cycles= Cycle::findorFail($this->id);
+            $cycles->update([
+                'nom_cycle' => $this->nom,
+                'description' => $this->description,
+            ]);
+        }
+        $this->resetForm();
         $this->dispatch('close-modal');
-
         $this->cycles = Cycle::all();
-
+        
     }
+    // supprimer ---------------------------------------------------------
     public function supprimer($cycle_id){
         $cycles = Cycle::findorFail($cycle_id);
         $cycles->delete();
         session()->flash('success', 'Cycle étude supprimé avec succès!');
         $this->cycles = Cycle::all();
     }   
+    // affichage de modal ---------------------------------------------------------
+    public function ajouterModal(){
+        $this->isAdd = true;
+
+    }
+    public function modifierModal($id){
+        $this->isAdd = false;
+        $this->resetForm();
+        $cycles = Cycle::findorFail($id);
+        $this->id = $id;
+        $this->nom = $cycles->nom_cycle;
+        $this->description = $cycles->description;
+
+    }
+    public function resetForm()
+{
+    $this->id = null;
+    $this->nom = null;
+    $this->description = null;
 }
+}
+

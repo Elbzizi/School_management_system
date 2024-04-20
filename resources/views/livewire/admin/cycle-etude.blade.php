@@ -1,4 +1,6 @@
 <div class="content-wrapper">
+  @section('cycle','active')
+  @section('open-gestion-scolaire','menu-open')
     <section class="content">
           <!-- main body --> 
           <div class="row">   
@@ -8,18 +10,24 @@
                     <div class="card">
                       <div class="card-header">
                         <h6 style="float: left;"><strong>Liste des Cycles d'etudes</strong></h6>
-                        <button class="btn btn-sm btn-success" style="float: right;"data-toggle="modal" data-target="#Addcycle">Ajouter Cycle</button>
+                        <a class="btn btn-sm btn-success" style="float: right;"data-toggle="modal" data-target="#cyclemodal" wire:click.prevent='ajouterModal'>Ajouter Cycle</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div wire:ignore.self  class="modal fade " id="Addcycle" tabindex="-1" role="dialog" aria-labelledby="Ajouter Cycle d'etude" aria-hidden="true">
+              {{-- model --}}
+              <div wire:ignore.self  class="modal fade " id="cyclemodal" tabindex="-1" role="dialog" aria-labelledby="Gestion Cycles" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
-                     
-                      <h4 class="modal-title">Ajouter un nouveau Cycle d'etude !</h4>
+                      <h4 class="modal-title">
+                        @if ($isAdd)
+                          Ajouter un nouveau Cycle d'etude !
+                        @else
+                          Modifier le Cycle d'etude
+                        @endif
+                      </h4>
                     </div>
                     <div class="modal-body">
                       <form wire:submit.prevent="store">
@@ -28,7 +36,20 @@
                             <label for="nom" class="col-form-label">nom</label>
                           </div>
                           <div class="col-md-4 ms-auto">
-                            <input type="text" id="nom" class="form-control"  wire:model='nom'>
+                            <select wire:model="nom"  class="form-control">
+                              <option value="" selected>
+                                Choisir le nom du cycle
+                              </option>
+                              <option value="Primaire">
+                                Primaire 
+                              </option>
+                              <option value="collegial">
+                                secondaire collégial
+                              </option>
+                              <option value="qualifiant">
+                                secondaire qualifiant
+                              </option>
+                            </select>
                           </div>
                           <div class="col-md-2 ms-auto">
                             <label for="inputPassword6" class="col-form-label">description</label>
@@ -40,11 +61,17 @@
                       </div>       
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">Save changes</button>
+                          <button type="submit" class="btn btn-primary">
+                            @if ($isAdd)
+                            Ajouter
+                            @else
+                            Save changes
+                            @endif
+                            </button>
                         </div>
                       </form>
                   </div>
-                  <!-- /.modal-content -->
+                  <!-- /.modal -->
                 </div>
                 <!-- /.modal-dialog -->
               </div>
@@ -76,26 +103,23 @@
 
                             
                             <td style="width: 200px;">
-                              <a href="#" class="btn btn-sm btn-primary">Afficher</a> | 
-                              <a href="#" class="btn btn-sm btn-success">Modifier</a> | 
-                              <a wire:click.prevent='supprimer({{ $cycle->id }})' class="btn btn-sm btn-danger">Supprimer</a>
+                              <div class="btn-group">
+                                <button type="button" class="btn btn-success">Action</button>
+                                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                                  <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu" role="menu">
+                                  <a class="dropdown-item" href="#">Afficher</a>
+                                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#cyclemodal" wire:click.prevent='modifierModal({{ $cycle->id }})'>Modifier</a>
+                                  <a class="dropdown-item" href="#" wire:click.prevent='supprimer({{ $cycle->id }})'>supprimer</a>
+                                </div>
+                              </div>
                           </td>
                         </tr>
 
                       @endforeach
                         
-                    </tbody>
-                    {{-- <tfoot>
-                        <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
-                        </tr>
-                    </tfoot> --}}
-                    
+                    </tbody>                    
                  </table>
                 </div>
                 </div>
@@ -109,7 +133,7 @@
         </section>
         <script>
           window.addEventListener('close-modal', event => {
-              $('#Addcycle').modal('hide');
+              $('#cyclemodal').modal('hide');
           });
       </script>
       

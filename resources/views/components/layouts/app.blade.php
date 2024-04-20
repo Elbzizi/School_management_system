@@ -36,29 +36,26 @@
 
 </head>
 <body>
-     {{-- @php
-    $admin = Auth::guard('admin')->check();
-    @endphp      --}}
-@auth('admin')
-    @livewire('admin.header')                 
-    @livewire('admin.sidebar')
+{{-- @auth('admin') --}}
+    @livewire('header')                 
+    @livewire('sidebar')
 
     <main>
         {{ $slot }}
     </main>
-    @livewire('admin.Footer')
+    @livewire('Footer')
     @livewireScripts   
-@endauth
-@auth('web')
-    @livewire('user.header')                 
-    @livewire('user.sidebar')
+{{-- @endauth --}}
+{{-- @auth('web')
+    @livewire('header')                 
+    @livewire('sidebar')
 
     <main>
         {{ $slot }}
     </main>
-    @livewire('user.Footer')
+    @livewire('Footer')
     @livewireScripts  
-@endauth
+@endauth --}}
 
 </body>
 </html>

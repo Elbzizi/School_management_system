@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->string('adress', 150)->nullable();
             $table->string('photo', 150)->nullable()->default('assets/img/logonull.jpg');
             $table->enum('role', array ('surveillant', 'directeur','enseignant'))->default('surveillant');
-            $table->enum('statut', array ('actif', 'inactif','bloque'))->default('actif');
+            $table->enum('statut', array ('active', 'desactive','bloque'))->default('active');
             $table->string('tel')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

@@ -33,7 +33,7 @@ class AdminFactory extends Factory
             'photo' =>$photo,
             'adress' => fake()->address(),
             'role' => $role,
-            'statut' => 'actif',
+            'statut' => 'active',
             'tel' => fake()->phoneNumber(),
             'email' =>$email,
             'password' => '20232024',

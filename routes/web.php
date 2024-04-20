@@ -2,7 +2,7 @@
 
 use App\Livewire\Welcome;
 use App\Livewire\user\Home;
-use App\Livewire\admin\Profile;
+use App\Livewire\Profile;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/home', function () {
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('profile', Profile::class)->name('profile');               
+    Route::get('profile/{id}', Profile::class)->name('profile');               
     Route::get('home', Home::class)->name('home'); 
 
 });
