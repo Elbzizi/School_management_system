@@ -10,6 +10,7 @@ use App\Livewire\admin\CycleEtude;
 use App\Livewire\Admin\ListEmployer;
 use App\Livewire\Admin\ListEtudiant;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Admin\DemandeInscription;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -25,6 +26,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
                 Route::get('profile/{id}', Profile::class)->name('profile'); 
                 Route::get('employer' , ListEmployer::class)->name('employer');             
                 Route::get('etudiant' , ListEtudiant::class)->name('etudiant'); 
+                Route::get('etudiant/demandes' , DemandeInscription::class)->name('etudiant.demandes'); 
                             
             });               
 

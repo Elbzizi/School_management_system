@@ -36,7 +36,6 @@
 
 </head>
 <body>
-{{-- @auth('admin') --}}
     @livewire('header')                 
     @livewire('sidebar')
 
@@ -45,17 +44,6 @@
     </main>
     @livewire('Footer')
     @livewireScripts   
-{{-- @endauth --}}
-{{-- @auth('web')
-    @livewire('header')                 
-    @livewire('sidebar')
-
-    <main>
-        {{ $slot }}
-    </main>
-    @livewire('Footer')
-    @livewireScripts  
-@endauth --}}
 
 </body>
 </html>

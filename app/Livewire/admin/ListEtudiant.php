@@ -20,29 +20,54 @@ class ListEtudiant extends Component
     public $statut;
     public $tel;
     public $email;
-    public $etudiants;
+    public $search;
+    public $successMessage;
 
-    public function mount(){
-        $this->etudiants = User::All();
-    }
-    public function render()
-    
+
+    public function mount()
     {
-        return view('livewire.admin.list-etudiant');
+        $this->search = '';
+    }
+
+    public function render()
+    {
+        $etudiants = User::where('statut','active')
+        ->where(function($query){
+            $query->where('name', 'like', '%' . $this->search . '%')
+            ->orWhere('prenom', 'like', '%' . $this->search . '%');
+        })
+        ->orderBy('name', 'asc')    
+        ->orderBy('prenom', 'asc')
+        ->paginate(10);
+
+        return view('livewire.admin.list-etudiant', [
+            'etudiants' => $etudiants,
+        ]);
     }
     // delete ------------------------------------------------------------------
     public function delete($id){
         $etudiants = User::find($id);
-        $etudiants->delete();
-        $this->etudiant = User::all();
-        
-        session()->flash('message', 'Etudiant supprimé avec succès');
+        if($etudiants){
+            $etudiants->delete();
+            $this->successMessage = 'Etudiant supprimé avec succès';
+            // dd($this->successMessage);
+            session()->flash('successMessage', 'Etudiant supprimé avec succès');
+        }
+        else{
+            session()->flash('error', 'Étudiant non trouvé.');
+        }
     }
     // filter ------------------------------------------------------------------
-    public $search;
-    public function filter(){
-        // $this->etudiant = User::where('name', 'like', '%'.$this->search.'%')->get();
-        $this->etudiants = User::where('name', 'like', '%'.$this->search.'%')->orWhere('prenom','like','%'.$this->search.'%')->get();
-        $this->search = '';
+
+
+    public function filter()
+    {
+        // $this->resetPage(); // Reset pagination to the first page when filtering
     }
+    public function clearSearch()
+    {
+        $this->search = '';
+        // $this->resetPage(); // Reset pagination to the first page when clearing search
+    }
+
 }

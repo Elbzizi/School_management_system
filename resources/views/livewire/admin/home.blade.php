@@ -22,11 +22,12 @@
                 <!-- /.col -->
                 <div class="col-12 col-sm-6 col-md-3" style="margin-top: 10px;">
                     <div class="info-box mb-3">
-                        <span class="info-box-icon bg-info elevation-1"><i class="fa-solid fa-flag" style="color: #ffffff;"></i></span>
+                        
+                        <a href=""></a><span class="info-box-icon bg-info elevation-1"><i class="fa-solid fa-flag" style="color: #ffffff;"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Inscription</span>
-                            <span class="info-box-number">410</span>
+                            <span class="info-box-text"><a href="{{ route('admin.etudiant.demandes') }}" style="color:black;" >Inscription</a></span>
+                            <span class="info-box-number">{{ $nombreInscription }}</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -57,8 +58,8 @@
                         </span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">New Members</span>
-                            <span class="info-box-number">2,000</span>
+                            <span class="info-box-text">Les Etudiant curent</span>
+                            <span class="info-box-number">{{ $nombreEtudiant_Accepter }}</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>

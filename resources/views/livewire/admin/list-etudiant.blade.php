@@ -3,6 +3,9 @@
     @section('open-gestion-etudiant','menu-open')
     <section class="content">
         <div class="row">   
+            {{-- @if(session()->has('successMessage'))
+                {{ dd($successMessage) }}
+            @endif --}}
             <div class="container" style="margin-top: 5px;">
                 <div class="row">
                     <div class="col-md-12">
@@ -23,6 +26,7 @@
                   </div>
             </div>
             <div class="container " >     
+                
                 <div class="card card-statistics h-100"> 
                   <div class="card-body">
                     <div class="table-responsive">
@@ -32,6 +36,7 @@
                             <th >#</th>
                             <th >Nom</th>
                             <th>Prenom</th>
+                            <th>date Naissance</th>
                             <th>Role</th>
                             <th >Action</th>
                           </tr>
@@ -43,6 +48,7 @@
                               <td style="width: 50px;">{{ $etudiant->id }}</td>
                               <td style="width: 130px;">{{ $etudiant->name}}</td>
                               <td style="width: 160px;">{{ $etudiant->prenom}}</td>
+                              <td style="width: 160px;">{{ $etudiant->date_naissance}}</td>
                               <td style="width: 100px;">{{ $etudiant->role}}</td>
   
                               
@@ -61,8 +67,8 @@
                           </tr>
   
                         @endforeach
-                        {{-- {{ $etudiants->links() }} --}}
-                          
+                        {{ $etudiants->links('pagination::bootstrap-5') }}
+                                              
                       </tbody>                    
                    </table>
                   </div>
@@ -70,5 +76,6 @@
                 </div>   
               </div>
         </div>
+
     </section>
 </div>
