@@ -1,4 +1,5 @@
 <div>
+
   <!-- /.content-wrapper -->
   {{-- <footer class="main-footer" style="height: 30px;">
     <strong>Copyright &copy; 2024-2025 <a href="https://adminlte.io">By Saad and Omar</a>.</strong>
@@ -50,23 +51,6 @@
 <script src="{{asset('assets/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('assets/js/pages/dashboard.js')}}"></script>
-<script>
-  document.addEventListener('livewire:load', function () {
-      Livewire.on('successMessage', message => {
-          var Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000
-          });
-
-          Toast.fire({
-              icon: 'success',
-              title: message
-          });
-      });
-  });
-</script>
 
 
 
