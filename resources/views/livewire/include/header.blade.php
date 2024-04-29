@@ -35,6 +35,14 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <script src="https://kit.fontawesome.com/eb54a27021.js" crossorigin="anonymous"></script>
     <style>
+        .error{
+            color: red;
+            font-size: 13px;
+        }
+        .cmw{
+            max-width: 900px;
+
+            }
         body {
             font-family: "Barlow", sans-serif;
             font-weight: 500;

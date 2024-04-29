@@ -29,6 +29,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        $password = $request->cin;
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
@@ -44,9 +45,8 @@ class RegisteredUserController extends Controller
             'photo'=>$request->photo,
             'email' => $request->email,
             'sexe' => $request->sexe,
-            // 'role'=>$request->role,
-            // 'statut'=>$request->statut,
-            'password' => Hash::make($request->password),
+            'statut'=>$request->statut,
+            'password' => $password,
         ]);
 
         event(new Registered($user));

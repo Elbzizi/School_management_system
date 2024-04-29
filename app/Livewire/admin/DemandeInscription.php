@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 class DemandeInscription extends Component
 
 {
-
+    public $id, $name, $prenom, $sexe, $cin, $photo, $adress, $role, $dateNaissance, $statut, $tel, $email, $password;
     public $desactiveEtudiants ;
     public $selectedetudiants = [];
     public $selectAll ;
@@ -40,13 +40,10 @@ class DemandeInscription extends Component
             $this->showEtudiant(end($selectedetudiants) ?? null);
         }
         else{
-            
+
             $this->showEtudiantDetails = null;
         }
     }
-
-
-
 
     public function accepter($id = null){
         if ($id !== null) {
@@ -84,5 +81,64 @@ class DemandeInscription extends Component
 
     public function showEtudiant($id) {
         $this->showEtudiantDetails = User::findorFail($id);
+    }
+     // create ------------------------------------------------------------------
+     protected $rules = [
+        'name' => 'required|min:3',
+        'prenom' => 'required|min:3',
+        'sexe' => 'required',
+        'cin' => 'required|min:8|max:8',
+        'photo' => 'required',
+        'adress' => 'required',
+        'statut' => 'required',
+        'tel' => 'required|min:8|max:8',
+        'email' => 'required|email|unique:users',
+    ];
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+        $this->resetValidation();
+    }
+
+    public function create() {
+
+        $this->validate();
+        $password = $this->cin;
+        User::create([
+            'name' => $this->name,
+            'prenom' => $this->prenom,
+            'sexe' => $this->sexe,
+            'cin' => $this->cin,
+            'photo' => $this->photo,
+            'adress' => $this->adress,
+            'role' => $this->role,
+            'date_naissane' =>$this->dateNaissance,
+            'statut' => $this->statut,
+            'tel' => $this->tel,
+            'email' => $this->email,
+            'password' =>$password,
+            'remember_token' => Str::random(10),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        $this->resetInput();
+        $this->successMessage = "L'étudiant a été ajouté avec succès";
+        $this->dispatch('close-modal');
+
+    }
+
+    // resetInput ------------------------------------------------------------------
+    public function resetInput() {
+
+        $this->name = null;
+        $this->prenom = null;
+        $this->sexe = null;
+        $this->cin = null;
+        $this->photo = null;
+        $this->adress = null;
+        $this->statut = null;
+        $this->tel = null;
+        $this->email = null;
     }
 }

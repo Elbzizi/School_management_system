@@ -4,22 +4,14 @@ namespace App\Livewire\Admin;
 
 use App\Models\User;
 use Livewire\Component;
+use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
 
 class ListEtudiant extends Component
 {
 
 
-    public $id;
-    public $name;
-    public $prenom;
-    public $sexe;
-    public $cin;
-    public $photo;
-    public $adress;
-    public $role;
-    public $statut;
-    public $tel;
-    public $email;
+    public $id, $name, $prenom, $sexe, $cin, $photo, $adress, $role, $dateNaissance, $statut, $tel, $email, $password;
     public $search;
     public $successMessage;
 
@@ -36,13 +28,74 @@ class ListEtudiant extends Component
             $query->where('name', 'like', '%' . $this->search . '%')
             ->orWhere('prenom', 'like', '%' . $this->search . '%');
         })
-        ->orderBy('name', 'asc')    
+        ->orderBy('name', 'asc')
         ->orderBy('prenom', 'asc')
         ->paginate(10);
 
         return view('livewire.admin.list-etudiant', [
             'etudiants' => $etudiants,
+
         ]);
+        $this->search = '';
+    }
+    // create ------------------------------------------------------------------
+    protected $rules = [
+        'name' => 'required|min:3',
+        'prenom' => 'required|min:3',
+        'sexe' => 'required',
+        'cin' => 'required|min:8|max:8',
+        'photo' => 'required',
+        'adress' => 'required',
+        'statut' => 'required',
+        'tel' => 'required|min:8|max:8',
+        'email' => 'required|email|unique:users',
+    ];
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+        $this->resetValidation();
+    }
+
+    public function create() {
+
+        $this->validate();
+        $password = $this->cin;
+        User::create([
+            'name' => $this->name,
+            'prenom' => $this->prenom,
+            'sexe' => $this->sexe,
+            'cin' => $this->cin,
+            'photo' => $this->photo,
+            'adress' => $this->adress,
+            'role' => $this->role,
+            'date_naissane' =>$this->dateNaissance,
+            'statut' => $this->statut,
+            'tel' => $this->tel,
+            'email' => $this->email,
+            'password' =>$password,
+            'remember_token' => Str::random(10),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        $this->resetInput();
+        $this->successMessage = "L'étudiant a été ajouté avec succès";
+        $this->dispatch('close-modal');
+
+    }
+
+    // resetInput ------------------------------------------------------------------
+    public function resetInput() {
+
+        $this->name = null;
+        $this->prenom = null;
+        $this->sexe = null;
+        $this->cin = null;
+        $this->photo = null;
+        $this->adress = null;
+        $this->statut = null;
+        $this->tel = null;
+        $this->email = null;
     }
     // delete ------------------------------------------------------------------
     public function delete($id){
