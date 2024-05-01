@@ -4,7 +4,9 @@ namespace App\Livewire\Admin;
 
 use App\Models\User;
 use Livewire\Component;
+use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Carbon;
 
 class DemandeInscription extends Component
 
@@ -84,13 +86,17 @@ class DemandeInscription extends Component
     }
      // create ------------------------------------------------------------------
      protected $rules = [
-        'name' => 'required|min:3',
-        'prenom' => 'required|min:3',
+        'name' => 'required|min:3|max:50',
+        'prenom' => 'required|min:3|max:50',
+        'sexe' => 'required',
         'cin' => 'required|min:8|max:8',
-        'adress' => 'required',
+        'dateNaissance' => 'required',
+        // 'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'adress' => 'required|min:5|max:250',
         'statut' => 'required',
         'tel' => 'required|min:10|max:10',
         'email' => 'required|email',
+
     ];
 
     public function updated($propertyName)
@@ -102,26 +108,25 @@ class DemandeInscription extends Component
     public function create() {
 
         $this->validate();
-        $password = $this->cin;
+
+        $this->password = $this->cin;
         User::create([
             'name' => $this->name,
             'prenom' => $this->prenom,
             'sexe' => $this->sexe,
             'cin' => $this->cin,
-            'photo' => $this->photo,
+            // 'photo' => $this->photo,
             'adress' => $this->adress,
-            // 'role' => $this->role,
             'date_naissane' =>$this->dateNaissance,
-            'statut' => $this->statut,
             'tel' => $this->tel,
             'email' => $this->email,
-            'password' =>$password,
+            'password' =>$this->password,
             'remember_token' => Str::random(10),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         $this->resetInput();
-        $this->successMessage = "L'étudiant a été ajouté avec succès";
+        $this->notification = "L'étudiant a été ajouté avec succès";
         $this->dispatch('close-modal');
 
     }

@@ -9,23 +9,22 @@
             <div class="container" style="margin-top: 5px;">
                 <div class="row">
                     <div class="col-md-12">
-                      <div class="card">
-                        <div class="card-header">
-                          <h6 style="float: left;"><strong>Liste des Etudiant</strong></h6>
-                          <form name="frm" wire:submit.prevent='filter'>
-                            @csrf
-                            <div style=" margin-bottom: 10px; width: 200px;">
-                                <input type="text" class="form-control"  placeholder="Rechercher"  wire:model="search">
+                        <div class="card">
+                            <div class="card-header">
+                            <h6 style="float: left;"><strong>Liste des Etudiant</strong></h6>
+                            <form name="frm" wire:submit.prevent='filter'>
+                                    @csrf
+                                    <div style=" margin-bottom: 10px; width: 200px;">
+                                        <input type="text" class="form-control"  placeholder="Rechercher"  wire:model="search">
+                                    </div>
+                                    <button class="btn btn-sm btn-info">Rechercher</button>
+                                    {{-- <a class="btn btn-sm btn-success" style="float: right;"data-toggle="modal" data-target="#etudiantmodal" >Ajouter Etudiant</a> --}}
+                                </form>
                             </div>
-                            <button class="btn btn-sm btn-info">Rechercher</button>
-                            {{-- <a class="btn btn-sm btn-success" style="float: right;"data-toggle="modal" data-target="#etudiantmodal" >Ajouter Etudiant</a> --}}
-                        </form>
                         </div>
-                      </div>
                     </div>
-                  </div>
-
-
+                </div>
+            </div>
             <div class="container " >
 
                 <div class="card card-statistics h-100">
@@ -81,11 +80,6 @@
                 </div>
               </div>
         </div>
-        <script>
-            window.addEventListener('close-modal', event => {
-                $('#etudiantmodall').modal('hide');
-            });
-        </script>
 
     </section>
 </div>

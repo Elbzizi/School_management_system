@@ -54,6 +54,12 @@
                                         <p>Liste des Cycles</p>
                                     </a>
                                 </li>
+                                <li class="nav-item ">
+                                    <a href="{{ route('admin.groupes') }}" class="nav-link @yield('cycle')">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Liste Groupes</p>
+                                    </a>
+                                </li>
                                 {{-- hna ndir les tabs dyal admin o surveillant --}}
 
 
@@ -61,9 +67,8 @@
                         </li>
                         <li class="nav-item  @yield('open-gestion-etudiant')">
                             <a href="#" class="nav-link @yield('listetudiant') ">
-                                <i class="fa-solid fa-person" style="color: #000000;"></i>
-                                <p>
-                                    Gestion Etudiants
+                                <i class="fa-solid fa-users-between-lines" style="color: #1a1919;"></i>
+                                <p>Gestion Etudiants
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -89,8 +94,7 @@
                             <li class="nav-item  @yield('open-gestion-employer')">
                                 <a href="#" class="nav-link @yield('listemployer')">
                                     <i class="nav-icon fa-solid fa-user-pen" style="color: #1a1919;"></i>
-                                    <p>
-                                        Gestion Employer
+                                    <p> Gestion Employer
                                         <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
@@ -98,21 +102,19 @@
                                     <li class="nav-item ">
                                         <a href="{{ route('admin.employer') }}" class="nav-link @yield('listemployer')">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Liste des Employers</p>
+                                            <p> Liste des Employers </p>
                                         </a>
                                     </li>
                                     <li class="nav-item ">
                                         <a href="{{ route('admin.employer') }}" class="nav-link @yield('register')">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Ajouter Employers</p>
+                                            <p> Ajouter Employers </p>
                                         </a>
                                     </li>
                                     {{-- hna ndir les tabs dyal admin  --}}
 
 
                                 </ul>
-
-
                             </li>
                         @endif
 

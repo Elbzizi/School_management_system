@@ -3,6 +3,11 @@
     @section('open-gestion-etudiant', 'menu-open')
     <section class="content">
         <div class="row">
+            @if (Session::has('success'))
+            <div class="alert alert-success">
+                <p>{{ session('success') }}</p>
+            </div>
+            @endif
             <div class="container" style="margin-top: 5px;">
                 <div class="row">
                     <div class="col-md-12">
@@ -113,7 +118,7 @@
                                             <!-- Class select -->
                                             <div class="form-group">
                                                 <label for="class">Class</label>
-                                                <select id="class" class="form-control" wire:model="class">
+                                                <select id="class" class="form-control" wire:model="class" disabled>
                                                     <option value="class1">Class 1</option>
                                                     <option value="class2">Class 2</option>
                                                 </select>
@@ -123,7 +128,7 @@
                                             <!-- Parent input -->
                                             <div class="form-group">
                                                 <label for="parent">Parent</label>
-                                                <input type="text" id="parent" class="form-control" wire:model="parent" />
+                                                <input type="text" id="parent" class="form-control" disabled />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -156,7 +161,7 @@
                                             <!-- Photo input -->
                                             <div class="form-group">
                                                 <label for="photo">Photo</label>
-                                                <input type="file" id="photo" class="form-control" wire:model="photo" />
+                                                <input type="file" id="photo" class="form-control" wire:model="photo" disabled />
                                             </div>
                                         </div>
                                         <!-- Repeat similar structure for additional rows if needed -->
@@ -193,7 +198,7 @@
                                                     href='#'>{{ $etudiant->name }}</a></td>
                                             <td><a style="color: black;" wire:click='showEtudiant({{ $etudiant->id }})'
                                                     href='#'>{{ $etudiant->prenom }}</a></td>
-                                            <td>{{ $etudiant->date_naissance }}</td>
+                                            <td>{{ $etudiant->created_at->format('Y-m-d') }}</td>
                                             <td>
                                                 <input type="checkbox" wire:model="selectedetudiants" wire:change='selectOne({{ $etudiant->id }})'
                                                     value="{{ $etudiant->id }}">
@@ -252,6 +257,10 @@
                 </div>
             </form>
         </div>
-
+        <script>
+            window.addEventListener('close-modal', event => {
+                $('#etudiantmodal').modal('hide');
+            });
+        </script>
     </section>
 </div>

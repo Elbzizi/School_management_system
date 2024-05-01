@@ -49,36 +49,6 @@ class ListEtudiant extends Component
         'email' => 'required|email',
     ];
 
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
-        $this->resetValidation();
-    }
-
-    public function create() {
-
-        $this->validate();
-        $password = $this->cin;
-        User::create([
-            'name' => $this->name,
-            'prenom' => $this->prenom,
-            'sexe' => $this->sexe,
-            'cin' => $this->cin,
-            'adress' => $this->adress,
-            'date_naissane' =>$this->dateNaissance,
-            'statut' => $this->statut,
-            'tel' => $this->tel,
-            'email' => $this->email,
-            'password' =>$password,
-            'remember_token' => Str::random(10),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
-        $this->resetInput();
-        $this->successMessage = "L'étudiant a été ajouté avec succès";
-        $this->dispatch('close-modal');
-
-    }
 
     // resetInput ------------------------------------------------------------------
     public function resetInput() {
