@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,21 +33,22 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <script src="https://kit.fontawesome.com/eb54a27021.js" crossorigin="anonymous"></script>
     <style>
-        body{
+        body {
             font-family: "Barlow", sans-serif;
             font-weight: 500;
             font-style: normal;
         }
-        .button-like-link {
-  background: none;
-  border: none;
-  padding: 0;
-  font: inherit;
-  color: rgb(0, 0, 0); /* or any other link color */
-  text-decoration: none;
-  cursor: pointer;
-}
 
+        .button-like-link {
+            background: none;
+            border: none;
+            padding: 0;
+            font: inherit;
+            color: rgb(0, 0, 0);
+            /* or any other link color */
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -56,22 +56,16 @@
     <div class="wrapper">
 
         <!-- Preloader -->
-       
+
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
-            {{-- <ul class="navbar-nav">
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
-            </ul> --}}
+            </ul>
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
@@ -166,7 +160,7 @@
                         <i class="far fa-bell"></i>
                         <span class="badge badge-warning navbar-badge">15</span>
                     </a>
-                    
+
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-item dropdown-header">15 Notifications</span>
                         <div class="dropdown-divider"></div>
@@ -190,33 +184,34 @@
                 </li>
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#" style="color: #b8b7b7;" >
+                    <a class="nav-link" data-toggle="dropdown" href="#" style="color: #b8b7b7;">
                         {{ $role }} |
                         <i class="fa-solid fa-caret-down" style="color: #b8b7b7;"></i>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                       
+
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('admin.profile') }}" class="dropdown-item">
-                            
+
                             <i class="fa-solid fa-user mr-2" style="color: black;"></i>
                             Profile
                             <span class="float-right text-muted text-sm">3 mins</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        
-                            <form method="POST" action="{{ route('admin.logout') }}" class="dropdown-item dropdown-footer">
-                                @csrf
-                                <i class="fa-solid fa-right-from-bracket" style="color: #000000;"></i>
-                                <button class="button-like-link">logout</button>
-                            </form>
-                        
+
+                        <form method="POST" action="{{ route('admin.logout') }}"
+                            class="dropdown-item dropdown-footer">
+                            @csrf
+                            <i class="fa-solid fa-right-from-bracket" style="color: #000000;"></i>
+                            <button class="button-like-link">logout</button>
+                        </form>
+
                     </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fa-solid fa-expand" style="color: #000000;"></i>                    </a>
+                        <i class="fa-solid fa-expand" style="color: #000000;"></i> </a>
                 </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true"
