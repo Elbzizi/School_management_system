@@ -40,15 +40,13 @@ class ListEtudiant extends Component
     }
     // create ------------------------------------------------------------------
     protected $rules = [
-        'name' => 'required|min:3',
-        'prenom' => 'required|min:3',
-        'sexe' => 'required',
+        'name' => 'required',
+        'prenom' => 'required',
         'cin' => 'required|min:8|max:8',
-        'photo' => 'required',
         'adress' => 'required',
         'statut' => 'required',
-        'tel' => 'required|min:8|max:8',
-        'email' => 'required|email|unique:users',
+        'tel' => 'required|min:10|max:10',
+        'email' => 'required|email',
     ];
 
     public function updated($propertyName)
@@ -66,9 +64,7 @@ class ListEtudiant extends Component
             'prenom' => $this->prenom,
             'sexe' => $this->sexe,
             'cin' => $this->cin,
-            'photo' => $this->photo,
             'adress' => $this->adress,
-            'role' => $this->role,
             'date_naissane' =>$this->dateNaissance,
             'statut' => $this->statut,
             'tel' => $this->tel,

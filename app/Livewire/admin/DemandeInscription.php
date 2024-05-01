@@ -86,13 +86,11 @@ class DemandeInscription extends Component
      protected $rules = [
         'name' => 'required|min:3',
         'prenom' => 'required|min:3',
-        'sexe' => 'required',
         'cin' => 'required|min:8|max:8',
-        'photo' => 'required',
         'adress' => 'required',
         'statut' => 'required',
-        'tel' => 'required|min:8|max:8',
-        'email' => 'required|email|unique:users',
+        'tel' => 'required|min:10|max:10',
+        'email' => 'required|email',
     ];
 
     public function updated($propertyName)
@@ -112,7 +110,7 @@ class DemandeInscription extends Component
             'cin' => $this->cin,
             'photo' => $this->photo,
             'adress' => $this->adress,
-            'role' => $this->role,
+            // 'role' => $this->role,
             'date_naissane' =>$this->dateNaissance,
             'statut' => $this->statut,
             'tel' => $this->tel,

@@ -61,7 +61,7 @@
                         </li>
                         <li class="nav-item  @yield('open-gestion-etudiant')">
                             <a href="#" class="nav-link @yield('listetudiant') ">
-                                <i class="nav-icon fas fa-tachometer-alt "></i>
+                                <i class="fa-solid fa-person" style="color: #000000;"></i>
                                 <p>
                                     Gestion Etudiants
                                     <i class="right fas fa-angle-left"></i>
@@ -89,7 +89,7 @@
                             <li class="nav-item  @yield('open-gestion-employer')">
                                 <a href="#" class="nav-link @yield('listemployer')">
                                     <i class="nav-icon fa-solid fa-user-pen" style="color: #1a1919;"></i>
-                                    <p> 
+                                    <p>
                                         Gestion Employer
                                         <i class="right fas fa-angle-left"></i>
                                     </p>
@@ -108,17 +108,17 @@
                                         </a>
                                     </li>
                                     {{-- hna ndir les tabs dyal admin  --}}
-    
-    
+
+
                                 </ul>
-                                
+
 
                             </li>
                         @endif
-                        
+
 
                     @endif
-                  
+
                 @else
                     <li class="nav-item">
                         <a href="#" class="nav-link">
@@ -134,8 +134,8 @@
             </ul>
         </nav>
 
-        
-        
+
+
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

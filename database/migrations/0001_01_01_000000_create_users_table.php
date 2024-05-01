@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->string('cin', 8)->unique()->nullable();
             $table->string('adress', 150)->nullable();
             $table->string('photo', 150)->nullable()->default('assets/img/logonull.jpg');
-            $table->enum('role',array ('etudiant','parent'))->default('etudiant')->nullable();
+            $table->enum('role',array ('etudiant','parent'))->default('etudiant');
             $table->enum('statut', array ('active', 'desactive','bloque'))->default('desactive');
             $table->string('tel')->unique();
             $table->string('email')->unique();
