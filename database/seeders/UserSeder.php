@@ -8,11 +8,11 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
-        User::factory()->count(10)->create();
-    }
+  /**
+   * Run the database seeds.
+   */
+  public function run(): void
+  {
+    User::factory()->count(1)->create();
+  }
 }
