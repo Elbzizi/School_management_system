@@ -38,31 +38,7 @@ class ListEtudiant extends Component
         ]);
         $this->search = '';
     }
-    // create ------------------------------------------------------------------
-    protected $rules = [
-        'name' => 'required',
-        'prenom' => 'required',
-        'cin' => 'required|min:8|max:8',
-        'adress' => 'required',
-        'statut' => 'required',
-        'tel' => 'required|min:10|max:10',
-        'email' => 'required|email',
-    ];
 
-
-    // resetInput ------------------------------------------------------------------
-    public function resetInput() {
-
-        $this->name = null;
-        $this->prenom = null;
-        $this->sexe = null;
-        $this->cin = null;
-        $this->photo = null;
-        $this->adress = null;
-        $this->statut = null;
-        $this->tel = null;
-        $this->email = null;
-    }
     // delete ------------------------------------------------------------------
     public function delete($id){
         $etudiants = User::find($id);

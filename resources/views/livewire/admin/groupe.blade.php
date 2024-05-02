@@ -4,10 +4,21 @@
             <div class="container" style="margin-top: 5px;">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card">
+                        <div class="card ">
                             <div class="card-header">
-                                <h6 style="float: left;"><strong>Liste des Etudiant</strong></h6>
-
+                                <div class="d-flex justify-content-between">
+                                    <p class="" >le Groupe .....</p>
+                                    <h5><strong> Liste des Etudiants</strong></h5>
+                                    <p class="" > date d'aujourduit : {{ now()->format('Y-m-d') }}</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p class="" >Niveau ....</p>
+                                    <p class="" >Nombre des Etudiant : .....</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p class="" >Cycle ....</p>
+                                    <p class="" ></p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -21,12 +32,10 @@
                     <table id="datatable" class="table table-bordered table-hover text-center">
                       <thead>
                           <tr>
-                            <th colspan="10">select</th>
+                            <th colspan="10">selecter</th>
                             <th >Nom</th>
                             <th>Prenom</th>
                             <th>date Naissance</th>
-                            <th>Niveau</th>
-                            <th>Class</th>
                             <th>Role</th>
                             <th>Action</th>
                           </tr>

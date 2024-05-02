@@ -10,11 +10,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('classes', function (Blueprint $table) {
+        Schema::create('groupes', function (Blueprint $table) {
             $table->id();
-            $table->string('nom_Class', 50)->unique();
+            $table->string('nom', 50)->unique();
             $table->integer('capacite')->default('0');
-            // $table->foreignId('niveau_etude_id')->constrained();
+            $table->foreignId('niveau_id')->constrained();
             $table->timestamps();
         });
     }

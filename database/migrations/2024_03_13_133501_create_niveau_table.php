@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('niveaux', function (Blueprint $table) {
             $table->id();
-            $table->string('nom_niveaux', 50);
-			// $table->string('option', 50)->nullable();
-            $table->foreignId('cycle_id')->constrained('cycle');
+            $table->string('nom', 50);
+			$table->string('option', 50)->nullable();
+            $table->foreignId('cycle_id')->constrained();
             $table->timestamps();
         });
     }
