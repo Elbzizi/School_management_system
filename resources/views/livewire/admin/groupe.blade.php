@@ -32,7 +32,7 @@
                     <table id="datatable" class="table table-bordered table-hover text-center">
                       <thead>
                           <tr>
-                            <th colspan="10">select</th>
+                            <th colspan="10">selecter</th>
                             <th >Nom</th>
                             <th>Prenom</th>
                             <th>date Naissance</th>
