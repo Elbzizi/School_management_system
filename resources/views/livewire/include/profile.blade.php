@@ -34,7 +34,7 @@
 
                                 <ul class="list-group list-group-unbordered mb-10">
                                     <li class="list-group-item">
-                                        <b>Crée le </b> <a class="float-right">{{ $created_at->format('Y-m-d') }}</a>
+                                        <b>Crée le </b> <a class="float-right">{{ $created_at }}</a>
                                     </li>
                                     <li class="list-group-item">
                                         @if ($groupe)
@@ -53,7 +53,7 @@
 
                 </div>
 
-                <div class="col-md-9" >
+                <div class="col-md-9">
                     <div class="card mt-10">
 
                         <div class="card-body">
@@ -145,7 +145,7 @@
                 </div>
 
             </div>
-            @if ($role==='enseignant')
+            @if ($role === 'enseignant')
                 <div class="col-md-12">
                     <div class="card mt-10">
 
@@ -154,7 +154,8 @@
                             <div class="tab-pane" id="settings">
                                 <div class="row container-fluid">
                                     <div class="col-md-2 ms-auto">
-                                        <label for="nom" class="col-form-label">un {{ $role }} de :</label>
+                                        <label for="nom" class="col-form-label">un {{ $role }} de
+                                            :</label>
                                         <p>Matiers : </p>
                                         {{-- @foreach ($info->matiers as $matier)
                                             <li>{{ $matier->name }}</li>
@@ -184,7 +185,7 @@
 
         </div>
 
-    </div>
+</div>
 </div>
 </section>
 </div>

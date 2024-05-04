@@ -21,8 +21,8 @@ class AdminFactory extends Factory
     {
         // $faker = Faker\Factory::create();
         $sexe = Arr::random(['homme', 'femme']);
-        $role =  'enseignant';
-        $email = 'enseignant@gmail.com';
+        $role =  'directeur';
+        $email = 'directeur@gmail.com';
         $photo = 'assets/img/logonull.jpg';
         return [
             'name' => fake()->firstName(),
