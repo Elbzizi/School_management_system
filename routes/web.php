@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\User\Absences;
 use App\Livewire\User\Programme;
 use App\Livewire\User\Test;
 use App\Livewire\Welcome;
@@ -16,7 +17,7 @@ Route::middleware('auth')->group(function () {
   Route::get('profile/{id}', Profile::class)->name('profile');
   Route::get('home', Home::class)->name('home');
   Route::get('programme', Programme::class)->name('programme');
-
+  Route::get('absences', Absences::class)->name('programme');
 });
 
 Route::get('/test', function () {

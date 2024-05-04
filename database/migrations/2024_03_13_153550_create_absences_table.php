@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('absences', function (Blueprint $table) {
             $table->id();
-			$table->String('matier');
-			$table->date('date_Absences');
-            // $table->foreignId("user_id")->constrained();
+			      $table->String('matier');
+			      $table->date('date_Absences');
+			      $table->boolean('justife')->default(false);
+			      $table->text('description');
+			      $table->date('date_Absences');
+            $table->foreignId("user_id")->constrained();
             $table->timestamps();
         });
     }

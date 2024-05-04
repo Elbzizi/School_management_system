@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(NiveauxSeeder::class);
         $this->call(GroupesSeeder::class);
         $this->call(UserSeder::class);
+        $this->call(absence::class);
 
 
     }
