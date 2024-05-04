@@ -14,6 +14,7 @@ return new class extends Migration {
             Schema::disableForeignKeyConstraints();
 
             $table->id();
+            
             $table->string('name');
             $table->string('prenom', 30)->nullable();
             $table->enum('sexe', array ('homme','femme'))->nullable();

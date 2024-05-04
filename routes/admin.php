@@ -7,7 +7,7 @@
 use App\Livewire\Test;
 use App\Livewire\Profile;
 use App\Livewire\admin\Home;
-use App\Livewire\Admin\Groupe;
+use App\Livewire\Admin\Groupee;
 use App\Livewire\Admin\Groupes;
 use App\Livewire\admin\CycleEtude;
 use App\Livewire\Admin\ListEmployer;
@@ -31,7 +31,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
                 Route::get('etudiant' , ListEtudiant::class)->name('etudiant');
                 Route::get('etudiant/demandes' , DemandeInscription::class)->name('etudiant.demandes');
                 Route::get('groupes',Groupes::class)->name('groupes');
-                Route::get('groupe/{id}',Groupe::class)->name('groupe');
+                Route::get('groupe/{id}',Groupee::class)->name('groupe');
             });
 
 

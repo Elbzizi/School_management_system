@@ -33,12 +33,11 @@
                     <table id="datatable" class="table table-bordered table-hover text-center">
                       <thead>
                           <tr>
-                            <th>select</th>
+                            <th>id</th>
                             <th >Nom</th>
                             <th>Prenom</th>
                             <th>date Naissance</th>
-                            <th>Niveau</th>
-                            <th>Class</th>
+                            <th>Groupe</th>
                             <th>Role</th>
                             <th>Action</th>
                           </tr>
@@ -47,13 +46,18 @@
                         @foreach ($etudiants as $etudiant)
                             <tr>
 
-                              <td style="width: 70px;"><input type="checkbox" name="{{ $etudiant->id }}" id="{{ $etudiant->id }}"></td>
+                              <td style="width: 50px;">{{ $etudiant->id }}</td>
                               <td style="width: 120px;">{{ $etudiant->name}}</td>
                               <td style="width: 120px;">{{ $etudiant->prenom}}</td>
                               <td style="width: 140px;">{{ $etudiant->date_naissance}}</td>
-                              <td style="width: 140px;">non niveau affecter</td>
-                              <td style="width: 140px;">non classe affecter</td>
-                              <td style="width: 100px;">{{ $etudiant->role}}</td>
+                              <td style="width: 140px;">
+                                @if ($etudiant->groupe)
+                                {{ $etudiant->groupe->nom }}
+                                @else
+                                non affecter
+                                @endif
+                                </td>
+                                <td style="width: 100px;">{{ $etudiant->role}}</td>
 
 
                               <td style="width: 160px;">
