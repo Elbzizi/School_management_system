@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('niveaux', function (Blueprint $table) {
+        Schema::create('admin_matier', function (Blueprint $table) {
             $table->id();
-            $table->string('nom', 50);
-			$table->string('option', 50)->nullable();
-            $table->foreignId('cycle_id')->constrained();
+            $table->unsignedBigInteger('admin_id');
+            $table->unsignedBigInteger('matier_id');
             $table->timestamps();
+
+            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
+            $table->foreign('matier_id')->references('id')->on('matiers')->onDelete('cascade');
         });
     }
 
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('niveau_etudes');
+        Schema::dropIfExists('formateur_matier');
     }
 };

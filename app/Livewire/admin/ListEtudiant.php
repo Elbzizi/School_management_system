@@ -11,7 +11,7 @@ class ListEtudiant extends Component
 {
 
 
-    public $id, $name, $prenom, $sexe, $cin, $photo, $adress, $role, $dateNaissance, $statut, $tel, $email, $password;
+    public $id, $name, $prenom, $sexe, $cin, $photo, $adress, $role, $dateNaissance, $statut, $tel, $email, $password , $groupes;
     public $search;
     public $successMessage;
 
@@ -23,7 +23,8 @@ class ListEtudiant extends Component
 
     public function render()
     {
-        $etudiants = User::where('statut','active')
+        // $this->groupes = User::with('groupe')->get();
+        $etudiants = User::with('groupe')->where('statut','active')
         ->where(function($query){
             $query->where('name', 'like', '%' . $this->search . '%')
             ->orWhere('prenom', 'like', '%' . $this->search . '%');
@@ -31,6 +32,7 @@ class ListEtudiant extends Component
         ->orderBy('name', 'asc')
         ->orderBy('prenom', 'asc')
         ->paginate(10);
+        // dd($etudiants);
 
         return view('livewire.admin.list-etudiant', [
             'etudiants' => $etudiants,
@@ -38,31 +40,7 @@ class ListEtudiant extends Component
         ]);
         $this->search = '';
     }
-    // create ------------------------------------------------------------------
-    protected $rules = [
-        'name' => 'required',
-        'prenom' => 'required',
-        'cin' => 'required|min:8|max:8',
-        'adress' => 'required',
-        'statut' => 'required',
-        'tel' => 'required|min:10|max:10',
-        'email' => 'required|email',
-    ];
 
-
-    // resetInput ------------------------------------------------------------------
-    public function resetInput() {
-
-        $this->name = null;
-        $this->prenom = null;
-        $this->sexe = null;
-        $this->cin = null;
-        $this->photo = null;
-        $this->adress = null;
-        $this->statut = null;
-        $this->tel = null;
-        $this->email = null;
-    }
     // delete ------------------------------------------------------------------
     public function delete($id){
         $etudiants = User::find($id);

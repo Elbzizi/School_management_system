@@ -11,15 +11,19 @@ class Profile extends Component
 {
     public $info;
     public $etudiant;
-    public $id, $name, $prenom, $sexe, $photo, $adress, $cin, $tel, $email, $role, $statut, $created_at, $updated_at;
+    public $id, $name, $prenom, $sexe, $photo, $adress, $cin, $tel, $email, $role, $statut, $created_at, $updated_at , $groupe;
     public $route;
     public $allstatuts = ['active', 'desactive','bloque'];
     public $allsexe = ['homme','femme'];
+    public function render()
+    {
+
+        return view('livewire.include.profile');
+    }
     public function mount($id){
         $this->route = url()->previous();
-
         $type = request()->query('type');
-    // ila kan l auth admin
+        // ila kan l auth admin
         if ($user = Auth::guard('admin')->check()) {
             // ila kan type dyal l user etudiant -> afficher les information dyal l etudiant
             if($type==='etudiant'){
@@ -38,10 +42,12 @@ class Profile extends Component
                 $this->statut = $this->etudiant->statut;
                 $this->created_at = $this->etudiant->created_at;
                 $this->updated_at = $this->etudiant->updated_at;
+                $this->groupe = $this->etudiant->groupe;
 
             }
             else{
                 // afficher dyal admin
+                // $this->info = Admin::with('matiers.groupes')->find($id);
                 $this->info = Admin::find($id);
                 $this->id = $this->info->id;
                 $this->name = $this->info->name;
@@ -56,7 +62,7 @@ class Profile extends Component
                 $this->statut = $this->info->statut;
                 $this->created_at = $this->info->created_at;
                 $this->updated_at = $this->info->updated_at;
-                
+
             }
         }
         // ila makanch auth admin donc aykon user afficher lih les info dyalo
@@ -73,54 +79,52 @@ class Profile extends Component
             $this->role = $this->info->role;
             $this->statut = $this->info->statut;
         }
-        
+
     }
 
 
 public function modifier($id){
+    if($user = Auth::guard('admin')->check()){
+        if($this->role==='etudiant'){
+                $id=$id;
+                $newuser = User::find($id);
+                // dd($this->statut);
+                $newuser->update([
+                    'name' => $this->name,
+                    'prenom' => $this->prenom,
+                    'sexe' => $this->sexe,
+                    'photo' => $this->photo,
+                    'adress' => $this->adress,
+                    'cin' => $this->cin,
+                    'tel' => $this->tel,
+                    'email' => $this->email,
+                    'role' => $this->role,
+                    'statut' => $this->statut,
+                ]);
+        }
+        else{
+            $id=$id;
+            $newuser = Admin::find($id);
+            $newuser->update([
+                'name' => $this->name,
+                'prenom' => $this->prenom,
+                'sexe' => $this->sexe,
+                'photo' => $this->photo,
+                'adress' => $this->adress,
+                'cin' => $this->cin,
+                'tel' => $this->tel,
+                'email' => $this->email,
+                'role' => $this->role,
+                'statut' => $this->statut,
+            ]);
 
-    if($this->role==='etudiant'){
-        $id=$id;
-        $newuser = User::find($id);
-        $newuser->update([
-            'name' => $this->name,
-            'prenom' => $this->prenom,
-            'sexe' => $this->sexe,
-            'photo' => $this->photo,
-            'adress' => $this->adress,
-            'cin' => $this->cin,
-            'tel' => $this->tel,
-            'email' => $this->email,
-            'role' => $this->role,
-            'statut' => $this->statut,
-            
-        ]);
-        return redirect($this->route);
-    }else{
-        $id=$id;
-        $newuser = Admin::find($id);
-        $newuser->update([
-            'name' => $this->name,
-            'prenom' => $this->prenom,
-            'sexe' => $this->sexe,
-            'photo' => $this->photo,
-            'adress' => $this->adress,
-            'cin' => $this->cin,
-            'tel' => $this->tel,
-            'email' => $this->email,
-            'role' => $this->role,
-            'statut' => $this->statut,
-        ]);
+        }
 
-    }
+    };
     session()->flash('message', 'Profile updated successfully.');
-    
-    
+
+
 
 
 }
-    public function render()
-    {
-        return view('livewire.include.profile');
-    }
 }

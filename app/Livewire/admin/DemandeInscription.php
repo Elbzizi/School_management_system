@@ -12,13 +12,13 @@ class DemandeInscription extends Component
 
 {
     public $id, $name, $prenom, $sexe, $cin, $photo, $adress, $role, $dateNaissance, $statut, $tel, $email, $password;
-    public $desactiveEtudiants ;
+    public $desactiveEtudiants , $selectAll , $showEtudiantDetails , $notification;
     public $selectedetudiants = [];
-    public $selectAll ;
-    public $showEtudiantDetails ;
+
 
     public function mount()
     {
+
         $this->selectedetudiants = new Collection();
 
     }
@@ -26,10 +26,7 @@ class DemandeInscription extends Component
 
     public function render(){
         $this->desactiveEtudiants = User::where('statut','desactive')->get();
-
         return view('livewire.admin.demande-inscription');}
-
-
 
     public function selectOne($id)
     {
@@ -52,7 +49,7 @@ class DemandeInscription extends Component
             $etudiantt =User::find($id);
             $etudiantt->statut = 'active';
             $etudiantt->save();
-            session()->flash('success', 'L`étudiant a été accepté avec succès.');
+            $this->notification= "L'etudiant a été accepté avec succès.";
 
         } else {
             if($this->selectedetudiants){
@@ -64,9 +61,9 @@ class DemandeInscription extends Component
             }
             else{
                 User::where('statut','desactive')->update(['statut' => 'active']);
-                session()->flash('success', 'Tous les etudiants ont été activés');
+                $this->notification = "Tous les étudiants ont été activés";
             }
-            session()->flash('success', 'Les étudiants sélectionnés ont été acceptés avec succès.');
+            $this->notification = "LLes étudiants sélectionnés ont été acceptés avec succès.";
             $this->selectedetudiants = new Collection();
 
         }

@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-    <section class="content">
+    <section class="content&">
         <div class="row">
             <div class="container" style="margin-top: 5px;">
                 <div class="row">
@@ -21,7 +21,7 @@
                     <table id="datatable" class="table table-bordered table-hover text-center">
                       <thead>
                           <tr>
-                            <th>select</th>
+                            <th colspan="10">select</th>
                             <th >Nom</th>
                             <th>Prenom</th>
                             <th>date Naissance</th>

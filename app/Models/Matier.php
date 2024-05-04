@@ -9,15 +9,24 @@ class Matier extends Model
 {
 	use HasFactory;
 	protected $guarded = [];
-	public function emploi()
-	{
-		return $this->hasMany(Emploi_temp::class);
-	}
 
-	public function examen()
-	{
-		return $this->hasMany(Examen::class);
-	}
+	// public function matieres()
+
+    public function admins()
+    {
+        return $this->belongsToMany(Admin::class);
+    }
+
+    public function groupes()
+    {
+        return $this->belongsToMany(Groupe::class);
+    }
+
+
+	// public function examen()
+	// {
+	// 	return $this->hasMany(Examen::class);
+	// }
 
 
 }
