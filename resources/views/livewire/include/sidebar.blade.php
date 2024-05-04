@@ -140,7 +140,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('programme') }}" class="nav-link">
+                        <a href="{{ route('absences') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>
                                 consulter le absences

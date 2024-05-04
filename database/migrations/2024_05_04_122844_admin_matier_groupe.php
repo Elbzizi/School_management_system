@@ -10,13 +10,12 @@ return new class extends Migration {
    */
   public function up(): void
   {
-    Schema::create('absences', function (Blueprint $table) {
+    Schema::create('admin_matier_groupe', function (Blueprint $table) {
       $table->id();
-      $table->String('matier');
-      $table->boolean('justife')->default(false);
-      $table->text('description');
-      $table->date('date_Absences');
-      $table->foreignId("user_id")->constrained();
+      $table->foreignId('groupe_id')->constrained();
+      $table->foreignId('admin_id')->constrained();
+      $table->foreignId('matier_id')->constrained();
+
       $table->timestamps();
     });
   }
@@ -26,6 +25,6 @@ return new class extends Migration {
    */
   public function down(): void
   {
-    Schema::dropIfExists('absences');
+    //
   }
 };
