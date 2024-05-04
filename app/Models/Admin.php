@@ -53,19 +53,14 @@ class Admin extends Authenticatable
     }
 
 
-    public function matiers()
+    public function matieres()
     {
-        return $this->belongsToMany(Matier::class);
+        return $this->belongsToMany(Matier::class, 'admin_matier_groupe', 'admin_id', 'matier_id');
     }
 
-    // public function parent()
-    // {
-    //     return $this->hasMany(Parente::class);
-    // }
-
-    // public function abssence()
-    // {
-    //     return $this->hasMany(Absence::class);
-    // }
+    public function groups()
+    {
+        return $this->belongsToMany(Groupe::class, 'admin_matier_groupe', 'admin_id', 'groupe_id');
+    }
 }
 

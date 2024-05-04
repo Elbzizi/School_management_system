@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Absences extends Component
 {
-  public $absences, $matire, $date;
-  public $id;
+  public $absences, $id;
   public function render()
   {
     $this->id = Auth::user()->id;
