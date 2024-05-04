@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\User\Programme;
 use App\Livewire\User\Test;
 use App\Livewire\Welcome;
 use App\Livewire\user\Home;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')->group(function () {
   Route::get('profile/{id}', Profile::class)->name('profile');
   Route::get('home', Home::class)->name('home');
+  Route::get('programme', Programme::class)->name('programme');
 
 });
 
