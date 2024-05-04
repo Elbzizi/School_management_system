@@ -139,7 +139,16 @@
                             </p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('programme') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>
+                                consulter le absences
+                            </p>
+                        </a>
+                    </li>
                 @endif
+
 
 
             </ul>

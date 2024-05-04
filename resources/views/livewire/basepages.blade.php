@@ -18,22 +18,10 @@
                 <div class="card card-statistics h-100">
                   <div class="card-body">
                     <div class="table-responsive">
-                    <table id="datatable" class="table table-bordered table-hover text-center">
-                      <thead>
-                          <tr>
-                            <th colspan="10">select</th>
-                            <th >Nom</th>
-                            <th>Prenom</th>
-                            <th>date Naissance</th>
-                            <th>Niveau</th>
-                            <th>Class</th>
-                            <th>Role</th>
-                            <th>Action</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                      </tbody>
-                   </table>
+                  {{-- container --}}
+
+
+
                   </div>
                   </div>
                 </div>
