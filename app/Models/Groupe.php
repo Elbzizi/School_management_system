@@ -26,8 +26,8 @@ class Groupe extends Model
         return $this->hasMany(User::class);
     }
 
-    // public function foemateur()
-    // {
-    //     return $this->belongsToMany(Formateur::class, "matiers");
-    // }
+    public function matiers()
+    {
+        return $this->belongsToMany(Matier::class);
+    }
 }

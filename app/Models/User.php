@@ -23,6 +23,7 @@ class User extends Authenticatable
         'tel',
         'sexe',
         'role',
+        'statut',
         'photo',
         'cin',
         'email',
@@ -51,11 +52,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function class(){
-        return $this->belongsTo(Classe::class, 'classe_id');  
+    public function groupe(){
+        return $this->belongsTo(Groupe::class);
      }
     public function parent(){
-        return $this->belongsTo(Parente::class, 'parent_id');  
+        return $this->belongsTo(Parente::class, 'parent_id');
      }
      public function note()
     {

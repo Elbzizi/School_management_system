@@ -40,8 +40,8 @@ class UserFactory extends Factory
       'adress' => fake()->address(),
       'statut' => 'desactive',
       'tel' => fake()->phoneNumber(),
-      // 'email' =>fake()->email(),
-      'email' => $email,
+      'email' =>fake()->email(),
+    //   'email' => $email,
       'password' => 'useruser',
     ];
   }

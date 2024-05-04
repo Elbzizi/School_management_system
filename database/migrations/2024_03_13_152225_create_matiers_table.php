@@ -11,16 +11,20 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('matiers', function (Blueprint $table) {
+            Schema::disableForeignKeyConstraints();
+
             $table->id();
-            $table->foreignId("classe_id")->constrained("classes");
+
             $table->string('nom_matier', 50);
             $table->integer('Coefficient');
             $table->integer('duree');
-            $table->primary(['id', 'classe_id']);
+            $table->unsignedBigInteger('admin_id')->nullable();
+            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('set null');
+            // $table->foreignId("classe_id")->constrained("classes");
+            // $table->primary(['id', 'classe_id']);
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */
