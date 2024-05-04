@@ -17,7 +17,7 @@ Route::middleware('auth')->group(function () {
   Route::get('profile/{id}', Profile::class)->name('profile');
   Route::get('home', Home::class)->name('home');
   Route::get('programme', Programme::class)->name('programme');
-  Route::get('absences', Absences::class)->name('programme');
+  Route::get('absences', Absences::class)->name('absences');
 });
 
 Route::get('/test', function () {
