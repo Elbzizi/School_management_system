@@ -18,10 +18,8 @@ return new class extends Migration {
             $table->string('nom_matier', 50);
             $table->integer('Coefficient');
             $table->integer('duree');
-            $table->unsignedBigInteger('admin_id')->nullable();
-            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('set null');
-            // $table->foreignId("classe_id")->constrained("classes");
-            // $table->primary(['id', 'classe_id']);
+            $table->foreignId('admin_id')->constrained()->onDelete('set null');
+            $table->foreignId('groupe_id')->constrained()->onDelete('set null');
             $table->timestamps();
         });
     }

@@ -37,11 +37,9 @@
                                         <b>Crée le </b> <a class="float-right">{{ $created_at }}</a>
                                     </li>
                                     <li class="list-group-item">
-                                        @if ($groupe)
+                                        @if ($groupeName)
                                             <b>le Groupe </b> <a class="float-right"
-                                                href="/admin/groupe/{{ $groupe->id }}">{{ $groupe->nom }}</a>
-                                        @else
-                                            <b>le Groupe </b> <a class="float-right">Aucun</a>
+                                                href="">{{ $groupeName}}</a>
                                         @endif
                                     </li>
                                 </ul>
@@ -49,7 +47,6 @@
                         </div>
                         <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
 
                 </div>
 

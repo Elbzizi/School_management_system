@@ -13,6 +13,17 @@ class CycleSeeder extends Seeder
      */
     public function run(): void
     {
-        Cycle::factory()->count(3)->create();
+        Cycle::create([[
+                'nom_cycle' => 'primaire',
+                'description' => 'primairee',
+        ],[
+                'nom_cycle' => 'secondaire collégial',
+                'description' => 'collégialr',
+        ],[
+                'nom_cycle' => 'secondaire qualifiant',
+                'description' => 'qualifiant',
+        ],
+
+    ]);
     }
 }

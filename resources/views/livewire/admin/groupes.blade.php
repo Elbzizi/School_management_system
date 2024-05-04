@@ -49,7 +49,7 @@
                             <style>
                                 .button-container {
                                     /* max-width: 300px; */
-                                    width: 200px;
+                                    /* width: 20px; */
                                 }
 
                                 .button-container .btn {

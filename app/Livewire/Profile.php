@@ -11,7 +11,7 @@ class Profile extends Component
 {
   public $info;
   public $etudiant;
-  public $id, $name, $prenom, $sexe, $photo, $adress, $cin, $tel, $email, $role, $statut, $created_at, $updated_at, $groupe;
+  public $id, $name, $prenom, $sexe, $photo, $adress, $cin, $tel, $email, $role, $statut, $created_at, $updated_at, $groupeName;
   public $route;
   public $allstatuts = ['active', 'desactive', 'bloque'];
   public $allsexe = ['homme', 'femme'];
@@ -29,7 +29,9 @@ class Profile extends Component
       // ila kan type dyal l user etudiant -> afficher les information dyal l etudiant
       if ($type === 'etudiant') {
         //etudiant
-        $this->etudiant = User::find($id);
+        // $this->etudiant = User::find($id);
+        $this->etudiant = User::with('groupe')->find($id);
+
         $this->id = $this->etudiant->id;
         $this->name = $this->etudiant->name;
         $this->prenom = $this->etudiant->prenom;
@@ -42,8 +44,11 @@ class Profile extends Component
         $this->role = $this->etudiant->role;
         $this->statut = $this->etudiant->statut;
         $this->created_at = $this->etudiant->created_at;
-        $this->updated_at = $this->etudiant->updated_at;
-        $this->groupe = $this->etudiant->groupe;
+        if ($this->etudiant->groupe) {
+            $this->groupeName = $this->etudiant->groupe->nom;
+        } else {
+            $this->groupeName = 'No Groupe Assigned'; // Or any default value/message you prefer
+        }        // dd($this->groupeName);
 
       } else {
         // afficher dyal admin
@@ -87,7 +92,7 @@ class Profile extends Component
     if (Auth::guard('admin')->check()) {
       if ($this->role === 'etudiant') {
         $old = User::find($id);
-        // dd($this->statut);      
+        // dd($this->statut);
       } else {
         $old = Admin::find($id);
       }

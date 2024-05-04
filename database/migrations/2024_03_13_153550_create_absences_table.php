@@ -17,7 +17,6 @@ return new class extends Migration
 			      $table->date('date_Absences');
 			      $table->boolean('justife')->default(false);
 			      $table->text('description');
-			      $table->date('date_Absences');
             $table->foreignId("user_id")->constrained();
             $table->timestamps();
         });

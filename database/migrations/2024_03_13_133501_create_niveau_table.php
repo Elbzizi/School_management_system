@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nom', 50);
 			$table->string('option', 50)->nullable();
-            $table->foreignId('cycle_id')->constrained();
+            $table->foreignId('cycle_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
