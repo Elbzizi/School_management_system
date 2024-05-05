@@ -10,6 +10,7 @@ use App\Livewire\admin\Home;
 use App\Livewire\Admin\Matier;
 use App\Livewire\Admin\Groupee;
 use App\Livewire\Admin\Groupes;
+use App\Livewire\Admin\Matiers;
 use App\Livewire\admin\CycleEtude;
 use App\Livewire\Admin\ListEmployer;
 use App\Livewire\Admin\ListEtudiant;
@@ -31,7 +32,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
                 Route::get('etudiant/demandes' , DemandeInscription::class)->name('etudiant.demandes');
                 Route::get('groupes',Groupes::class)->name('groupes');
                 Route::get('groupe/{id}',Groupee::class)->name('groupe');
-                Route::get('matier',Matier::class)->name('matier');
+                Route::get('matiers',Matiers::class)->name('matiers');
             });
 
 

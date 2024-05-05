@@ -45,9 +45,12 @@ class RegisteredUserController extends Controller
 
         $admin = Admin::create([
             'name' => $request->name,
+            'prenom' => $request->prenom,
+            'sexe' => $request->sexe,
+            'date_naissance' => $request->date_naissance,
+            'cin' => $request->cin,
             'email' => $request->email,
             'password' => Hash::make($password),
-            'cin' => $request->cin,
             'role' => $request->role,
             'tel'=>$request->tel,
             'adress'=>$request->adress,
@@ -59,7 +62,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($admin);
 
-        return redirect(route('admin.home'));
+        return redirect(route('admin.login'));
     }
     private function generatePasswordWithCin($cin)
     {
@@ -70,5 +73,5 @@ class RegisteredUserController extends Controller
         $password = $cin;
 
         return $password;
-    }  
+    }
 }

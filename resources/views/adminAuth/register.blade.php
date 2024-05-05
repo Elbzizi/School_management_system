@@ -2,10 +2,10 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.3.7/jquery.datetimepicker.min.css"/>
-  
+
 <!-- Load JS second -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw==" 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw=="
 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <!-- Initialize JS, setup eventlistener(s) -->
@@ -18,7 +18,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
         body{
             background: -webkit-linear-gradient(left, #ededf0, #c4c9ca);
-   
+
         }
         .register{
     margin-top: 10px;
@@ -277,13 +277,13 @@ label{
                                                     <span class="name">femme</span>
                                                 </label>
                                             </div>
-                                            <div class="form-group"> 
-                                                <label for="photo" class="label" style="margin-top: 15px">  
+                                            <div class="form-group">
+                                                <label for="photo" class="label" style="margin-top: 15px">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                                                       <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125" stroke="#fffffff" stroke-width="2"></path>
                                                   <path d="M17 15V18M17 21V18M17 18H14M17 18H20" stroke="#fffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                                     </svg>
-                                                  Choisi photo 
+                                                  Choisi photo
                                                   </label>
                                                 <input type="file" placeholder="Photo" id="photo" name="photo" style="position: absolute; left: -9999px; opacity: 0;">
                                             </div>
@@ -314,7 +314,7 @@ label{
                                                 <span>Telephone</span>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <div class="radio-inputs">
                                                 <label class="radio">
@@ -325,9 +325,9 @@ label{
                                                   <input type="radio" name="role" value="directeur" >
                                                   <span class="name">directeur</span>
                                                 </label>
-                                                
+
                                                 <label class="radio">
-                                                    <input type="radio" name="role">
+                                                    <input type="radio" name="role" value="enseignant">
                                                     <span class="name">Ensignant</span>
                                                 </label>
                                             </div>
