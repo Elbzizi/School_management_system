@@ -7,8 +7,9 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="text-center"><strong>Programme d'étude</strong></h3>
-                                <h6><strong>Cycle d'étude :</strong> {{ $user->groupe->niveau->cycle->nom_cycle }}</h6>
-                                <h6><strong>Group :</strong> {{ $user->groupe->nom }}</h6>
+                                <h6><strong class="text-success">Cycle d'étude :</strong>
+                                    {{ $user->groupe->niveau->cycle->nom_cycle }}</h6>
+                                <h6><strong class="text-success">Group :</strong> {{ $user->groupe->nom }}</h6>
                             </div>
                         </div>
                     </div>
@@ -23,11 +24,18 @@
                                 <thead>
                                     <tr>
                                         <th>Matire</th>
+                                        <th>Coefficient</th>
                                         <th>Duree</th>
-                                        <th>Profe</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($user->groupe->matieres as $item)
+                                        <tr>
+                                            <td>{{ $item->nom_matier }}</td>
+                                            <td>{{ $item->Coefficient }}</td>
+                                            <td>{{ $item->duree }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

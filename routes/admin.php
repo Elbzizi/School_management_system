@@ -16,9 +16,7 @@ use App\Livewire\Admin\ListEtudiant;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Admin\DemandeInscription;
 
-Route::get('/', function () {
-    return view('dashboard');
-})->name('dash');
+
 
 
 

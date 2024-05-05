@@ -18,6 +18,7 @@ class UserSeder extends Seeder
     $sexe = Arr::random(['homme', 'femme']);
     $role = 'etudiant';
     $photo = 'assets/img/logonull.jpg';
+    $groupe_id = Arr::random([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
     User::create([
       'name' => fake()->firstName(),
@@ -31,6 +32,7 @@ class UserSeder extends Seeder
       'statut' => 'desactive',
       'tel' => fake()->phoneNumber(),
       'email' => "user1@gmail.com",
+      'groupe_id' => $groupe_id,
       'password' => bcrypt('useruser'), // Utilisez bcrypt pour le mot de passe
     ]);
   }
