@@ -31,7 +31,7 @@ class Groupe extends Model
     return $this->belongsToMany(Admin::class, 'admin_matier_groupe', 'groupe_id', 'admin_id');
   }
 
-  public function matieres()
+  public function matiers()
   {
     return $this->belongsToMany(Matier::class, 'admin_matier_groupe', 'groupe_id', 'matier_id');
   }

@@ -65,7 +65,7 @@
                             </a>
                         </li>
                         <li class="nav-item  @yield('matier')">
-                            <a href="{{ route('admin.matier') }}" class="nav-link @yield('matier')">
+                            <a href="{{ route('admin.matiers') }}" class="nav-link @yield('matier')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Gestion des Matiers</p>
                             </a>
