@@ -1,4 +1,6 @@
 <div class="content-wrapper">
+    @section('groupes', 'active')
+    @section('groupes', 'menu-open')
     <section class="content">
         @if ($notification)
         <div class="alert {{ $type_notification }}">
@@ -61,6 +63,7 @@
                             </style>
                             <table id="datatable" class="table table-hover text-center">
                                 @foreach ($cycles as $cycle)
+
                                     <thead>
                                         <tr>
                                             <td colspan="6" style="background-color:#28a745 ;color:white; font-weight:500;">
