@@ -1,55 +1,9 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
-{{-- 
-    <form method="POST" action="{{ route('admin.login') }}">
-        <h1 style="font-weight: 100, align-item:center,">Admin</h1>
-
-        @csrf
-        <div>
-            
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form> --}}
-
-{{-- ----------------------------------------------------------------------------------------------------------- --}}
 
 
-    <div class="container">
+    {{-- <div class="container">
 
         <div class="left">
             <form class="form" method="POST" action="{{ route('admin.login') }}">
@@ -68,7 +22,7 @@
                     <label for="password">Password</label>
                 </div>
                 <div class="input-block">
-                        <span class="forgot"><a href="#">Remember me!</a></span>
+                        <span class="forgot"><a href="#">Reme mber me!</a></span>
                         <span class="forgot"><a href="#">Forgot Password?</a></span>
                 <button>Submit</button>
             </div>
@@ -119,139 +73,183 @@
                 </svg></div>
 
         </div>
-    </div>
+    </div> --}}
+
+
     <style>
+        .form {
+            position: relative;
+            z-index: 1;
+            background: #FFFFFF;
+            max-width: 400px;
+            margin: 0 auto 100px;
+            padding: 30px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            text-align: center;
+        }
+
+        .form .thumbnail {
+            background: #06BBCC;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            padding: 50px 30px;
+            border-top-left-radius: 100%;
+            border-top-right-radius: 100%;
+            border-bottom-left-radius: 100%;
+            border-bottom-right-radius: 100%;
+            box-sizing: border-box;
+        }
+
+        .form .thumbnail img {
+            display: block;
+            width: 100%;
+        }
+
+        .form input {
+            outline: 0;
+            background: #f2f2f2;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .form button {
+            outline: 0;
+            background: #06BBCC;
+            width: 100%;
+            border: 0;
+            padding: 15px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            color: #FFFFFF;
+            font-size: 14px;
+            transition: all 0.3 ease;
+            cursor: pointer;
+        }
+
+        .form .message {
+            margin: 15px 0 0;
+            color: #b3b3b3;
+            font-size: 12px;
+        }
+
+        .form .message a {
+            color: #06BBCC;
+            text-decoration: none;
+        }
+
+        .form .register-form {
+            display: none;
+        }
+
         .container {
-  display: flex;
-  width: 520px;
-  height: 500px;
-  max-width: 99%;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  background-color: #ffffff25;
-  border-radius: 15px;
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.03);
-  border: 0.1px solid rgba(128, 128, 128, 0.178);
-}
+            position: relative;
+            z-index: 1;
+            max-width: 300px;
+            margin: 0 auto;
+        }
 
-.left {
-  width: 66%;
-  height: 100%;
-}
+        .container:before,
+        .container:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  backdrop-filter: blur(20px);
-  position: relative;
-}
+        .container .info {
+            margin: 50px auto;
+            text-align: center;
+        }
 
-.form::before {
-  position: absolute;
-  content: "";
-  width: 40%;
-  height: 40%;
-  right: 1%;
-  z-index: -1;
-  background: radial-gradient(
-    circle,
-    rgb(194, 13, 170) 20%,
-    rgb(26, 186, 235) 60%,
+        .container .info h1 {
+            margin: 0 0 15px;
+            padding: 0;
+            font-size: 36px;
+            font-weight: 300;
+            color: #1a1a1a;
+        }
 
-    rgb(26, 186, 235) 100%
-  );
-  filter: blur(70px);
-  border-radius: 50%;
-}
+        .container .info span {
+            color: #4d4d4d;
+            font-size: 12px;
+        }
 
-.right {
-  width: 34%;
-  height: 100%;
-}
+        .container .info span a {
+            color: #000000;
+            text-decoration: none;
+        }
 
-.img {
-  width: 100%;
-  height: 100%;
-}
+        .container .info span .fa {
+            color: #06BBCC;
+        }
 
-.container::after {
-  position: absolute;
-  content: "";
-  width: 80%;
-  height: 80%;
-  right: -40%;
-  background: rgb(157, 173, 203);
-  background: radial-gradient(
-    circle,
-    rgba(157, 173, 203, 1) 61%,
-    rgba(99, 122, 159, 1) 100%
-  );
-  border-radius: 50%;
-  z-index: -1;
-}
+        /* END Form */
+        /* Demo Purposes */
+        body {
+            background: #ccc;
+            font-family: "Roboto", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-.input,
-button {
-  background: rgba(253, 253, 253, 0);
-  outline: none;
-  border: 1px solid rgba(255, 0, 0, 0);
-  border-radius: 0.5rem;
-  padding: 10px;
-  margin: 10px auto;
-  width: 80%;
-  display: block;
-  color: #425981;
-  font-weight: 500;
-  font-size: 1.1em;
-}
+        body:before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: block;
+            background: rgba(255, 255, 255, 0.8);
+            width: 100%;
+            height: 100%;
+        }
 
-.input-block {
-  position: relative;
-}
-
-label {
-  position: absolute;
-  left: 15%;
-  top: 37%;
-  pointer-events: none;
-  color: gray;
-}
-
-.forgot {
-  display: block;
-  margin: 5px 0 10px 0;
-  margin-left: 35px;
-  color: #5e7eb6;
-  font-size: 0.9em;
-}
-
-.input:focus + label,
-.input:valid + label {
-  transform: translateY(-120%) scale(0.9);
-  transition: all 0.4s;
-}
-
-button {
-  background-color: #5e7eb6;
-  color: white;
-  font-size: medium;
-  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
-}
-
-a {
-  color: #5e7eb6;
-}
-
-.input {
-  box-shadow: inset 4px 4px 4px rgba(165, 163, 163, 0.315),
-    4px 4px 4px rgba(218, 218, 218, 0.13);
-}
-
+        #video {
+            z-index: -99;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+        }
     </style>
+    <div class="container">
+
+    </div>
+    <div class="form">
+        <div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/hat.svg" /></div>
+        <form class="login-form " method="POST" action="{{ route('admin.login') }}">
+            @csrf
+            <input id="input" class="input" placeholder="E-mail" type="text" name="email"
+                value="{{ old('email') }}" required autofocus autocomplete="username" />
+            {{-- <label for="input" class="label">Email</label> --}}
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <input id="input" class="input" type="password" name="password" placeholder="Password" required
+                autocomplete="current-password">
+            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            {{-- <label for="password">Password</label> --}}
+            <button>login</button>
+            <p class="message">Not registered?<a href="#">Create an account</a></p>
+        </form>
+
+    </div>
+    <video id="video" autoplay="autoplay" loop="loop" poster="polina.jpg">
+        <source src="http://andytran.me/A%20peaceful%20nature%20timelapse%20video.mp4" type="video/mp4" />
+    </video>
+
 </x-guest-layout>

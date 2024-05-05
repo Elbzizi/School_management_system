@@ -30,6 +30,13 @@
                           <a href="{{ route('404') }}" class="dropdown-item">404 Page</a>
                       </div>
                   </div>
+                  <div class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Login</a>
+                      <div class="dropdown-menu fade-down m-0">
+                          <a href="{{ route('admin.login') }}" class="dropdown-item">Administartion</a>
+                          <a href="{{ route('login') }}" class="dropdown-item">Espace Etudiant</a>
+                      </div>
+                  </div>
                   <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
               </div>
               <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i
