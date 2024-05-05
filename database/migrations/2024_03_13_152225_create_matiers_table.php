@@ -18,8 +18,8 @@ return new class extends Migration {
             $table->string('nom_matier', 50);
             $table->integer('Coefficient');
             $table->integer('duree');
-            $table->foreignId('admin_id')->constrained()->onDelete('set null');
-            $table->foreignId('groupe_id')->constrained()->onDelete('set null');
+            $table->foreignId('admin_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('groupe_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

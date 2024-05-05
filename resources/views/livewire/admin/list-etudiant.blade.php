@@ -1,6 +1,6 @@
 <div class="content-wrapper">
-    @section('listetudiant','active')
-    @section('open-gestion-etudiant','menu-open')
+    @section('listeEtudiant','active')
+    @section('listeEtudiant','menu-open')
     <section class="content">
         <div class="row">
             {{-- @if(session()->has('successMessage'))
@@ -38,7 +38,6 @@
                             <th>Prenom</th>
                             <th>date Naissance</th>
                             <th>Groupe</th>
-                            <th>Role</th>
                             <th>Action</th>
                           </tr>
                       </thead>
@@ -57,7 +56,6 @@
                                 non affecter
                                 @endif
                                 </td>
-                                <td style="width: 100px;">{{ $etudiant->role}}</td>
 
 
                               <td style="width: 160px;">

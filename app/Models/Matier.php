@@ -24,10 +24,10 @@ class Matier extends Model
 
 
 
-  // public function examen()
-  // {
-  // 	return $this->hasMany(Examen::class);
-  // }
+  public function examen()
+  {
 
 
 }
+
+

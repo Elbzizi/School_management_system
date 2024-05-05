@@ -41,56 +41,31 @@
                     @endif
                     @if ($user->role === 'surveillant' || $user->role === 'directeur')
                         <li class="nav-item  @yield('open-gestion-scolaire')">
-                            <a href="#" class="nav-link @yield('cycle') ">
-                                <i class="nav-icon fas fa-tachometer-alt "></i>
-                                <p>
-                                    Gestion Scolaire
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item ">
                                     <a href="{{ route('admin.Cycles') }}" class="nav-link @yield('cycle')">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="nav-icon fas fa-tachometer-alt "></i>
                                         <p>Liste des Cycles</p>
                                     </a>
-                                </li>
-                                <li class="nav-item ">
-                                    <a href="{{ route('admin.groupes') }}" class="nav-link @yield('cycle')">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Liste Groupes</p>
-                                    </a>
-                                </li>
-                                {{-- hna ndir les tabs dyal admin o surveillant --}}
-
-
-                            </ul>
                         </li>
-                        <li class="nav-item  @yield('open-gestion-etudiant')">
-                            <a href="#" class="nav-link @yield('listetudiant') ">
-                                <i class="fa-solid fa-users-between-lines" style="color: #1a1919;"></i>
-                                <p>Gestion Etudiants
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                        <li class="nav-item  @yield('groupes')">
+                            <a href="{{ route('admin.groupes') }}" class="nav-link @yield('groupes')">
+                                <i class="nav-icon fas fa-tachometer-alt "></i>
+                                <p>Liste Groupes</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item ">
-                                    <a href="{{ route('admin.etudiant.demandes') }}" class="nav-link @yield('demandesInscription')">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>demandes D'inscription</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item ">
-                                    <a href="{{ route('admin.etudiant') }}" class="nav-link @yield('listetudiant')">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Liste Etudiant</p>
-                                    </a>
-                                </li>
+                        </li>
+                        <li class="nav-item  @yield('demandes')">
+                            <a href="{{ route('admin.etudiant.demandes') }}" class="nav-link @yield('demandes')">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>demandes D'inscription</p>
+                            </a>
+                        </li>
+                        <li class="nav-item  @yield('listeEtudiant')">
+                            <a href="{{ route('admin.etudiant') }}" class="nav-link @yield('listeEtudiant')">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Liste Etudiant</p>
+                            </a>
+                        </li>
                                 {{-- hna ndir les tabs dyal admin o surveillant --}}
 
-
-                            </ul>
-                        </li>
                         @if ($user->role === 'directeur')
                             <li class="nav-item  @yield('open-gestion-employer')">
                                 <a href="#" class="nav-link @yield('listemployer')">

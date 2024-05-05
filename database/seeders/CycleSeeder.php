@@ -13,7 +13,7 @@ class CycleSeeder extends Seeder
      */
     public function run(): void
     {
-        Cycle::create([[
+        $Cycle = [[
                 'nom_cycle' => 'primaire',
                 'description' => 'primairee',
         ],[
@@ -22,8 +22,9 @@ class CycleSeeder extends Seeder
         ],[
                 'nom_cycle' => 'secondaire qualifiant',
                 'description' => 'qualifiant',
-        ],
+        ]
 
-    ]);
+    ];
+    Cycle::insert($Cycle);
     }
 }

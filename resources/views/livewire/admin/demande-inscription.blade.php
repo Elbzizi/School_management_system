@@ -1,6 +1,6 @@
 <div class="content-wrapper">
-    @section('demandesInscription', 'active')
-    @section('open-gestion-etudiant', 'menu-open')
+    @section('demandes', 'active')
+    @section('demandes', 'menu-open')
     <section class="content">
         <div class="row">
             @if (Session::has('success'))
