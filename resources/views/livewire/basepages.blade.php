@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-    <section class="content&">
+    <section class="content">
         <div class="row">
             <div class="container" style="margin-top: 5px;">
                 <div class="row">

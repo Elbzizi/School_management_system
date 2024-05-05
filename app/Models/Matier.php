@@ -24,8 +24,6 @@ class Matier extends Model
 
 
 
-  public function examen()
-  {
 
 
 }

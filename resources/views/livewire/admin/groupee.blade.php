@@ -66,7 +66,7 @@
                     </div>
                     {{-- @if (count($selectedetudiants)>0) --}}
 
-                        <div class="col-md-5">
+                        {{-- <div class="col-md-5">
 
                             <div class="card">
                                 <div class="card">
@@ -88,34 +88,10 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div> --}}
                     {{-- @endif --}}
                 </div>
-                {{-- <div class="card card-statistics h-100">
-                  <div class="card-body">
-                    <div class="table-responsive">
-                    <table id="datatable" class="table table-bordered text-center">
-                      <thead>
-                          <tr>
-                            <th>N °</th>
-                            <th>Nom</th>
-                            <th>Date NAissance</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          @foreach ($etudiants as $etudiant)
-                          <tr>
-                            <td>{{ $etudiant->id }}</td>
-                            <td><a href="/admin/profile/{{ $etudiant->id }}?type=etudiant">{{ $etudiant->name }} {{ $etudiant->prenom }}</a></td>
-                            <td>{{ $etudiant->date_naissance }}</td>
-                          </tr>
-                          @endforeach
-                      </tbody>
-                   </table>
 
-                  </div>
-                  </div>
-                </div> --}}
             </div>
         </div>
         </div>

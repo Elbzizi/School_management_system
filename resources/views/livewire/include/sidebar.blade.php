@@ -64,6 +64,12 @@
                                 <p>Liste Etudiant</p>
                             </a>
                         </li>
+                        <li class="nav-item  @yield('matier')">
+                            <a href="{{ route('admin.matier') }}" class="nav-link @yield('matier')">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Gestion des Matiers</p>
+                            </a>
+                        </li>
                                 {{-- hna ndir les tabs dyal admin o surveillant --}}
 
                         @if ($user->role === 'directeur')
