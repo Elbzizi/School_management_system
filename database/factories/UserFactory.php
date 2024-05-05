@@ -41,7 +41,6 @@ class UserFactory extends Factory
       'statut' => 'desactive',
       'tel' => fake()->phoneNumber(),
       'email' =>fake()->email(),
-    //   'email' => $email,
       'password' => 'useruser',
     ];
   }
