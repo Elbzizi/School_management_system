@@ -31,7 +31,7 @@
                                 <button type="button" class="btn-close btn btn-outline-secondary" data-dismiss="modal" aria-label="Close">Fermer</button>
                             </div>
                             <div class="modal-body p-4">
-                                <form wire:submit.prevent='create()'>
+                                <form  wire:submit.prevent='create()'>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <!-- Name input -->
@@ -115,15 +115,44 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <!-- Class select -->
+                                            <!-- Cycle select -->
                                             <div class="form-group">
-                                                <label for="class">Class</label>
-                                                <select id="class" class="form-control" wire:model="class" disabled>
-                                                    <option value="class1">Class 1</option>
-                                                    <option value="class2">Class 2</option>
+                                                <label for="cycle">Cycle</label>
+                                                <select id="cycle" class="form-control" wire:model.live="cycle" >
+                                                    <option value="" selected>--Select--</option>
+                                                    @foreach ($cycles as $cycle )
+                                                    <option value="{{ $cycle->id }}">{{ $cycle->nom_cycle }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-md-4">
+                                            <!-- Niveau select -->
+                                            <div class="form-group">
+                                                <label for="niveau">Niveau</label>
+                                                <select id="niveau" class="form-control" wire:model.live="niveau" >
+                                                    <option value="" selected>choisir Niveau</option>
+                                                    @foreach ($niveaux as $niv )
+                                                    <option value="{{ $niv->id }}">{{ $niv->nom }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <!-- Groupe select -->
+                                            <div class="form-group">
+                                                <label for="groupe">Groupe</label>
+                                                <select id="groupe" class="form-control" wire:model.live="groupe" >
+                                                    <option value="" selected>choisir Groupe</option>
+                                                    @foreach ($groupes as $group )
+                                                    <option value="{{ $group->id }}" >{{ $group->nom }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
                                         <div class="col-md-4">
                                             <!-- Parent input -->
                                             <div class="form-group">
@@ -143,8 +172,6 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-md-4">
                                             <!-- Tel input -->
                                             <div class="form-group">
@@ -157,6 +184,8 @@
                                                 @enderror
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-4">
                                             <!-- Photo input -->
                                             <div class="form-group">
@@ -166,7 +195,7 @@
                                         </div>
                                         <!-- Repeat similar structure for additional rows if needed -->
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-block" >submit</button>
+                                    <button class="btn btn-primary btn-block"  >submit</button>
                                 </form>
                             </div>
                         </div>

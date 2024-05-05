@@ -22,12 +22,14 @@ class User extends Authenticatable
         'adress',
         'tel',
         'sexe',
+        'date_naissance',
         'role',
         'statut',
         'photo',
         'cin',
         'email',
         'password',
+        'groupe_id'
     ];
 
     /**
@@ -56,7 +58,7 @@ class User extends Authenticatable
         return $this->belongsTo(Groupe::class);
      }
     public function parent(){
-        return $this->belongsTo(Parente::class, 'parent_id');
+        return $this->belongsTo(Parente::class);
      }
      public function note()
     {

@@ -2,15 +2,21 @@
 
 namespace App\Livewire\Admin;
 
+use App\Models\Cycle;
+use App\Models\Groupe;
+use App\Models\Niveau;
 use App\Models\User;
-use Livewire\Component;
-use Illuminate\Support\Str;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
+use Livewire\Component;
 
 class DemandeInscription extends Component
 
 {
+    public $cycles , $niveaux, $groupes;
+    public $cycle , $niveau, $groupe;
+
     public $id, $name, $prenom, $sexe, $cin, $photo, $adress, $role, $dateNaissance, $statut, $tel, $email, $password;
     public $desactiveEtudiants , $selectAll , $showEtudiantDetails , $notification;
     public $selectedetudiants = [];
@@ -18,16 +24,39 @@ class DemandeInscription extends Component
 
     public function mount()
     {
-
         $this->selectedetudiants = new Collection();
 
     }
 
 
-    public function render(){
-        $this->desactiveEtudiants = User::where('statut','desactive')->get();
-        return view('livewire.admin.demande-inscription');}
+// ==========================render=========================================================
+public function render(){
 
+    $this->cycles = Cycle::get();
+    $this->niveaux = Niveau::where('cycle_id', $this->cycle)->get();
+    $this->groupes = Groupe::where('niveau_id', $this->niveau)->get();
+
+    $this->desactiveEtudiants = User::where('statut','desactive')->get();
+    return view('livewire.admin.demande-inscription');
+}
+
+    // ==========================updatedcycle=========================================================
+    public function updatedCycle($value)
+    {
+        // Fetch levels based on the selected cycle
+        $this->niveaux = Niveau::where('cycle_id', $this->cycle)->get();
+
+        $this->reset('niveau', 'groupe');
+    }
+
+    // ==========================updatedniveau=========================================================
+    public function updatedNiveau($value)
+    {
+        // Fetch groups based on the selected niveau
+        $this->groupes = Groupe::where('niveau_id', $this->niveau)->get();
+        $this->reset('groupe');
+    }
+    // ==========================select one=========================================================
     public function selectOne($id)
     {
 
@@ -90,7 +119,6 @@ class DemandeInscription extends Component
         'dateNaissance' => 'required',
         // 'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         'adress' => 'required|min:5|max:250',
-        'statut' => 'required',
         'tel' => 'required|min:10|max:10',
         'email' => 'required|email',
 
@@ -103,9 +131,7 @@ class DemandeInscription extends Component
     }
 
     public function create() {
-
         $this->validate();
-
         $this->password = $this->cin;
         User::create([
             'name' => $this->name,
@@ -118,7 +144,7 @@ class DemandeInscription extends Component
             'tel' => $this->tel,
             'email' => $this->email,
             'password' =>$this->password,
-            'remember_token' => Str::random(10),
+            'groupe_id' => $this->groupe,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

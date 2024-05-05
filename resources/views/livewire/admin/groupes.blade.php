@@ -13,7 +13,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header  align-items-center">
-                                <h6><strong>Liste des Groupes</strong></h6>
+                                <h6 ><strong>Liste des Groupes</strong></h6>
 
                                 <form action="" class="d-flex d-flex flex-row-reverse">
                                     <button class="btn btn-primary" wire:click.prevent='checkgroupe()'>Ajouter Groupe</button>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container ">
+            <div class="m-auto" style="width: 90%;">
 
                 <div class="card card-statistics h-100">
                     <div class="card-body">
@@ -72,13 +72,13 @@
                                         <tr>
                                             @foreach ($cycle->niveaux as $niveau)
 
-                                                    <td @if ($cycle->nom_cycle === 'Secondaire collégial' || $cycle->nom_cycle === 'Secondaire qualifiant') colspan="2" @endif>{{ $niveau->nom }}</td>
+                                                    <td @if ($cycle->nom_cycle == 'secondaire collégial' || $cycle->nom_cycle == 'secondaire qualifiant') colspan="2" @endif>{{ $niveau->nom }}</td>
 
                                             @endforeach
                                         </tr>
                                         <tr>
                                             @foreach ($cycle->niveaux as $niveau)
-                                                <td class="button-container" @if ($cycle->nom_cycle === 'Secondaire collégial' || $cycle->nom_cycle === 'Secondaire qualifiant') colspan="2" @endif >
+                                                <td class="button-container" @if ($cycle->nom_cycle === 'secondaire collégial' || $cycle->nom_cycle === 'secondaire qualifiant') colspan="2" @endif >
                                                     @foreach ($niveau->groupes as $groupe)
                                                         <a href="groupe/{{ $groupe->id }}" class="btn btn-outline-primary">{{ $groupe->nom }}</a>
                                                     @endforeach
