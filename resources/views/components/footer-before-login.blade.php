@@ -76,10 +76,11 @@
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
-                            <a href="">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
+                            <a class="btn btn-link" href="{{ route('about') }}">About Us</a>
+                            <a class="btn btn-link" href="{{ route('contact') }}">Contact Us</a>
+                            <a class="btn btn-link" href="{{ route('privacy') }}">Privacy Policy</a>
+                            <a class="btn btn-link" href="{{ route('terms') }}">Terms & Condition</a>
+                            <a class="btn btn-link" href="{{ route('fAQs') }}">FAQs & Help</a>
                         </div>
                     </div>
                 </div>
