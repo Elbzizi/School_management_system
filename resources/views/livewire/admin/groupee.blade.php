@@ -32,12 +32,9 @@
                             <div class="card-body">
                                 <h5 style="float: left;"><strong>Demandes des Inscription</strong></h5>
                                 <div class="col-md-11">
-                                    <div class="form-check " style="float: right">
-                                        <label class="form-check-label" for="selectAll">Select All </label> |
-                                        <input class="" type="checkbox" wire:model="selectAll" id="selectAll">
-                                    </div>
+                                    
                                 </div>
-                                <table class="table text-center">
+                                <table id="exampleroupe" class="table text-center table-striped">
                                     <tr>
                                         <th>id</th>
                                         <th>Nom</th>
@@ -96,4 +93,21 @@
         </div>
         </div>
     </section>
+    <script>
+        $(function () {
+          $("#exampleroupe").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+          }).buttons().container().appendTo('#exampleroupe_wrapper .col-md-6:eq(0)');
+          $('#exampleroupe').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+          });
+        });
+      </script>
 </div>
