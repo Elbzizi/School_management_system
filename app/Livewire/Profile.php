@@ -11,7 +11,7 @@ class Profile extends Component
 {
   public $info;
   public $etudiant;
-  public $id, $name, $prenom, $sexe, $photo, $adress, $cin, $tel, $email, $role, $statut, $created_at, $updated_at, $groupeName;
+  public $id, $name, $prenom, $sexe, $photo, $adress, $cin, $tel, $email, $role, $statut, $created_at, $updated_at, $groupeName ,$groupeID;
   public $route;
   public $allstatuts = ['active', 'desactive', 'bloque'];
   public $allsexe = ['homme', 'femme'];
@@ -46,6 +46,7 @@ class Profile extends Component
         $this->created_at = $this->etudiant->created_at;
         if ($this->etudiant->groupe) {
             $this->groupeName = $this->etudiant->groupe->nom;
+            $this->groupeID = $this->etudiant->groupe->id;
         } else {
             $this->groupeName = 'No Groupe Assigned'; // Or any default value/message you prefer
         }        // dd($this->groupeName);

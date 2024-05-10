@@ -1,6 +1,6 @@
 <div class="content-wrapper">
     @section('cycle', 'active')
-    @section('open-gestion-scolaire', 'menu-open')
+    @section('open-cycles', 'menu-open')
     <section class="content">
         <!-- main body -->
         <div class="row">

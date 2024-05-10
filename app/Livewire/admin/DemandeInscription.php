@@ -24,13 +24,13 @@ class DemandeInscription extends Component
 
     public function mount()
     {
-        $this->selectedetudiants = new Collection();
 
+        $this->selectedetudiants = new Collection();
     }
 
 
-// ==========================render=========================================================
-public function render(){
+    // ==========================render=========================================================
+    public function render(){
 
     $this->cycles = Cycle::get();
     $this->niveaux = Niveau::where('cycle_id', $this->cycle)->get();
@@ -60,7 +60,6 @@ public function render(){
     public function selectOne($id)
     {
 
-
         $selectedetudiants = $this->selectedetudiants->toArray();
 
         if(count($selectedetudiants)>0){
@@ -68,7 +67,6 @@ public function render(){
             $this->showEtudiant(end($selectedetudiants) ?? null);
         }
         else{
-
             $this->showEtudiantDetails = null;
         }
     }
@@ -87,6 +85,7 @@ public function render(){
                     $etudiant->statut = 'active';
                     $etudiant->save();
                 }
+                $this->notification= "L'etudiant a été accepté avec succès.";
             }
             else{
                 User::where('statut','desactive')->update(['statut' => 'active']);
@@ -96,6 +95,7 @@ public function render(){
             $this->selectedetudiants = new Collection();
 
         }
+        $this->selectedetudiants = new Collection();
         $this->showEtudiantDetails = null;
 
 

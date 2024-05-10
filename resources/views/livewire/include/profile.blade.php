@@ -24,7 +24,7 @@
                                 </div>
                                 <p class="text-muted text-center cursur-pointer"><a href="#"><label
                                             for="photo">edit photo</label></a></p>
-                                <input type="file" placeholder="Photo" id="photo" wire:model='photo'
+                                <input type="file" placeholder="Photo" id="photo" wire:model.live='photo'
                                     name="photo" style="position: absolute; left: -9999px; opacity: 0;">
 
 
@@ -39,7 +39,7 @@
                                     <li class="list-group-item">
                                         @if ($groupeName)
                                             <b>le Groupe </b> <a class="float-right"
-                                                href="">{{ $groupeName}}</a>
+                                                href="/admin/groupe/{{ $groupeID }}">{{ $groupeName}}</a>
                                         @endif
                                     </li>
                                 </ul>
@@ -61,19 +61,19 @@
                                         <label for="nom" class="col-form-label">Name</label>
                                     </div>
                                     <div class="col-md-5 ms-auto mb-3">
-                                        <input type="text" id="nom" class="form-control" wire:model='name'>
+                                        <input type="text" id="nom" class="form-control" wire:model.live='name'>
                                     </div>
                                     <div class="col-md-1 ms-auto">
                                         <label for="prenom" class="col-form-label">Prenom</label>
                                     </div>
                                     <div class="col-md-5 ms-auto mb-3">
-                                        <input type="text" id="prenom" class="form-control" wire:model='prenom'>
+                                        <input type="text" id="prenom" class="form-control" wire:model.live='prenom'>
                                     </div>
                                     <div class="col-md-1 ms-auto">
                                         <label for="sexe" class="col-form-label">Sexe</label>
                                     </div>
                                     <div class="col-md-5 ms-auto mb-3">
-                                        <select wire:model="sexe" id="status" class="form-control">
+                                        <select wire:model.live="sexe" id="status" class="form-control">
                                             <option value="homme">homme</option>
                                             <option value="femme">femme</option>
                                         </select>
@@ -82,20 +82,20 @@
                                         <label for="cin" class="col-form-label">CIN</label>
                                     </div>
                                     <div class="col-md-5 ms-auto mb-3">
-                                        <input type="text" id="cin" class="form-control" wire:model='cin'>
+                                        <input type="text" id="cin" class="form-control" wire:model.live='cin'>
                                     </div>
                                     <div class="col-md-1 ms-auto">
                                         <label for="adress" class="col-form-label">Address</label>
                                     </div>
                                     <div class="col-md-5 ms-auto mb-3">
-                                        <input type="text" id="adress" class="form-control" wire:model='adress'>
+                                        <input type="text" id="adress" class="form-control" wire:model.live='adress'>
                                     </div>
                                     <div class="col-md-1 ms-auto">
                                         <label for="role" class="col-form-label">Role</label>
                                     </div>
                                     <div class="col-md-5 ms-auto mb-3">
-                                        {{-- <input type="text" id="role" class="form-control" wire:model='role'> --}}
-                                        <select wire:model="role" id="role" class="form-control">
+                                        {{-- <input type="text" id="role" class="form-control" wire:model.live='role'> --}}
+                                        <select wire:model.live="role" id="role" class="form-control">
                                             <option value="directeur">directeur</option>
                                             <option value="surveillant">surveillant</option>
                                             <option value="enseignant">enseignant</option>
@@ -106,7 +106,7 @@
                                         <label for="statut" class="col-form-label">Statut</label>
                                     </div>
                                     <div class="col-md-5 ms-auto mb-3">
-                                        <select wire:model="statut" id="status" class="form-control">
+                                        <select wire:model.live="statut" id="status" class="form-control">
                                             <option value="active">active</option>
                                             <option value="desactive">desactive</option>
                                             <option value="bloque">bloque</option>
@@ -116,14 +116,14 @@
                                         <label for="tel" class="col-form-label">Telephone</label>
                                     </div>
                                     <div class="col-md-5 ms-auto mb-3">
-                                        <input type="text" id="tel" class="form-control" wire:model='tel'>
+                                        <input type="text" id="tel" class="form-control" wire:model.live='tel'>
                                     </div>
                                     <div class="col-md-1 ms-auto">
                                         <label for="email" class="col-form-label">Email</label>
                                     </div>
                                     <div class="col-md-5 ms-auto mb-3">
                                         <input type="email" id="email" class="form-control"
-                                            wire:model='email'>
+                                            wire:model.live='email'>
                                     </div>
                                     <div class="col-md-7 ms-auto mb-3 d-flex justify-content-end">
                                         @if (Auth::guard('admin')->user())

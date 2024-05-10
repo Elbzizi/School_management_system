@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -33,17 +34,17 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     @livewireStyles
-
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    @livewire('header')                 
+    @livewire('header')
     @livewire('sidebar')
 
     <main>
         {{ $slot }}
     </main>
     @livewire('Footer')
-    @livewireScripts   
+    @livewireScripts
 
 </body>
 </html>

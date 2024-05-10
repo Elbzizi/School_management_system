@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Cycle;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,16 +16,19 @@ class Sidebar extends Component
     public $adress;
     public $role;
     public $statut;
+    public $cycles;
+    public $niveaux;
 
     public function mount()
     {
         // Fetch admin details directly from the database
         $admin = Auth::guard('admin')->user();
+        $this->cycles = Cycle::get();
 
         // Ensure that the user is an admin and fetch the name and prenom
         if ($admin) {
 
-            
+
             $this->name = $admin->name;
             $this->prenom = $admin->prenom;
             $this->sexe = $admin->sexe;

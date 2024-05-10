@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->string('adress', 150)->nullable();
             $table->string('photo', 150)->nullable()->default('assets/img/logonull.jpg');
             $table->enum('role',array ('etudiant','parent'))->default('etudiant');
-            $table->enum('statut', array ('active', 'desactive','bloque'))->default('desactive');
+            $table->enum('statut', array ('active', 'desactive','bloque'))->default('active');
             $table->string('tel')->unique();
             $table->string('email')->unique();
             $table->foreignId("groupe_id")->nullable()->constrained();

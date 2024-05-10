@@ -1,22 +1,21 @@
 <aside class="main-sidebar sidebar-light-success elevation-1 ">
 
+
     <!-- Brand Logo -->
     <a href="{{ route('admin.home') }}">
-        <img style=" width: 250px; height: 40px; margin-top: 6px;" src="{{ asset('assets/img/E-COLE INNOVATION.png') }}"
+        <img style=" width: 250px; height: 50px; margin-top: 6px;" src="{{ asset('assets/img/image.png') }}"
             alt="AdminLTE Logo">
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <!-- SidebarSearch Form -->
-        <div class="form-inline" style="margin-top: 10px;">
+    <div class="sidebar" style="margin-top: 20px;">
+
+        <div class="form-inline" >
             <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                    aria-label="Search">
+                <input class="form-control form-control p-1 ml-2" type="search" placeholder="Search" aria-label="Search">
                 <div class="input-group-append">
                     <button class="btn btn-sidebar">
-                        <i class="fas fa-search fa-fw"></i>
+                          <i class="fas fa-search fa-fw"></i>
                     </button>
                 </div>
             </div>
@@ -29,6 +28,7 @@
                 @php
                     $user = Auth::guard('admin')->user();
                 @endphp
+
                 @if ($user)
 
                     @if ($user->role === 'enseignant')
@@ -38,66 +38,85 @@
                                 <p>Enseignant Tab</p>
                             </a>
                         </li>
-                    @endif
-                    @if ($user->role === 'surveillant' || $user->role === 'directeur')
-                        <li class="nav-item  @yield('open-gestion-scolaire')">
-                                    <a href="{{ route('admin.Cycles') }}" class="nav-link @yield('cycle')">
-                                        <i class="nav-icon fas fa-tachometer-alt "></i>
-                                        <p>Liste des Cycles</p>
+                        @endif
+                        @if ($user->role === 'surveillant' || $user->role === 'directeur')
+
+                        <li class="nav-item  @yield('open-cycles')">
+                            <a href="#" class="nav-link @yield('cycle')">
+                                <i class="nav-icon fa-solid fa-book" ></i>
+                                <p> Gestion cycles
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview @yield('open-cycles')" >
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.Cycles') }}" class="nav-link  @yield('cycle')">
+                                        <i class="nav-icon fa-solid fa-book" ></i>
+                                        <p> Modifier les Cycles
+                                        </p>
                                     </a>
+                                </li>
+                                @foreach ($cycles as $cycle)
+
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.employer') }}" class="nav-link @yield('listemployer')">
+                                            <i class="nav-icon fa-solid fa-book" ></i>
+                                            <p> {{ $cycle->nom_cycle }} Cycle
+                                                <i class="right fas fa-angle-left"></i>
+                                            </p>
+                                        </a>
+                                        <ul class="nav nav-treeview">
+                                            @foreach ($cycle->niveaux as $niveau)
+
+                                            <li class="nav-item">
+                                              <a href="/admin/niveau/{{ $niveau->id }}" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>{{ $niveau->nom }}</p>
+                                              </a>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                      </li>
+
+                                @endforeach
+                                {{-- hna ndir les tabs dyal admin  --}}
+
+
+                            </ul>
                         </li>
-                        <li class="nav-item  @yield('groupes')">
+
+
+                        <li class="nav-item  @yield('groupes')" style="margin-top: 5px">
                             <a href="{{ route('admin.groupes') }}" class="nav-link @yield('groupes')">
-                                <i class="nav-icon fas fa-tachometer-alt "></i>
+                                <i class=" nav-icon fa-solid fa-graduation-cap" ></i>
                                 <p>Liste Groupes</p>
                             </a>
                         </li>
-                        <li class="nav-item  @yield('demandes')">
-                            <a href="{{ route('admin.etudiant.demandes') }}" class="nav-link @yield('demandes')">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>demandes D'inscription</p>
-                            </a>
-                        </li>
+
                         <li class="nav-item  @yield('listeEtudiant')">
                             <a href="{{ route('admin.etudiant') }}" class="nav-link @yield('listeEtudiant')">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="nav-icon fa-solid fa-users"></i>
                                 <p>Liste Etudiant</p>
                             </a>
                         </li>
+
                         <li class="nav-item  @yield('matier')">
                             <a href="{{ route('admin.matiers') }}" class="nav-link @yield('matier')">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="nav-icon fa-solid fa-chalkboard-user"></i>
                                 <p>Gestion des Matiers</p>
                             </a>
                         </li>
-                                {{-- hna ndir les tabs dyal admin o surveillant --}}
+
+                        {{-- hna ndir les tabs dyal admin o surveillant --}}
 
                         @if ($user->role === 'directeur')
-                            <li class="nav-item  @yield('open-gestion-employer')">
-                                <a href="#" class="nav-link @yield('listemployer')">
-                                    <i class="nav-icon fa-solid fa-user-pen" style="color: #1a1919;"></i>
-                                    <p> Gestion Employer
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item ">
-                                        <a href="{{ route('admin.employer') }}" class="nav-link @yield('listemployer')">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p> Liste des Employers </p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item ">
-                                        <a href="{{ route('admin.employer') }}" class="nav-link @yield('register')">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p> Ajouter Employers </p>
-                                        </a>
-                                    </li>
-                                    {{-- hna ndir les tabs dyal admin  --}}
+                        <li class="nav-item  @yield('open-gestion-employer')">
+                            <a href="{{ route('admin.employer') }}" class="nav-link @yield('listemployer')">
+                                <i class="nav-icon fa-solid fa-user-tie"></i>
+                                <p>Gestion des Employer</p>
+                            </a>
+                        </li>
 
-
-                                </ul>
-                            </li>
                         @endif
 
 
