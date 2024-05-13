@@ -32,11 +32,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 style="float: left;"><strong>Demandes des Inscription</strong></h5>
-                                <div class="col-md-11">
+                                <br>
+                                {{-- <div class="col-md-11">
 
-                                </div>
+                                </div> --}}
                                 <div class="card-body">
-                                    {{-- <table id="exampleroupe" class="table text-center table-striped"> --}}
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -74,6 +74,7 @@
                                             </tr>
                                         </tfoot>
                                     </table>
+                                    {{-- ==================================== --}}
                                 </div>
 
                             </div>
@@ -83,70 +84,37 @@
 
                     {{-- <div class="col-md-5">
 
-                            <div class="card">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h6>Absence</h6>
-                                        <select class="" id="">
-                                            <option value="select"></option>
-                                        </select>
-                                        {{ now()->format('d-M | H:i') ;}}
-                                    </div>
-                                    <div class="card-body">
-                                    </div>
-                                </div>
+                          <div class="card">
+                              <div class="card">
+                                  <div class="card-body">
+                                      <h6>Absence</h6>
+                                      <select class="" id="">
+                                          <option value="select"></option>
+                                      </select>
+                                      {{ now()->format('d-M | H:i') ;}}
+                                  </div>
+                                  <div class="card-body">
+                                  </div>
+                              </div>
 
-                                <div class="card-body">
-                                    <a class="btn btn-sm btn-success" style=""
-                                    wire:click='accepter()'>Accepters Tout </a> |
-                                    <a class="btn btn-sm btn-danger" style="" wire:click='refuser()'>Refuser</a>
-                                </div>
-                            </div>
+                              <div class="card-body">
+                                  <a class="btn btn-sm btn-success" style=""
+                                  wire:click='accepter()'>Accepters Tout </a> |
+                                  <a class="btn btn-sm btn-danger" style="" wire:click='refuser()'>Refuser</a>
+                              </div>
+                          </div>
 
-                        </div> --}}
+                      </div> --}}
                     {{-- @endif --}}
                 </div>
 
             </div>
         </div>
 </div>
-</section>
-{{-- <script>
-    $(function() {
-        $("#exampleroupe").DataTable({
-            "responsive": true,
-            "lengthChange": false,
-            "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#exampleroupe_wrapper .col-md-6:eq(0)');
-        $('#exampleroupe').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
-    });
-</script> --}}
-<script>
-    $(document).ready(function() {
-        var table = $('#exampleroupe').DataTable({
-            "responsive": true,
-            "lengthChange": false,
-            "autoWidth": false,
-            "buttons": [
-                'copy',
-                'csv',
-                'excel',
-                'pdf',
-                'print',
-                'colvis'
-            ]
-        });
-        table.buttons().container().appendTo('#exampleroupe_wrapper .col-md-6:eq(0)');
-    });
-</script>
->
 </div>
+
+
+
+</body>
+
+</html>
