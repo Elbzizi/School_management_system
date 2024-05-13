@@ -35,44 +35,46 @@
                                 <div class="col-md-11">
 
                                 </div>
-                                {{-- <table id="exampleroupe" class="table text-center table-striped"> --}}
-                                <table id="example1" class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Nom</th>
-                                            <th>Prenom</th>
-                                            <th>Date Naissance</th>
-                                            <th>Selectionnez</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($etudiants as $etudiant)
+                                <div class="card-body">
+                                    {{-- <table id="exampleroupe" class="table text-center table-striped"> --}}
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
                                             <tr>
-                                                <td>{{ $etudiant->id }}</td>
-                                                <td><a style="color: black;" wire:click=''
-                                                        href='#'>{{ $etudiant->name }}</a></td>
-                                                <td><a style="color: black;" wire:click=''
-                                                        href='#'>{{ $etudiant->prenom }}</a></td>
-                                                <td>{{ $etudiant->date_naissance }}</td>
-                                                <td>
-                                                    <input type="checkbox" wire:model="selectedetudiants"
-                                                        wire:change='selectOne({{ $etudiant->id }})'
-                                                        value="{{ $etudiant->id }}">
-                                                </td>
+                                                <th>id</th>
+                                                <th>Nom</th>
+                                                <th>Prenom</th>
+                                                <th>Date Naissance</th>
+                                                <th>Selectionnez</th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Nom</th>
-                                            <th>Prenom</th>
-                                            <th>Date Naissance</th>
-                                            <th>Selectionnez</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($etudiants as $etudiant)
+                                                <tr>
+                                                    <td>{{ $etudiant->id }}</td>
+                                                    <td><a style="color: black;" wire:click=''
+                                                            href='#'>{{ $etudiant->name }}</a></td>
+                                                    <td><a style="color: black;" wire:click=''
+                                                            href='#'>{{ $etudiant->prenom }}</a></td>
+                                                    <td>{{ $etudiant->date_naissance }}</td>
+                                                    <td>
+                                                        <input type="checkbox" wire:model="selectedetudiants"
+                                                            wire:change='selectOne({{ $etudiant->id }})'
+                                                            value="{{ $etudiant->id }}">
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>id</th>
+                                                <th>Nom</th>
+                                                <th>Prenom</th>
+                                                <th>Date Naissance</th>
+                                                <th>Selectionnez</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
 
                             </div>
                         </div>
@@ -109,7 +111,7 @@
         </div>
 </div>
 </section>
-<script>
+{{-- <script>
     $(function() {
         $("#exampleroupe").DataTable({
             "responsive": true,
@@ -127,5 +129,24 @@
             "responsive": true,
         });
     });
+</script> --}}
+<script>
+    $(document).ready(function() {
+        var table = $('#exampleroupe').DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": [
+                'copy',
+                'csv',
+                'excel',
+                'pdf',
+                'print',
+                'colvis'
+            ]
+        });
+        table.buttons().container().appendTo('#exampleroupe_wrapper .col-md-6:eq(0)');
+    });
 </script>
+>
 </div>
