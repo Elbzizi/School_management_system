@@ -33,16 +33,35 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+    {{-- =============================== new link====================================== --}}
+
+
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="{{ asset('assets/plugins/jqvmap/jqvmap.min.css ') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('assets/css/adminlte.min.css ') }}">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css ') }}">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote-bs4.min.css ') }}">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css ') }}">
+    <link rel="stylesheet"
+        href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css ') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css ') }}">
+
     <script src="https://kit.fontawesome.com/eb54a27021.js" crossorigin="anonymous"></script>
     <style>
-        .error{
+        .error {
             color: red;
             font-size: 13px;
         }
-        .cmw{
+
+        .cmw {
             max-width: 900px;
 
-            }
+        }
+
         body {
             font-family: "Barlow", sans-serif;
             font-weight: 500;
@@ -59,93 +78,100 @@
             text-decoration: none;
             cursor: pointer;
         }
-.dropdown {
-  width: 150px;
-}
-.dropdown:hover .dropdown-list {
-  opacity: 1;
-  visibility: visible;
-}
-.dropdown-select {
-  border-radius: 4px;
-  background-color: white;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 1.1rem;
-  cursor: pointer;
-}
-.dropdown-list {
-  border-radius: 4px;
-  background-color: white;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s linear, visibility 0.2s linear;
-  transform: translateY(10px);
-}
-.dropdown-list:before {
-  content: "";
-  width: 100%;
-  height: 10px;
-  background-color: transparent;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translateY(-100%);
-}
-.dropdown-list__item {
-  padding: 1rem;
-  font-size: 1.4rem;
-}
-.radio-inputs {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  border-radius: 0.5rem;
-  background-color: #EEE;
-  box-sizing: border-box;
-  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
-  padding: 0.25rem;
-  width: 270px;
-  font-size: 14px;
-  margin-top: 25px
-}
 
-.radio-inputs .radio {
-  flex: 1 1 auto;
-  text-align: center;
-}
+        .dropdown {
+            width: 150px;
+        }
 
-.radio-inputs .radio input {
-  display: none;
-}
-.radio-inputs label {
-    margin-bottom: 0px;
-}
+        .dropdown:hover .dropdown-list {
+            opacity: 1;
+            visibility: visible;
+        }
 
-.radio-inputs .radio .name {
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.5rem;
-  border: none;
-  padding: .4rem 0;
-  /* margin-top: 20px */
-  color: rgba(51, 65, 85, 1);
-  transition: all .15s ease-in-out;
-}
+        .dropdown-select {
+            border-radius: 4px;
+            background-color: white;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
 
-.radio-inputs .radio input:checked + .name {
-  background-color: #fff;
-  font-weight: 600;
-}
+        .dropdown-list {
+            border-radius: 4px;
+            background-color: white;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s linear, visibility 0.2s linear;
+            transform: translateY(10px);
+        }
 
+        .dropdown-list:before {
+            content: "";
+            width: 100%;
+            height: 10px;
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateY(-100%);
+        }
+
+        .dropdown-list__item {
+            padding: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .radio-inputs {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 0.5rem;
+            background-color: #EEE;
+            box-sizing: border-box;
+            box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+            padding: 0.25rem;
+            width: 270px;
+            font-size: 14px;
+            margin-top: 25px
+        }
+
+        .radio-inputs .radio {
+            flex: 1 1 auto;
+            text-align: center;
+        }
+
+        .radio-inputs .radio input {
+            display: none;
+        }
+
+        .radio-inputs label {
+            margin-bottom: 0px;
+        }
+
+        .radio-inputs .radio .name {
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            border: none;
+            padding: .4rem 0;
+            /* margin-top: 20px */
+            color: rgba(51, 65, 85, 1);
+            transition: all .15s ease-in-out;
+        }
+
+        .radio-inputs .radio input:checked+.name {
+            background-color: #fff;
+            font-weight: 600;
+        }
     </style>
 
 </head>
@@ -174,8 +200,8 @@
                         {{ $role }} |
                         <i class="fa-solid fa-caret-down" style="color: #b8b7b7;"></i>
                     </a>
-                    @if ($user=Auth::guard('admin')->user())
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    @if ($user = Auth::guard('admin')->user())
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
                             <div class="dropdown-divider"></div>
 
@@ -183,7 +209,7 @@
                             <a href="/admin/profile/{{ $user->id }}" class="dropdown-item">
 
                                 <i class="fa-solid fa-user mr-2" style="color: black;"></i>
-                                    Profile
+                                Profile
                                 <span class="float-right text-muted text-sm">3 mins</span>
                             </a>
                             <div class="dropdown-divider"></div>
@@ -196,31 +222,29 @@
                             </form>
 
                         </div>
-                        @else
+                    @else
                         @php
-                        $user = Auth::guard('web')->user();
+                            $user = Auth::guard('web')->user();
                         @endphp
                         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
-                        <div class="dropdown-divider"></div>
+                            <div class="dropdown-divider"></div>
 
-                        <a href="/profile/{{$user->id}}" class="dropdown-item">
+                            <a href="/profile/{{ $user->id }}" class="dropdown-item">
 
-                            <i class="fa-solid fa-user mr-2" style="color: black;"></i>
+                                <i class="fa-solid fa-user mr-2" style="color: black;"></i>
                                 Profile
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        {{-- if user go to rote profile if admin go to route admin.profile --}}
-                        <form method="POST" action="{{ route('logout') }}"
-                            class="dropdown-item dropdown-footer">
-                            @csrf
-                            <i class="fa-solid fa-right-from-bracket" style="color: #000000;"></i>
-                            <button class="button-like-link">logout</button>
-                        </form>
+                                <span class="float-right text-muted text-sm">3 mins</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            {{-- if user go to rote profile if admin go to route admin.profile --}}
+                            <form method="POST" action="{{ route('logout') }}" class="dropdown-item dropdown-footer">
+                                @csrf
+                                <i class="fa-solid fa-right-from-bracket" style="color: #000000;"></i>
+                                <button class="button-like-link">logout</button>
+                            </form>
 
-                    </div>
-
+                        </div>
                     @endif
 
                 </li>

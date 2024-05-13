@@ -88,7 +88,7 @@
                                         <select class="" id="">
                                             <option value="select"></option>
                                         </select>
-                                        {{ now()->format('d-M | H:i'); }}
+                                        {{ now()->format('d-M | H:i') ;}}
                                     </div>
                                     <div class="card-body">
                                     </div>
