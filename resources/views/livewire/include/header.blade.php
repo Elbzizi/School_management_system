@@ -14,7 +14,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    {{-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> --}}
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet"
         href="{{ asset('assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
@@ -30,9 +30,124 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+
+    {{-- <script src="https://kit.fontawesome.com/eb54a27021.js" crossorigin="anonymous"></script> --}}
+    <style>
+        .error{
+            color: red;
+            font-size: 13px;
+        }
+        .cmw{
+            max-width: 900px;
+
+            }
+        body {
+            font-family: "Barlow", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .button-like-link {
+            background: none;
+            border: none;
+            padding: 0;
+            font: inherit;
+            color: rgb(0, 0, 0);
+            /* or any other link color */
+            text-decoration: none;
+            cursor: pointer;
+        }
+.dropdown {
+  width: 150px;
+}
+.dropdown:hover .dropdown-list {
+  opacity: 1;
+  visibility: visible;
+}
+.dropdown-select {
+  border-radius: 4px;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.dropdown-list {
+  border-radius: 4px;
+  background-color: white;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s linear, visibility 0.2s linear;
+  transform: translateY(10px);
+}
+.dropdown-list:before {
+  content: "";
+  width: 100%;
+  height: 10px;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+}
+.dropdown-list__item {
+  padding: 1rem;
+  font-size: 1.4rem;
+}
+.radio-inputs {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 0.5rem;
+  background-color: #EEE;
+  box-sizing: border-box;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+  padding: 0.25rem;
+  width: 270px;
+  font-size: 14px;
+  margin-top: 25px
+}
+
+.radio-inputs .radio {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.radio-inputs .radio input {
+  display: none;
+}
+.radio-inputs label {
+    margin-bottom: 0px;
+}
+
+.radio-inputs .radio .name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: none;
+  padding: .4rem 0;
+  /* margin-top: 20px */
+  color: rgba(51, 65, 85, 1);
+  transition: all .15s ease-in-out;
+}
+
+.radio-inputs .radio input:checked + .name {
+  background-color: #fff;
+  font-weight: 600;
+}
+
+    </style>
     {{-- =============================== new link====================================== --}}
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -249,12 +364,6 @@
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fa-solid fa-expand" style="color: #000000;"></i> </a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true"
-                        href="#" role="button">
-                        <i class="fas fa-th-large"></i>
-                    </a>
-                </li> --}}
+
             </ul>
         </nav>
-        <!-- /.navbar -->

@@ -9,12 +9,10 @@ use Illuminate\Support\Collection;
 class Groupee extends Component
 {
     public $id_route , $etudiants, $groupe ,$niveau , $cycle;
-    public $selectedetudiants = [];
 
 
     public function mount($id) {
         $this->id_route = $id;
-        $this->selectedetudiants = new Collection();
     }
     public function render()
     {
@@ -28,7 +26,5 @@ class Groupee extends Component
         // dd($this->etudiant);
         return view('livewire.admin.groupee');
     }
-    public function selectOne(){
-        $selectedetudiants = $this->selectedetudiants->toArray();
-    }
+
 }

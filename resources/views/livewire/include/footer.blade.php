@@ -8,7 +8,6 @@
     </aside>
     <!-- /.control-sidebar -->
 </div>
-<!-- ./wrapper -->
 
 <!-- jQuery -->
 <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
@@ -41,6 +40,11 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/js/adminlte.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
+{{-- <script src="{{asset('assets/js/demo.js')}}"></script> --}}
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+{{-- <script src="{{asset('assets/js/pages/dashboard.js')}}"></script> --}}
+
+
 <script src="{{ asset('assets/js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script>

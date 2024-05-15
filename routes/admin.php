@@ -35,6 +35,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
                 Route::get('etudiant' , ListEtudiant::class)->name('etudiant');
                 Route::get('etudiant/demandes' , DemandeInscription::class)->name('etudiant.demandes');
                 Route::get('profile/{id}', Profile::class)->name('profile');
+                Route::get('/generate-pdf', Groupee::class)->name('generate-pdf');
+
             });
 
 
