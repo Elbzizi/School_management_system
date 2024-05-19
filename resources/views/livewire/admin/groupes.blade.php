@@ -81,32 +81,6 @@
                               </div>
                           </nav>
 
-<<<<<<< HEAD
-                                            @endforeach
-                                        </tr>
-                                        <tr>
-                                            @foreach ($cycle->niveaux as $niveau)
-                                                <td class="button-container" @if ($cycle->nom_cycle === 'secondaire collégial' || $cycle->nom_cycle === 'secondaire qualifiant') colspan="2" @endif >
-                                                    @foreach ($niveau->groupes as $groupe)
-                                                        <a href="groupe/{{ $groupe->id }}" class="btn btn-outline-primary">{{ $groupe->nom }}</a>
-                                                    @endforeach
-                                                </td>
-                                            @endforeach
-
-                                        </tr>
-                                       
-                                    </thead>
-                                @endforeach
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-</div>
-</section>
-=======
                           @if ($selectedNiveau)
                               <div class="row">
                                   @foreach ($groupes as $groupe)
@@ -128,5 +102,4 @@
           </div>
       </div>
   </section>
->>>>>>> main
 </div>
