@@ -86,52 +86,7 @@
                                             @endforeach
 
                                         </tr>
-                                        {{-- @if ($cycle->nom_cycle == 'Primaire')
-                            <tr>
-                                <td >1ere annee</td>
-                                <td >2eme annee</td>
-                                <td >3eme annee</td>
-                                <td >4eme annee</td>
-                                <td >5eme annee</td>
-                                <td >6eme annee</td>
-                            </tr>
-
-                            @endif
-                            @if ($cycle->nom_cycle == 'Secondaire')
-                            <tr>
-                                <td colspan="2" >1ere anneé {{ $cycle->nom_cycle }}</td>
-                                <td colspan="2" >2eme anneé {{ $cycle->nom_cycle }}</td>
-                                <td colspan="2"  >3eme anneé {{ $cycle->nom_cycle }}</td>
-                            </tr>
-                            @endif
-                            @if ($cycle->nom_cycle == 'Colegial')
-                            <tr>
-                                <td colspan="2" >5ere anneé {{ $cycle->nom_cycle }}</td>
-                                <td colspan="2" >6eme anneé {{ $cycle->nom_cycle }}</td>
-                                <td colspan="2" >Baccalauriat {{ $cycle->nom_cycle }}</td>
-                              </tr>
-                            @endif --}}
-
-                                        {{-- <tr>
-                                @foreach ($niveaux as $niveau)
-                                    @foreach ($niveau->groupes as $grp)
-
-                                    <td>{{ $grp->nom }}</td>
-                                    @endforeach
-                                @endforeach
-                            </tr> --}}
-
-
-
-                                        {{-- <tr>
-                                    <td>
-                                        @foreach ($niveaux as $niveau)
-                                        @foreach ($niveau->groupes as $groupe)
-                                        <a href="#">{{ $groupe->nom }}</a> |
-                                        @endforeach
-                                        @endforeach
-                                    </td>
-                                </tr> --}}
+                                       
                                     </thead>
                                 @endforeach
                             </table>

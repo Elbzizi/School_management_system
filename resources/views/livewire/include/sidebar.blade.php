@@ -40,52 +40,7 @@
                         </li>
                         @endif
                         @if ($user->role === 'surveillant' || $user->role === 'directeur')
-
-                        <li class="nav-item  @yield('open-cycles')">
-                            <a href="#" class="nav-link @yield('cycle')">
-                                <i class="nav-icon fa-solid fa-book" ></i>
-                                <p> Gestion cycles
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview @yield('open-cycles')" >
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.Cycles') }}" class="nav-link  @yield('cycle')">
-                                        <i class="nav-icon fa-solid fa-book" ></i>
-                                        <p> Modifier les Cycles
-                                        </p>
-                                    </a>
-                                </li>
-                                @foreach ($cycles as $cycle)
-
-                                    <li class="nav-item">
-                                        <a href="{{ route('admin.employer') }}" class="nav-link @yield('listemployer')">
-                                            <i class="nav-icon fa-solid fa-book" ></i>
-                                            <p> {{ $cycle->nom_cycle }} Cycle
-                                                <i class="right fas fa-angle-left"></i>
-                                            </p>
-                                        </a>
-                                        <ul class="nav nav-treeview">
-                                            @foreach ($cycle->niveaux as $niveau)
-
-                                            <li class="nav-item">
-                                              <a href="/admin/niveau/{{ $niveau->id }}" class="nav-link">
-                                                <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>{{ $niveau->nom }}</p>
-                                              </a>
-                                            </li>
-                                            @endforeach
-                                        </ul>
-                                      </li>
-
-                                @endforeach
-                                {{-- hna ndir les tabs dyal admin  --}}
-
-
-                            </ul>
-                        </li>
-
-
+                        
                         <li class="nav-item  @yield('groupes')" style="margin-top: 5px">
                             <a href="{{ route('admin.groupes') }}" class="nav-link @yield('groupes')">
                                 <i class=" nav-icon fa-solid fa-graduation-cap" ></i>
