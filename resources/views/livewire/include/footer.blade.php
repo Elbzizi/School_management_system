@@ -12,7 +12,6 @@
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button);
 </script>
@@ -68,17 +67,7 @@
 <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-<<<<<<< HEAD
-{{-- ============================new link =============== --}}
-<!-- AdminLTE App -->
-<script src="{{ asset('assets/plugins/js/adminlte.min.js') }}"></script>
-<!-- AdminLTE App -->
-{{-- <script src="dist/js/adminlte.js"></script> --}}
-<!-- AdminLTE App -->
-<script src="{{ asset('assets/js/adminlte.min.js') }}"></script>
-=======
 
->>>>>>> main
 <!-- Page specific script -->
 <script>
     $(function() {

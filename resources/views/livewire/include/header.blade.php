@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote-bs4.min.css') }}">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css') }}">
-    <!-- Google Font: Source Sans Pro -->
-    {{-- <link rel="preconnect" href="https://fonts.googleapis.com"> --}}
-    {{-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> --}}
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome-free/css/all.min.css') }}">
@@ -24,14 +21,6 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/jqvmap/jqvmap.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('assets/css/adminlte.min.css') }}">
-    <!-- overlayScrollbars -->
-<<<<<<< HEAD
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-=======
-    <link rel="stylesheet" href="{{ asset('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="{{ asset('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
->>>>>>> main
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- jQuery -->
@@ -51,13 +40,10 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="{{ asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback') }}">
-<<<<<<< HEAD
-=======
-    <!-- Theme style -->
+
     <link rel="stylesheet" href="{{ asset('assets/plugins/css/adminlte.min.css') }}">
     <script src="https://kit.fontawesome.com/eb54a27021.js" crossorigin="anonymous"></script>
     <style>
-
         .error {
             color: red;
             font-size: 13px;
@@ -179,7 +165,6 @@
             font-weight: 600;
         }
     </style>
->>>>>>> main
 </head>
 
 
