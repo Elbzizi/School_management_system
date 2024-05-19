@@ -54,10 +54,5 @@ class Niveaux extends Component
         }
 
     }
-    public function delete($id) {
-        $groupe = Groupe::findOrFail($id);
-        $groupe->delete();
-        $this->notification = 'Le Groupe Supprimer';
-        $this->type_notification = 'alert-danger';
-    }
+  
 }
