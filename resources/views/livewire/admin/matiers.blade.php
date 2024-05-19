@@ -8,13 +8,13 @@
                     <div class="col-md-6">
                         <div class="card" style="height: 310px;">
                             <div class="card-header">
-                                <form action="" class="form" wire:submit.prevent='create()'>
+                                <form action="" class="form" wire:submit='create()'>
                                     <h6 style="float: left;" ><strong>Ajouter Une Nouvelle Matier :</strong></h6>
-                                    <input type="text" wire:model.live='matier' class="form-control" placeholder="Nom de matier">
+                                    <input type="text" wire:model='matier' class="form-control" placeholder="Nom de matier">
                                     <hr>
-                                    <input type="number" wire:model.live='coeff' class="form-control" placeholder="Coefficient">
+                                    <input type="number" wire:model='coeff' class="form-control" placeholder="Coefficient">
                                     <hr>
-                                    <input type="text" wire:model.live='duree' class="form-control" placeholder="duree">
+                                    <input type="text" wire:model='duree' class="form-control" placeholder="duree">
                                     <hr>
                                     <input type="submit" class="btn btn-success">
                                 </form>

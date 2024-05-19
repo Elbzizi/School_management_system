@@ -12,7 +12,7 @@ return new class extends Migration {
   {
     Schema::create('admin_matier_groupe', function (Blueprint $table) {
       $table->id();
-      $table->foreignId('groupe_id')->constrained();
+      $table->foreignId('groupe_id')->constrained()->cascadeOnDelete();
       $table->foreignId('admin_id')->constrained();
       $table->foreignId('matier_id')->constrained();
 

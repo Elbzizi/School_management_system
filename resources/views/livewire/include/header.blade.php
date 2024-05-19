@@ -169,7 +169,6 @@
 
 
 
-
 <body class=" layout-fixed layout-navbar-fixed sidebar-mini">
 
     <div class="wrapper">

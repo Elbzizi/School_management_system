@@ -15,7 +15,7 @@ class absence extends Seeder
     \App\Models\Absence::create([
 
       'matier' => fake()->firstName(),
-      'user_id' => 31,
+      'user_id' => 3,
       'date_Absences' => fake()->date(),
       'description' => fake()->text(),
     ]);
