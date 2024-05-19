@@ -10,7 +10,7 @@ use Livewire\Component;
 class Groupes extends Component
 {
   public $prefix_Groupe_Number, $prefix_Niveau, $capacite, $prefix, $selectedNiveau;
-  public $cycles, $niveaux, $groupes;
+  public $cycles, $niveaux, $groupes, $niveauId;
   public $notification, $type_notification;
 
   // public $niveaux;
@@ -44,12 +44,26 @@ class Groupes extends Component
       $this->notification = 'Le Groupe Ajouter';
       $this->type_notification = 'alert-success';
     }
+    $this->selectNiveau($this->niveauId);
+
+
   }
 
   public function selectNiveau($niveauId)
   {
+    $this->niveauId = $niveauId;
     $this->selectedNiveau = Niveau::with('groupes')->find($niveauId);
     $this->groupes = $this->selectedNiveau->groupes ?? [];
+
+  }
+  public function delete($id)
+  {
+    $groupe = Groupe::findOrFail($id);
+    $groupe->delete();
+    $this->notification = 'Le Groupe Supprimer';
+    $this->type_notification = 'alert-danger';
+    $this->selectNiveau($this->niveauId);
+
   }
 
 
