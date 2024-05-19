@@ -15,25 +15,25 @@ class UserSeder extends Seeder
   {
     User::factory()->count(30)->create();
 
-    $sexe = Arr::random(['homme', 'femme']);
-    $role = 'etudiant';
-    $photo = 'assets/img/logonull.jpg';
-    $groupe_id = Arr::random([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    // $sexe = Arr::random(['homme', 'femme']);
+    // $role = 'etudiant';
+    // $photo = 'assets/img/logonull.jpg';
+    // $groupe_id = Arr::random([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
-    User::create([
-      'name' => fake()->firstName(),
-      'prenom' => fake()->lastName(),
-      'sexe' => $sexe,
-      'date_naissance' => fake()->date(),
-      'cin' => fake()->numberBetween(1000000, 9999999),
-      'photo' => $photo,
-      'role' => $role,
-      'adress' => fake()->address(),
-      'statut' => 'desactive',
-      'tel' => fake()->phoneNumber(),
-      'email' => "user1@gmail.com",
-      'groupe_id' => $groupe_id,
-      'password' => bcrypt('useruser'), // Utilisez bcrypt pour le mot de passe
-    ]);
+    // User::create([
+    //   'name' => fake()->firstName(),
+    //   'prenom' => fake()->lastName(),
+    //   'sexe' => $sexe,
+    //   'date_naissance' => fake()->date(),
+    //   'cin' => fake()->numberBetween(1000000, 9999999),
+    //   'photo' => $photo,
+    //   'role' => $role,
+    //   'adress' => fake()->address(),
+    //   'statut' => 'desactive',
+    //   'tel' => fake()->phoneNumber(),
+    //   'email' => "user1@gmail.com",
+    //   'groupe_id' => $groupe_id,
+    //   'password' => bcrypt('useruser'),
+    // ]);
   }
 }

@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-    <section class="content&">
+    <section class="content" >
         <div class="row">
             <div class="container" style="margin-top: 5px;">
                 <div class="row">
@@ -29,9 +29,14 @@
                 <div class="row">
                     <div class="col-md">
                         <!-- Left Column Content -->
-                        <div class="card">
+                        <div class="card" >
                             <div class="card-body">
-                                <h5 style="float: left;"><strong>Demandes des Inscription</strong></h5>
+
+                                <div class="col-md-11">
+
+                                </div>
+
+
                                 <br>
                                 {{-- <div class="col-md-11">
 
@@ -77,9 +82,13 @@
                                     {{-- ==================================== --}}
                                 </div>
 
+
                             </div>
                         </div>
                     </div>
+
+
+
                     {{-- @if (count($selectedetudiants) > 0) --}}
 
                     {{-- <div class="col-md-5">
@@ -107,9 +116,17 @@
                       </div> --}}
                     {{-- @endif --}}
                 </div>
-
+                <div class="d-flex justify-content-end mb-3">
+                </div>
             </div>
         </div>
+
+</div>
+</section>
+
+
+
+
 </div>
 </div>
 
