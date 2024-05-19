@@ -35,32 +35,8 @@
                                 <div class="col-md-11">
 
                                 </div>
-                                <table id="printTable" class="table text-center table-bordered table-striped">
-                                    <tr>
-                                        <th>id</th>
-                                        <th>Nom</th>
-                                        <th>Prenom</th>
-                                        <th>Date Naissance</th>
-                                        <th>Selectionnez</th>
-                                    </tr>
-                                    @foreach ($etudiants as $etudiant)
-                                        <tr>
-                                            <td>{{ $etudiant->id }}</td>
-                                            <td><a style="color: black;" wire:click=''
-                                                    href='#'>{{ $etudiant->name }}</a></td>
-                                            <td><a style="color: black;" wire:click=''
-                                                    href='#'>{{ $etudiant->prenom }}</a></td>
-                                            <td>{{ $etudiant->date_naissance }}</td>
-                                            <td>
-                                                <input type="checkbox" wire:model="selectedetudiants"
-                                                    wire:change='selectOne({{ $etudiant->id }})'
-                                                    value="{{ $etudiant->id }}">
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </table>
 
-                                <h5 style="float: left;"><strong>Demandes des Inscription</strong></h5>
+
                                 <br>
                                 {{-- <div class="col-md-11">
 
@@ -141,7 +117,6 @@
                     {{-- @endif --}}
                 </div>
                 <div class="d-flex justify-content-end mb-3">
-                    <button class="btn btn-primary" onclick="printData()">Export to PDF</button>
                 </div>
             </div>
         </div>

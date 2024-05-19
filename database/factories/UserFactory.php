@@ -35,11 +35,11 @@ class UserFactory extends Factory
       'sexe' => $sexe,
       'date_naissance' => fake()->date(),
       'cin' => fake()->numberBetween(1000000, 9999999), // Generates an 8-digit number
-      'groupe_id' => fake()->numberBetween(1,1), // Generates an 8-digit number
+      'groupe_id' => fake()->numberBetween(1,1),
       'photo' => $photo,
       'role' => $role,
       'adress' => fake()->address(),
-      'statut' => 'desactive',
+      'statut' => 'active',
       'tel' => fake()->phoneNumber(),
       'email' =>fake()->email(),
       'password' => 'useruser',
