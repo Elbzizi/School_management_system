@@ -60,6 +60,7 @@
                 </div>
 
                 @if ($selectedNiveau && $selectedNiveau->cycle_id == $cycle->id)
+                    <h4 class="text-center fa-2x" style="text-decoration-line: underline">{{ $selectedNiveau->nom }} :</h4>
                     <div class="row">
                         @foreach ($groupes as $groupe)
                             <div class="col-sm-4 my-3 mb-sm-0">
@@ -68,12 +69,14 @@
                                         <h5 class="card-title"><strong>Groupe :</strong>{{ $groupe->nom }}</h5>
                                         <p class="card-text"><strong>Number Des Etudients
                                                 :</strong>{{ $groupe->users->count() }}/{{ $groupe->capacite }}</p>
-                                        <a href="/admin/groupe/{{ $groupe->id }}" class="btn btn-primary">Go
-                                            somewhere</a>
-                                        <a href="" class="btn btn-primary btn-sm">
+                                        <a href="/admin/groupe/{{ $groupe->id }}"
+                                            class="btn btn-outline-warning ms-2">
+                                            <i class="fa fa-eye" aria-hidden="true"></i></a>
+                                        <a href="" class="btn btn-outline-primary ms-2 ">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <button class="btn btn-danger btn-sm" wire:click="delete({{ $groupe->id }})">
+                                        <button class="btn btn-outline-danger ms-2 "
+                                            wire:click="delete({{ $groupe->id }})">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </div>
