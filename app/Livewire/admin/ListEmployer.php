@@ -67,7 +67,9 @@ class ListEmployer extends Component
             'role'=>$this->inputrole,
         ]);
         $this->resetInput();
-        $this->notification = "L'étudiant a été ajouté avec succès";
+        // $this->notification = "L'étudiant a été ajouté avec succès";
+        toastr()->success("L'étudiant a été ajouté avec succès");
+
         $this->dispatch('close-modal');
     }
 // resetInput ------------------------------------------------------------------
