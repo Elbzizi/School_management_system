@@ -81,7 +81,7 @@ class ListEtudiant extends Component
   {
     $this->validate();
     $this->password = $this->cin;
-    User::create([
+    $user = User::create([
       'name' => $this->name,
       'prenom' => $this->prenom,
       'sexe' => $this->sexe,
@@ -96,10 +96,15 @@ class ListEtudiant extends Component
       'created_at' => Carbon::now(),
       'updated_at' => Carbon::now(),
     ]);
-    $this->resetInput();
-    // $this->notification = "L'étudiant a été ajouté avec succès";
-    toastr()->success("L'étudiant a été ajouté avec succès");
-    $this->dispatch('close-modal');
+    if ($user instanceof Model) {
+      $this->resetInput();
+      // $this->notification = "L'étudiant a été ajouté avec succès";
+      toastr()->success("L'étudiant a été ajouté avec succès");
+      $this->dispatch('close-modal');
+    }
+
+    toastr()->error('An error has occurred please try again later.');
+
 
   }
   // resetInput ------------------------------------------------------------------
