@@ -33,9 +33,7 @@
                                 <p class="text-muted text-center">{{ $role }}</p>
 
                                 <ul class="list-group list-group-unbordered mb-10">
-                                    <li class="list-group-item">
-                                        <b>Crée le </b> <a class="float-right">{{ $created_at }}</a>
-                                    </li>
+                                   
                                     <li class="list-group-item">
                                         @if ($groupeName)
                                             <b>le Groupe </b> <a class="float-right"

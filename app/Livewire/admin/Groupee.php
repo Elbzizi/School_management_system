@@ -16,8 +16,6 @@ class Groupee extends Component
     }
     public function render()
     {
-
-
         $this->groupe = Groupe::find($this->id_route);
         $this->niveau = $this->groupe->niveau;
         $this->cycle = $this->niveau->cycle;
@@ -27,4 +25,8 @@ class Groupee extends Component
         return view('livewire.admin.groupee');
     }
 
+    public function retire() {
+        $this->groupe = Groupe::find($this->id_route);
+        dd($this->groupe);
+    }
 }

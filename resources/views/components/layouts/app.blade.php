@@ -19,7 +19,7 @@
         {{ $slot }}
     </main>
     @livewire('Footer')
-    @livewireScripts
 
+    @livewireScripts
 </body>
 </html>

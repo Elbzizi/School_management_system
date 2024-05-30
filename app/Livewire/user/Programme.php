@@ -12,6 +12,7 @@ class Programme extends Component
   public function render()
   {
     $this->user = Auth::user();
+    
     return view('livewire.user.programme');
   }
 }

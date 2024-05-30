@@ -25,7 +25,7 @@ return new class extends Migration {
             $table->enum('statut', array ('active', 'desactive','bloque'))->default('active');
             $table->string('tel')->unique();
             $table->string('email')->unique();
-            $table->foreignId("groupe_id")->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId("groupe_id")->nullable()->constrained()->cascadeOnDelete('set null');
             $table->foreignId("parent_id")->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId("note_id")->nullable()->constrained();
             $table->timestamp('email_verified_at')->nullable();

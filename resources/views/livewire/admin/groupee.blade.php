@@ -54,21 +54,24 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($etudiants as $etudiant)
-                                                <tr>
-                                                    <td>{{ $etudiant->id }}</td>
+                                            <tr wire:key="etudiant-{{ $etudiant->id }}">
+                                                <td>{{ $etudiant->id }}</td>
                                                     <td><a style="color: black;" wire:click=''
                                                             href='#'>{{ $etudiant->name }}</a></td>
                                                     <td><a style="color: black;" wire:click=''
                                                             href='#'>{{ $etudiant->prenom }}</a></td>
                                                     <td>{{ $etudiant->date_naissance }}</td>
                                                     <td>
-                                                        <input type="checkbox" wire:model="selectedetudiants"
-                                                            wire:change='selectOne({{ $etudiant->id }})'
-                                                            value="{{ $etudiant->id }}">
+                                                        <a href="/admin/profile/{{ $etudiant->id }}?type=etudiant" class="btn btn-primary">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+                                                        <a class="btn btn-danger btn-sm" wire:click.stop='retire()'>
+                                                            <i class="fa fa-trash"></i>
+                                                        </a>
                                                     </td>
                                                 </tr>
-                                            @endforeach
-                                        </tbody>
+                                                @endforeach
+                                            </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>id</th>
@@ -86,34 +89,6 @@
                         </div>
                     </div>
 
-
-
-                    {{-- @if (count($selectedetudiants) > 0) --}}
-
-                    {{-- <div class="col-md-5">
-
-                          <div class="card">
-                              <div class="card">
-                                  <div class="card-body">
-                                      <h6>Absence</h6>
-                                      <select class="" id="">
-                                          <option value="select"></option>
-                                      </select>
-                                      {{ now()->format('d-M | H:i') ;}}
-                                  </div>
-                                  <div class="card-body">
-                                  </div>
-                              </div>
-
-                              <div class="card-body">
-                                  <a class="btn btn-sm btn-success" style=""
-                                  wire:click='accepter()'>Accepters Tout </a> |
-                                  <a class="btn btn-sm btn-danger" style="" wire:click='refuser()'>Refuser</a>
-                              </div>
-                          </div>
-
-                      </div> --}}
-                    {{-- @endif --}}
                 </div>
                 <div class="d-flex justify-content-end mb-3">
                 </div>
@@ -130,6 +105,7 @@
 </div>
 
 
+@livewireScripts
 
 </body>
 

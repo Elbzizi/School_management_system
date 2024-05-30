@@ -26,26 +26,26 @@ class ListEmployer extends Component
     }
 
 
-    protected $rules = [
-        'name' => 'required|max:50',
-        'prenom' => 'required|max:50',
-        'sexe' => 'required',
-        'dateNaissance' => 'required',
-        'cin' => 'required|min:8|max:8',
-        // 'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-        'adress' => 'required|min:5|max:250',
-        'email' => 'required|email',
-        'tel' => 'required|min:10|max:10',
-        'role' => 'required'
-    ];
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
-        $this->resetValidation();
-    }
+    // protected $rules = [
+    //     'name' => 'required|max:50',
+    //     'prenom' => 'required|max:50',
+    //     'sexe' => 'required',
+    //     'dateNaissance' => 'required',
+    //     'cin' => 'required|min:8|max:8',
+    //     // 'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+    //     'adress' => 'required|min:5|max:250',
+    //     'email' => 'required|email',
+    //     'tel' => 'required|min:10|max:10',
+    //     'role' => 'required'
+    // ];
+    // public function updated($propertyName)
+    // {
+    //     $this->validateOnly($propertyName);
+    //     $this->resetValidation();
+    // }
 
     public function addEmployer(){
-        $this->validate();
+        // $this->validate();
         if($this->password = null){
             $password = $this->prenom.$this->cin;
         }
@@ -62,7 +62,7 @@ class ListEmployer extends Component
             // 'matier'=>$this->matier,
             'email'=>$this->email,
             'tel'=>$this->tel,
-            'photo'=>$this->photo,
+            // 'photo'=>$this->photo,
             'password'=>bcrypt($password),
             'role'=>$this->inputrole,
         ]);

@@ -83,6 +83,10 @@ class Profile extends Component
       $this->email = $this->info->email;
       $this->role = $this->info->role;
       $this->statut = $this->info->statut;
+      if ($this->info->groupe) {
+        $this->groupeName = $this->info->groupe->nom;
+        $this->groupeID = $this->info->groupe->id;
+    }
     }
 
   }
