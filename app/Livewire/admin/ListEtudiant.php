@@ -102,7 +102,6 @@ class ListEtudiant extends Component
       toastr()->success("L'étudiant a été ajouté avec succès");
       $this->dispatch('close-modal');
     }
-
     toastr()->error('An error has occurred please try again later.');
 
 
@@ -146,11 +145,13 @@ class ListEtudiant extends Component
     $etudiants = User::find($id);
     if ($etudiants) {
       $etudiants->delete();
-      $this->successMessage = 'Etudiant supprimé avec succès';
+      // $this->successMessage = 'Etudiant supprimé avec succès';
       // dd($this->successMessage);
-      session()->flash('successMessage', 'Etudiant supprimé avec succès');
+      // session()->flash('successMessage', 'Etudiant supprimé avec succès');
+      toastr()->success("Etudiant supprimé avec succès");
     } else {
-      session()->flash('error', 'Étudiant non trouvé.');
+      // session()->flash('error', 'Étudiant non trouvé.');
+      toastr()->error('An error has occurred please try again later.');
     }
   }
   // filter ------------------------------------------------------------------
