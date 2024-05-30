@@ -6,7 +6,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h6 style="float: left;"><strong>Liste des Etudiant</strong></h6>
+                                <h6 style="float: left;"><strong>les Absances</strong></h6>
 
                             </div>
                         </div>

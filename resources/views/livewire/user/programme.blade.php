@@ -29,13 +29,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($user->groupe->matieres as $item)
+
+
+                                    @foreach ($user->groupe->matiers as $item)
                                         <tr>
                                             <td>{{ $item->nom_matier }}</td>
                                             <td>{{ $item->Coefficient }}</td>
                                             <td>{{ $item->duree }}</td>
                                         </tr>
                                     @endforeach
+
+
+
                                 </tbody>
                             </table>
                         </div>
