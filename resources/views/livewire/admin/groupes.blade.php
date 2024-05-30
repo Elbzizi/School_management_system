@@ -40,7 +40,7 @@
             @foreach ($cycles as $cycle)
                 <div class="card">
                     <div class="card-header text-center bg-success fa-2x">
-                        {{ $cycle->nom_cycle }}
+                        <marquee> {{ $cycle->nom_cycle }} </marquee>
                     </div>
 
                     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -60,7 +60,8 @@
                 </div>
 
                 @if ($selectedNiveau && $selectedNiveau->cycle_id == $cycle->id)
-                    <h4 class="text-center fa-2x" style="text-decoration-line: underline">{{ $selectedNiveau->nom }} :</h4>
+                    <h4 class="text-center fa-2x" style="text-decoration-line: underline">{{ $selectedNiveau->nom }} :
+                    </h4>
                     <div class="row">
                         @foreach ($groupes as $groupe)
                             <div class="col-sm-4 my-3 mb-sm-0">
