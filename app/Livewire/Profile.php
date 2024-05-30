@@ -112,7 +112,9 @@ class Profile extends Component
 
     }
     ;
-    session()->flash('message', 'Profile updated successfully.');
+    // session()->flash('message', 'Profile updated successfully.');
+    toastr()->success("Profile updated successfully.");
+
 
 
 
