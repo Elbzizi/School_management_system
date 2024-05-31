@@ -9,3 +9,15 @@ ORDER BY nom ASC;
 SELECT code, libellé
 FROM produits
 WHERE prix > 1500;
+
+3/Donnez la liste des factures du client de code 2.
+SELECT *
+FROM factures
+WHERE client_code = 2;
+
+4/Donnez la référence et la date des factures du client « SAMIR ».
+SELECT reference, date
+FROM factures
+JOIN clients ON factures.client_code = clients.code
+WHERE clients.nom = 'SAMIR';
+
