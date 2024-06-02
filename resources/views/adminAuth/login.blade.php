@@ -227,6 +227,12 @@
             height: auto;
             transform: translateX(-50%) translateY(-50%);
         }
+
+        .voir {
+            position: absolute;
+            top: 295px;
+            left: 330px
+        }
     </style>
     <div class="container">
 
@@ -243,7 +249,7 @@
                 autocomplete="current-password"> --}}
 
             <input type="password" class="form-control" id="password" placeholder="Enter your password">
-            <div class="input-group-append">
+            <div class="voir">
                 <span class="input-group-text" id="toggle-password">
                     <i class="fa fa-eye"></i>
                 </span>
