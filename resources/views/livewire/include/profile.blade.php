@@ -19,7 +19,8 @@
                         <div class="card-body box-profile">
                             <form class="form-horizontal" wire:submit.prevent='modifier({{ $id }})'>
                                 <div class="text-center">
-                                    <img class="profile-user-img img-fluid img-circle" src="{{ asset($photo) }}"
+                                    <img class="profile-user-img img-fluid img-circle" 
+                                    src="{{ asset($photo) }}"
                                         alt="User profile picture">
                                 </div>
                                 <p class="text-muted text-center cursur-pointer"><a href="#"><label
