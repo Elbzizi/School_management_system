@@ -25,33 +25,29 @@ class ListEmployer extends Component
         }
     }
 
+    protected $rules = [
+        'name' => 'required|max:50',
+        'prenom' => 'required|max:50',
+        'sexe' => 'required',
+        'dateNaissance' => 'required',
+        'cin' => 'required|min:8|max:8',
+        // 'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'adress' => 'required|min:5|max:250',
+        'email' => 'required|email',
+        'tel' => 'required|min:10|max:10',
+        'role' => 'required'
+    ];
 
-    // protected $rules = [
-    //     'name' => 'required|max:50',
-    //     'prenom' => 'required|max:50',
-    //     'sexe' => 'required',
-    //     'dateNaissance' => 'required',
-    //     'cin' => 'required|min:8|max:8',
-    //     // 'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-    //     'adress' => 'required|min:5|max:250',
-    //     'email' => 'required|email',
-    //     'tel' => 'required|min:10|max:10',
-    //     'role' => 'required'
-    // ];
-    // public function updated($propertyName)
-    // {
-    //     $this->validateOnly($propertyName);
-    //     $this->resetValidation();
-    // }
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+        $this->resetValidation();
+    }
 
     public function addEmployer(){
-        // $this->validate();
-        if($this->password = null){
-            $password = $this->prenom.$this->cin;
-        }
-        else(
-            $password = $this->password
-        );
+        $this->validate();
+
+        $password = $this->cin;
         Admin::create([
             'name'=>$this->name,
             'prenom'=>$this->prenom,
@@ -67,9 +63,7 @@ class ListEmployer extends Component
             'role'=>$this->inputrole,
         ]);
         $this->resetInput();
-        // $this->notification = "L'étudiant a été ajouté avec succès";
         toastr()->success("L'étudiant a été ajouté avec succès");
-
         $this->dispatch('close-modal');
     }
 // resetInput ------------------------------------------------------------------
@@ -84,6 +78,17 @@ public function resetInput() {
     $this->statut = null;
     $this->tel = null;
     $this->email = null;
+    $this->password = null;
 }
 
+public function supprimer($id)
+  {
+    $admin = Admin::find($id);
+    if ($admin) {
+      $admin->delete();
+      toastr()->success("admin supprimé avec succès");
+    } else {
+      toastr()->error('An error has occurred please try again later.');
+    }
+  }
 }

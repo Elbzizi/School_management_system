@@ -173,17 +173,7 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="password">Mot de passe</label>
-                                                    <input type="password" id="password" class="form-control" wire:model.live="password" />
-                                                    @error('password')
-                                                    <p class="error" role="alert">
-                                                        {{ $message }}
-                                                    </p>
-                                                    @enderror
-                                                </div>
-                                            </div>
+                                           
                                         </div>
                                     </div>
                                     <button class="btn btn-primary btn-block"  >submit</button>
