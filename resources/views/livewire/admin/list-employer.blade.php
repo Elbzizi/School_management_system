@@ -171,10 +171,7 @@
                                                         <input type="radio" name="role" value="enseignant" wire:model.live='inputrole'>
                                                         <span class="name">Enseignant</span>
                                                     </label>
-                                                    <label class="radio">
-                                                        <input type="radio" name="role" value="enseignant" wire:model.live='inputrole'>
-                                                        <span class="name">Enseignant</span>
-                                                    </label>
+                                              
                                                 </div>
                                             </div>
 

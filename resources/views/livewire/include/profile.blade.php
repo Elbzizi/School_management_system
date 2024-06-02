@@ -37,7 +37,7 @@
                                     <li class="list-group-item">
                                         @if ($groupeName)
                                             <b>le Groupe </b> <a class="float-right"
-                                                href="/admin/groupe/{{ $groupeID }}">{{ $groupeName}}</a>
+                                                href="/admin/groupe/{{ $groupeID }}">{{ $groupeName }}</a>
                                         @endif
                                     </li>
                                 </ul>
@@ -59,13 +59,15 @@
                                         <label for="nom" class="col-form-label">Name</label>
                                     </div>
                                     <div class="col-md-5 ms-auto mb-3">
-                                        <input type="text" id="nom" class="form-control" wire:model.live='name'>
+                                        <input type="text" id="nom" class="form-control"
+                                            wire:model.live='name'>
                                     </div>
                                     <div class="col-md-1 ms-auto">
                                         <label for="prenom" class="col-form-label">Prenom</label>
                                     </div>
                                     <div class="col-md-5 ms-auto mb-3">
-                                        <input type="text" id="prenom" class="form-control" wire:model.live='prenom'>
+                                        <input type="text" id="prenom" class="form-control"
+                                            wire:model.live='prenom'>
                                     </div>
                                     <div class="col-md-1 ms-auto">
                                         <label for="sexe" class="col-form-label">Sexe</label>
@@ -86,7 +88,8 @@
                                         <label for="adress" class="col-form-label">Address</label>
                                     </div>
                                     <div class="col-md-5 ms-auto mb-3">
-                                        <input type="text" id="adress" class="form-control" wire:model.live='adress'>
+                                        <input type="text" id="adress" class="form-control"
+                                            wire:model.live='adress'>
                                     </div>
                                     <div class="col-md-1 ms-auto">
                                         <label for="role" class="col-form-label">Role</label>
@@ -114,7 +117,8 @@
                                         <label for="tel" class="col-form-label">Telephone</label>
                                     </div>
                                     <div class="col-md-5 ms-auto mb-3">
-                                        <input type="text" id="tel" class="form-control" wire:model.live='tel'>
+                                        <input type="text" id="tel" class="form-control"
+                                            wire:model.live='tel'>
                                     </div>
                                     <div class="col-md-1 ms-auto">
                                         <label for="email" class="col-form-label">Email</label>
@@ -127,8 +131,7 @@
                                         <label for="password" class="col-form-label">Password </label>
                                     </div>
                                     <div class="col-md-5 ms-auto mb-3">
-                                        <input type="password" class="form-control"
-                                            wire:model.live='newpassword'>
+                                        <input type="password" class="form-control" wire:model.live='newpassword'>
                                     </div>
 
                                     <div class="col-md-7 ms-auto mb-3 d-flex justify-content-end">
@@ -161,8 +164,8 @@
                                             :</label>
                                         <p>Matiers : </p>
                                         {{-- @foreach ($info->matiers as $matier)
-                                            <li>{{ $matier->name }}</li>
-                                        @endforeach --}}
+                                          <li>{{ $matier->name }}</li>
+                                      @endforeach --}}
                                     </div>
                                     <div class="col-md-4 ms-auto mb-3">
 
