@@ -33,7 +33,7 @@
                                 <p class="text-muted text-center">{{ $role }}</p>
 
                                 <ul class="list-group list-group-unbordered mb-10">
-                                   
+
                                     <li class="list-group-item">
                                         @if ($groupeName)
                                             <b>le Groupe </b> <a class="float-right"
@@ -123,6 +123,14 @@
                                         <input type="email" id="email" class="form-control"
                                             wire:model.live='email'>
                                     </div>
+                                    <div class="col-md-1 ms-auto">
+                                        <label for="password" class="col-form-label">Password </label>
+                                    </div>
+                                    <div class="col-md-5 ms-auto mb-3">
+                                        <input type="password" class="form-control"
+                                            wire:model.live='newpassword'>
+                                    </div>
+
                                     <div class="col-md-7 ms-auto mb-3 d-flex justify-content-end">
                                         @if (Auth::guard('admin')->user())
                                             <button type="submit" class="btn btn-primary ">Modiffier</button>

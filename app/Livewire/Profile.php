@@ -11,25 +11,22 @@ class Profile extends Component
 {
   public $info;
   public $etudiant;
-  public $id, $name, $prenom, $sexe, $photo, $adress, $cin, $tel, $email, $role, $statut, $created_at, $updated_at, $groupeName ,$groupeID;
+  public $id, $name, $prenom, $sexe, $photo, $adress, $cin, $tel, $email, $role,$newpassword, $statut,$password, $created_at, $updated_at, $groupeName ,$groupeID;
   public $route;
   public $allstatuts = ['active', 'desactive', 'bloque'];
   public $allsexe = ['homme', 'femme'];
   public function render()
   {
 
+      $this->newpassword = '';
     return view('livewire.include.profile');
   }
   public function mount($id)
   {
     $this->route = url()->previous();
     $type = request()->query('type');
-    // ila kan l auth admin
     if (Auth::guard('admin')->check()) {
-      // ila kan type dyal l user etudiant -> afficher les information dyal l etudiant
       if ($type === 'etudiant') {
-        //etudiant
-        // $this->etudiant = User::find($id);
         $this->etudiant = User::with('groupe')->find($id);
 
         $this->id = $this->etudiant->id;
@@ -48,12 +45,11 @@ class Profile extends Component
             $this->groupeName = $this->etudiant->groupe->nom;
             $this->groupeID = $this->etudiant->groupe->id;
         } else {
-            $this->groupeName = 'No Groupe Assigned'; // Or any default value/message you prefer
-        }        // dd($this->groupeName);
+            $this->groupeName = 'No Groupe Assigned';
+        }
 
       } else {
-        // afficher dyal admin
-        // $this->info = Admin::with('matiers.groupes')->find($id);
+
         $this->info = Admin::find($id);
         $this->id = $this->info->id;
         $this->name = $this->info->name;
@@ -65,6 +61,7 @@ class Profile extends Component
         $this->tel = $this->info->tel;
         $this->email = $this->info->email;
         $this->role = $this->info->role;
+        $this->password = $this->info->password;
         $this->statut = $this->info->statut;
         $this->created_at = $this->info->created_at;
         $this->updated_at = $this->info->updated_at;
@@ -97,7 +94,7 @@ class Profile extends Component
     if (Auth::guard('admin')->check()) {
       if ($this->role === 'etudiant') {
         $old = User::find($id);
-        // dd($this->statut);
+
       } else {
         $old = Admin::find($id);
       }
@@ -112,6 +109,7 @@ class Profile extends Component
         'email' => $this->email,
         'role' => $this->role,
         'statut' => $this->statut,
+        'password'=>$this->newpassword,
       ]);
 
     }
