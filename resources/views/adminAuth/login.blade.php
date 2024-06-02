@@ -75,7 +75,7 @@
         </div>
     </div> --}}
 
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <style>
         .form {
             position: relative;
@@ -239,8 +239,16 @@
                 value="{{ old('email') }}" required autofocus autocomplete="username" />
             {{-- <label for="input" class="label">Email</label> --}}
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
-            <input id="input" class="input" type="password" name="password" placeholder="Password" required
-                autocomplete="current-password">
+            {{-- <input id="input" class="input" type="password" name="password" placeholder="Password" required
+                autocomplete="current-password"> --}}
+
+            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+            <div class="input-group-append">
+                <span class="input-group-text" id="toggle-password">
+                    <i class="fa fa-eye"></i>
+                </span>
+            </div>
+
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
             {{-- <label for="password">Password</label> --}}
             <button>login</button>
@@ -248,6 +256,24 @@
         </form>
 
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#toggle-password').click(function() {
+                let passwordField = $('#password');
+                let passwordFieldType = passwordField.attr('type');
+                if (passwordFieldType == 'password') {
+                    passwordField.attr('type', 'text');
+                    $(this).find('i').removeClass('fa-eye').addClass('fa-eye-slash');
+                } else {
+                    passwordField.attr('type', 'password');
+                    $(this).find('i').removeClass('fa-eye-slash').addClass('fa-eye');
+                }
+            });
+        });
+    </script>
     <video id="video" autoplay="autoplay" loop="loop" poster="polina.jpg">
         <source src="http://andytran.me/A%20peaceful%20nature%20timelapse%20video.mp4" type="video/mp4" />
     </video>
