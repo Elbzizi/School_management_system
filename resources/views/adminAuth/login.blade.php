@@ -248,9 +248,14 @@
             {{-- <input id="input" class="input" type="password" name="password" placeholder="Password" required
                 autocomplete="current-password"> --}}
 
+<<<<<<< HEAD
             <input type="password" class="form-control" name="password" id="password"
                 placeholder="Enter your password">
             <div class="voir">
+=======
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+            <div class="input-group-append">
+>>>>>>> 3f998a912f551143784fa937bb0d23e64a0c3ca8
                 <span class="input-group-text" id="toggle-password">
                     <i class="fa fa-eye"></i>
                 </span>
