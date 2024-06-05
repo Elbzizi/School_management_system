@@ -49,41 +49,15 @@ class ListEmployer extends Component
     $this->resetValidation();
   }
 
-  // public function addEmployer()
-  // {
-  //   $this->validate();
-
-  //   $password = $this->cin;
-  //   // $path = $this->photo?->store("Profile_Image");
-  //   // $path = $this->photo?->storeAs('Profile_Image', $this->name);
-  //   $path = $this->photo?->storeAs('Profile_Image', $this->name . '.' . $this->photo->getClientOriginalExtension());
-  //   // dd($path);
-  //   Admin::create([
-  //     'name' => $this->name,
-  //     'prenom' => $this->prenom,
-  //     'sexe' => $this->sexe,
-  //     'dateNaissance' => $this->dateNaissance,
-  //     'cin' => $this->cin,
-  //     'adress' => $this->adress,
-  //     // 'matier'=>$this->matier,
-  //     'email' => $this->email,
-  //     'tel' => $this->tel,
-  //     'photo' => $path,
-  //     'password' => bcrypt($password),
-  //     'role' => $this->inputrole,
-  //   ]);
-  //   $this->resetInput();
-  //   toastr()->success("L'étudiant a été ajouté avec succès");
-  //   $this->dispatch('close-modal');
-  // }
-
   public function addEmployer()
   {
     $this->validate();
 
     $password = $this->cin;
-    $path = $this->photo ? $this->photo->storeAs('Profile_Image', $this->name . '.' . $this->photo->getClientOriginalExtension()) : 'assets/img/logonull.jpg';
-    // dd(gettype($path));
+    // $path = $this->photo?->store("Profile_Image");
+    // $path = $this->photo?->storeAs('Profile_Image', $this->name);
+    $path = $this->photo?->storeAs('Profile_Image', $this->name . '.' . $this->photo->getClientOriginalExtension());
+    // dd($path);
     Admin::create([
       'name' => $this->name,
       'prenom' => $this->prenom,
@@ -91,17 +65,19 @@ class ListEmployer extends Component
       'dateNaissance' => $this->dateNaissance,
       'cin' => $this->cin,
       'adress' => $this->adress,
+      // 'matier'=>$this->matier,
       'email' => $this->email,
       'tel' => $this->tel,
       'photo' => $path,
       'password' => bcrypt($password),
       'role' => $this->inputrole,
     ]);
-
     $this->resetInput();
     toastr()->success("L'étudiant a été ajouté avec succès");
     $this->dispatch('close-modal');
   }
+
+
   // resetInput ------------------------------------------------------------------
   public function resetInput()
   {

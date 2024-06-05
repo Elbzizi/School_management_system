@@ -20,8 +20,7 @@ return new class extends Migration {
       $table->date('date_naissance')->nullable();
       $table->string('cin', 8)->unique()->nullable();
       $table->string('adress', 150)->nullable();
-      // $table->string('photo', 150)->nullable()->default('assets/img/logonull.jpg');
-      $table->string('photo', 150)->nullable();
+      $table->string('photo', 150)->nullable()->default('assets/img/logonull.jpg');
       $table->enum('role', array('etudiant', 'parent'))->default('etudiant');
       $table->enum('statut', array('active', 'desactive', 'bloque'))->default('active');
       $table->string('tel')->unique();
