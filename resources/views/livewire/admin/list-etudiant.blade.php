@@ -189,7 +189,7 @@
                                             <!-- Photo input -->
                                             <div class="form-group">
                                                 <label for="photo">Photo</label>
-                                                <input type="file" id="photo" class="form-control" wire:model="photo" disabled />
+                                                <input type="file" id="photo" class="form-control" wire:model="photo" />
                                             </div>
                                         </div>
                                         <!-- Repeat similar structure for additional rows if needed -->

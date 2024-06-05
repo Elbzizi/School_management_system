@@ -23,6 +23,7 @@ class Admin extends Authenticatable
         'cin',
         'adress',
         'role',
+        'photo',
         'statut',
         'tel',
         'email',
