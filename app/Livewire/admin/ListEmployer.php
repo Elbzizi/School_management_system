@@ -54,9 +54,7 @@ class ListEmployer extends Component
     $this->validate();
 
     $password = $this->cin;
-    // $path = $this->photo?->store("Profile_Image");
-    // $path = $this->photo?->storeAs('Profile_Image', $this->name);
-    $path = $this->photo?->storeAs('Profile_Image', $this->name . '.' . $this->photo->getClientOriginalExtension());
+    $path = $this->photo?->store("Profile_Image");
     // dd($path);
     Admin::create([
       'name' => $this->name,
