@@ -164,9 +164,13 @@
                                         <label for="nom" class="col-form-label">un {{ $role }} de
                                             :</label>
                                         <p>Matiers : </p>
-                                        {{-- @foreach ($info->matiers as $matier)
-                                          <li>{{ $matier->name }}</li>
-                                      @endforeach --}}
+
+                                        @foreach ($info->groupes as $groupe)
+                                        <p>{{ $groupe->nom }}
+                                            <button class="btn btn-danger" wire:click="deletegroupe({{ $groupe->id }})">Delete</button>
+                                        </p>
+
+                                        @endforeach
                                     </div>
                                     <div class="col-md-4 ms-auto mb-3">
 

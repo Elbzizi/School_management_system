@@ -17,6 +17,7 @@
                                     <input type="text" wire:model='duree' class="form-control" placeholder="duree">
                                     <hr>
                                     <input type="submit" class="btn btn-success">
+                                    {{-- <a wire:click='resetInput()' class="btn btn-danger">Reset</a> --}}
                                 </form>
                             </div>
                         </div>
@@ -86,7 +87,7 @@
                                         @endphp
                                         @if (!in_array($combination, $displayedCombinations))
                                             <tr>
-                                                <td>{{ $admin->name }}</td>
+                                                <td>{{ $admin->name }} {{ $admin->prenom }}</td>
                                                 <td>{{ $matier->nom_matier }}</td>
                                                 <td>
                                                     @php

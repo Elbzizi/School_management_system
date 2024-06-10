@@ -14,6 +14,9 @@ class Matiers extends Component
     public $admin_id , $matier_id , $groupe_id;
     public function render()
     {
+        $this->matier = '';
+        $this->coeff = '';
+        $this->duree = '';
         $this->matiers = Matier::get();
         $this->enseignants = Admin::where('role','enseignant')->get();
         $this->groupes = Groupe::get();
@@ -25,24 +28,47 @@ class Matiers extends Component
     }
     public function create() {
 
+       if(
         Matier::create([
             'nom_matier' => $this->matier,
             'Coefficient' => $this->coeff,
             'duree' => $this->duree,
-        ]);
+        ])
+       ){
+        toastr()->success('Matier Ajouté');
+       }
 
-        session()->flash('message', 'Matier Ajouté');
-        $this->matier = '';
-        $this->coeff = '';
-        $this->duree = '';
 
     }
-    public function affecter() {
-        admin_matier_groupe::create([
-            'groupe_id' => $this->groupe_id,
-            'admin_id' => $this->admin_id,
-            'matier_id' => $this->matier_id,
-        ]);
+    public function resetInput() {
+        $this->matier = null;
+        $this->coeff = null;
+        $this->duree = null;
+    }
+    public function affecter()
+    {
+        // Check if the combination already exists
+        $exists = admin_matier_groupe::where('groupe_id', $this->groupe_id)
+                                    ->where('admin_id', $this->admin_id)
+                                    ->where('matier_id', $this->matier_id)
+                                    ->exists();
+
+        if ($exists) {
+            toastr()->error('Cette combinaison groupe-enseignant-matière existe déjà.');
+        } else {
+            try {
+                admin_matier_groupe::create([
+                    'groupe_id' => $this->groupe_id,
+                    'admin_id' => $this->admin_id,
+                    'matier_id' => $this->matier_id,
+                ]);
+
+                toastr()->success('Affectation réussie');
+            } catch (QueryException $e) {
+                \Log::error($e->getMessage());
+                toastr()->error('Erreur lors de l\'affectation: ' . $e->getMessage());
+            }
+        }
     }
 
 }

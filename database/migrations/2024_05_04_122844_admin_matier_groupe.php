@@ -11,11 +11,10 @@ return new class extends Migration {
   public function up(): void
   {
     Schema::create('admin_matier_groupe', function (Blueprint $table) {
-      $table->id();
       $table->foreignId('groupe_id')->constrained()->cascadeOnDelete();
       $table->foreignId('admin_id')->constrained();
       $table->foreignId('matier_id')->constrained();
-
+        $table->primary(['groupe_id','matier_id']);
       $table->timestamps();
     });
   }

@@ -40,7 +40,7 @@
             @foreach ($cycles as $cycle)
                 <div class="card">
                     <div class="card-header text-center bg-success fa-2x">
-                        <marquee> {{ $cycle->nom_cycle }} </marquee>
+                        <h2> {{ $cycle->nom_cycle }} </h2>
                     </div>
 
                     <nav class="navbar navbar-expand-lg bg-body-tertiary">
