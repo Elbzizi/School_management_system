@@ -14,6 +14,7 @@ class ListEmployer extends Component
   public $role;
 
     public function mount(){
+        $this->Employers = Admin::where('role','!=','directeur')->get();
     }
     public function render()
     {
