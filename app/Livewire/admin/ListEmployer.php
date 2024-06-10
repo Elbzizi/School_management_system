@@ -4,70 +4,77 @@ namespace App\Livewire\Admin;
 
 use App\Models\Admin;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class ListEmployer extends Component
 {
-    public $Employers , $name , $prenom, $sexe, $dateNaissance, $cin, $adress, $matier, $email,$tel , $photo ,$password ,$inputrole;
-    public $role;
+  use WithFileUploads;
+
+  public $Employers, $name, $prenom, $sexe, $dateNaissance, $cin, $adress, $matier, $email, $tel, $photo, $password, $inputrole;
+  public $role;
 
     public function mount(){
     }
     public function render()
     {
-        $this->Employers = Admin::get();
         return view('livewire.admin.list-employer');
     }
     public function filter(){
         if ($this->role==='all') {
-            $this->Employers = Admin::get();
+            $this->Employers = Admin::where('role','!=','directeur')->get();
         } else {
             $this->Employers = Admin::where('role',$this->role)->get();
         }
     }
 
-    // protected $rules = [
-    //     'name' => 'required|max:50',
-    //     'prenom' => 'required|max:50',
-    //     'sexe' => 'required',
-    //     'dateNaissance' => 'required',
-    //     'cin' => 'required|min:8|max:8',
-    //     // 'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-    //     'adress' => 'required|min:5|max:250',
-    //     'email' => 'required|email',
-    //     'tel' => 'required|min:10|max:10',
-    //     'role' => 'required'
-    // ];
+    protected $rules = [
+        'name' => 'required|max:50',
+        'prenom' => 'required|max:50',
+        'sexe' => 'required',
+        'dateNaissance' => 'required',
+        'cin' => 'required|min:8|max:8',
+        // 'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'adress' => 'required|min:5|max:250',
+        'email' => 'required|email',
+        'tel' => 'required|min:10|max:10',
+        'role' => 'required'
+    ];
 
-    // public function updated($propertyName)
-    // {
-    //     $this->validateOnly($propertyName);
-    //     $this->resetValidation();
-    // }
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+        $this->resetValidation();
+    }
 
     public function addEmployer(){
-        // $this->validate();
+        $this->validate();
 
-        $password = $this->cin;
-        Admin::create([
-            'name'=>$this->name,
-            'prenom'=>$this->prenom,
-            'sexe'=>$this->sexe,
-            'dateNaissance'=>$this->dateNaissance,
-            'cin'=>$this->cin,
-            'adress'=>$this->adress,
-            // 'matier'=>$this->matier,
-            'email'=>$this->email,
-            'tel'=>$this->tel,
-            // 'photo'=>$this->photo,
-            'password'=>bcrypt($password),
-            'role'=>$this->inputrole,
-        ]);
-        $this->resetInput();
-        toastr()->success("L'étudiant a été ajouté avec succès");
-        $this->dispatch('close-modal');
-    }
-// resetInput ------------------------------------------------------------------
-public function resetInput() {
+    $password = $this->cin;
+    $path = $this->photo?->store("Profile_Image");
+    // dd($path);
+    Admin::create([
+      'name' => $this->name,
+      'prenom' => $this->prenom,
+      'sexe' => $this->sexe,
+      'dateNaissance' => $this->dateNaissance,
+      'cin' => $this->cin,
+      'adress' => $this->adress,
+      // 'matier'=>$this->matier,
+      'email' => $this->email,
+      'tel' => $this->tel,
+      'photo' => $path,
+      'password' => bcrypt($password),
+      'role' => $this->inputrole,
+    ]);
+    $this->resetInput();
+    toastr()->success("L'étudiant a été ajouté avec succès");
+    $this->dispatch('close-modal');
+  }
+
+
+  // resetInput ------------------------------------------------------------------
+  public function resetInput()
+  {
 
     $this->name = null;
     $this->prenom = null;
@@ -79,9 +86,9 @@ public function resetInput() {
     $this->tel = null;
     $this->email = null;
     $this->password = null;
-}
+  }
 
-public function supprimer($id)
+  public function supprimer($id)
   {
     $admin = Admin::find($id);
     if ($admin) {
@@ -92,3 +99,5 @@ public function supprimer($id)
     }
   }
 }
+
+
