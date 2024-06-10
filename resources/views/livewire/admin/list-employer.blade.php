@@ -1,6 +1,6 @@
 <div class="content-wrapper">
-    @section('listemployer',  'active')
-    @section('open-gestion-employer',  'menu-open')
+    @section('listemployer', 'active')
+    @section('open-gestion-employer', 'menu-open')
     <section class="content">
         <div class="row">
             <div class="container" style="margin-top: 5px;">
@@ -23,27 +23,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h6 style="float: left;"><strong>Liste des Employers</strong></h6>
-                                <form name="frm" wire:submit.prevent='filter'>
-                                    @csrf
-                                    <select class="form-select " style="margin-left:10px;" wire:model='role'
-                                        wire:change="filter">
-                                        <option value="all">Tout</option>
-                                        <option value="surveillant">surveillant</option>
-                                        <option value="enseignant">enseignant</option>
-                                    </select>
-                                    {{-- <button class="btn btn-sm btn-info">Rechercher</button> --}}
-                                    <a class="btn btn-sm btn-success" style="float: right;"data-toggle="modal"
-                                        data-target="#employermodal">Ajouter Employer</a>
-                                </form>
-                            </div>
-                        </div>
                     </div>
-                </div>
-                <div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="employermodal"
-                    aria-labelledby="Gestion Employers" aria-hidden="true">
                 </div>
                 <div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="employermodal"
                     aria-labelledby="Gestion Employers" aria-hidden="true">
@@ -51,8 +31,6 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel2">Creation de compte Pour employer </h5>
-                                <button type="button" class="btn-close btn btn-outline-secondary" data-dismiss="modal"
-                                    aria-label="Close">Fermer</button>
                                 <button type="button" class="btn-close btn btn-outline-secondary" data-dismiss="modal"
                                     aria-label="Close">Fermer</button>
                             </div>
@@ -64,12 +42,8 @@
                                             <div class="form-group">
                                                 <label for="name">Nom</label>
                                                 <input type="text" id="name" class="form-control"
-
                                                     wire:model.live='name' />
                                                 @error('name')
-                                                    <p class="error" role="alert">
-                                                        {{ $message }}
-                                                    </p>
                                                     <p class="error" role="alert">
                                                         {{ $message }}
                                                     </p>
@@ -81,12 +55,8 @@
                                             <div class="form-group">
                                                 <label for="prenom">Prenom</label>
                                                 <input type="text" id="prenom" class="form-control"
-
                                                     wire:model.live="prenom" />
                                                 @error('prenom')
-                                                    <p class="error" role="alert">
-                                                        {{ $message }}
-                                                    </p>
                                                     <p class="error" role="alert">
                                                         {{ $message }}
                                                     </p>
@@ -105,9 +75,6 @@
                                                     <p class="error" role="alert">
                                                         {{ $message }}
                                                     </p>
-                                                    <p class="error" role="alert">
-                                                        {{ $message }}
-                                                    </p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -118,12 +85,11 @@
                                             <div class="form-group">
                                                 <label for="dateNaissance">Date de naissance</label>
                                                 <input type="date" id="dateNaissance" class="form-control"
-
                                                     wire:model.live="dateNaissance" />
                                                 @error('dateNaissance')
-                                                        <p class="error" role="alert">
-                                                            {{ $message }}
-                                                        </p>
+                                                    <p class="error" role="alert">
+                                                        {{ $message }}
+                                                    </p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -132,12 +98,11 @@
                                             <div class="form-group">
                                                 <label for="cin">CIN</label>
                                                 <input type="text" id="cin" class="form-control"
-
                                                     wire:model.live="cin" />
                                                 @error('cin')
-                                                        <p class="error" role="alert">
-                                                            {{ $message }}
-                                                        </p>
+                                                    <p class="error" role="alert">
+                                                        {{ $message }}
+                                                    </p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -147,12 +112,7 @@
                                                 <label for="adress">Adress</label>
                                                 <input type="text" id="adress" class="form-control"
                                                     wire:model.live="adress" />
-                                                <input type="text" id="adress" class="form-control"
-                                                    wire:model.live="adress" />
                                                 @error('adress')
-                                                    <p class="error" role="alert">
-                                                        {{ $message }}
-                                                    </p>
                                                     <p class="error" role="alert">
                                                         {{ $message }}
                                                     </p>
@@ -175,12 +135,7 @@
                                                 <label for="email">Email</label>
                                                 <input type="email" id="email" class="form-control"
                                                     wire:model.live="email" />
-                                                <input type="email" id="email" class="form-control"
-                                                    wire:model.live="email" />
                                                 @error('email')
-                                                    <p class="error" role="alert">
-                                                        {{ $message }}
-                                                    </p>
                                                     <p class="error" role="alert">
                                                         {{ $message }}
                                                     </p>
@@ -193,12 +148,7 @@
                                                 <label for="tel">Télephone</label>
                                                 <input type="tel" id="tel" class="form-control"
                                                     wire:model.live="tel" />
-                                                <input type="tel" id="tel" class="form-control"
-                                                    wire:model.live="tel" />
                                                 @error('tel')
-                                                    <p class="error" role="alert">
-                                                        {{ $message }}
-                                                    </p>
                                                     <p class="error" role="alert">
                                                         {{ $message }}
                                                     </p>
@@ -221,13 +171,9 @@
                                                     <label class="radio">
                                                         <input type="radio" name="role" value="surveillant"
                                                             checked="" wire:model.live='inputrole'>
-                                                        <input type="radio" name="role" value="surveillant"
-                                                            checked="" wire:model.live='inputrole'>
                                                         <span class="name">Surveillant</span>
                                                     </label>
                                                     <label class="radio">
-                                                        <input type="radio" name="role" value="directeur"
-                                                            wire:model.live='inputrole'>
                                                         <input type="radio" name="role" value="directeur"
                                                             wire:model.live='inputrole'>
                                                         <span class="name">Directeur</span>
@@ -236,11 +182,8 @@
                                                     <label class="radio">
                                                         <input type="radio" name="role" value="enseignant"
                                                             wire:model.live='inputrole'>
-                                                        <input type="radio" name="role" value="enseignant"
-                                                            wire:model.live='inputrole'>
                                                         <span class="name">Enseignant</span>
                                                     </label>
-
 
                                                 </div>
                                             </div>
@@ -248,15 +191,12 @@
                                         </div>
                                     </div>
                                     <button class="btn btn-primary btn-block">submit</button>
-                                    <button class="btn btn-primary btn-block">submit</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
             </div>
-            <div class="container ">
             <div class="container ">
                 <div class="card card-statistics h-100">
                     <div class="card-body">
@@ -274,26 +214,7 @@
                                 <tbody>
                                     @foreach ($Employers as $Emp)
                                         <tr>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table id="datatable" class="table table-bordered table-hover text-center">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Nom</th>
-                                        <th>Prenom</th>
-                                        <th>Role</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($Employers as $Emp)
-                                        <tr>
 
-                                            <td style="width: 50px;">{{ $Emp->id }}</td>
-                                            <td style="width: 130px;">{{ $Emp->name }}</td>
-                                            <td style="width: 160px;">{{ $Emp->prenom }}</td>
-                                            <td style="width: 100px;">{{ $Emp->role }}</td>
                                             <td style="width: 50px;">{{ $Emp->id }}</td>
                                             <td style="width: 130px;">{{ $Emp->name }}</td>
                                             <td style="width: 160px;">{{ $Emp->prenom }}</td>
@@ -317,12 +238,7 @@
                             </table>
                         </div>
                     </div>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </section>
