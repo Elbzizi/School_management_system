@@ -235,16 +235,14 @@
 
 
                               <td style="width: 160px;">
-                                <div class="btn-group">
-                                  <button type="button" class="btn btn-warning" style="color: white;">Action</button>
-                                  <button type="button" class="btn btn-warning dropdown-toggle" style="color: white;" data-toggle="dropdown">
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                  </button>
-                                  <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item" href="/admin/profile/{{ $etudiant->id }}?type=etudiant">Afficher</a>
-                                    <a class="dropdown-item cursour-pointer"  href="#" wire:click.prevent='delete({{ $etudiant->id }})'>supprimer</a>
-                                  </div>
-                                </div>
+                                <button class="btn btn-outline-danger ms-2 "
+                                wire:click.prevent='delete({{ $etudiant->id }})'>
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                        <a href="/admin/profile/{{ $etudiant->id }}?type=etudiant"
+                                            class="btn btn-outline-warning ms-2">
+                                            <i class="fa fa-eye" aria-hidden="true"></i></a>
+                                
                             </td>
                           </tr>
 

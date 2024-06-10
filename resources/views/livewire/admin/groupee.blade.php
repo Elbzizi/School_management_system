@@ -17,7 +17,7 @@
                                         {{ $etudiants->count() }}/{{ $groupe->capacite }}</p>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <p class="">le Groupe {{ $groupe->nom }}</p>
+                                    <p class="">le Groupe {{ $groupName }}</p>
                                     <p class=""></p>
                                 </div>
                             </div>
@@ -65,9 +65,7 @@
                                                         <a href="/admin/profile/{{ $etudiant->id }}?type=etudiant" class="btn btn-primary">
                                                             <i class="fa fa-edit"></i>
                                                         </a>
-                                                        <a class="btn btn-danger btn-sm" wire:click.stop='retire()'>
-                                                            <i class="fa fa-trash"></i>
-                                                        </a>
+                                                        
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -78,7 +76,7 @@
                                                 <th>Nom</th>
                                                 <th>Prenom</th>
                                                 <th>Date Naissance</th>
-                                                <th>Selectionnez</th>
+                                                <th>Action</th>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -95,6 +93,12 @@
             </div>
         </div>
 
+
+
+    @livewireScripts
+
+
+
 </div>
 </section>
 
@@ -104,8 +108,6 @@
 </div>
 </div>
 
-
-@livewireScripts
 
 </body>
 

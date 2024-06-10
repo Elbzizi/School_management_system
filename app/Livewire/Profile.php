@@ -15,6 +15,8 @@ class Profile extends Component
   public $route;
   public $allstatuts = ['active', 'desactive', 'bloque'];
   public $allsexe = ['homme', 'femme'];
+  protected $listeners = ['deleteMatier'];
+
   public function render()
   {
 
@@ -28,7 +30,6 @@ class Profile extends Component
     if (Auth::guard('admin')->check()) {
       if ($type === 'etudiant') {
         $this->etudiant = User::with('groupe')->find($id);
-
         $this->id = $this->etudiant->id;
         $this->name = $this->etudiant->name;
         $this->prenom = $this->etudiant->prenom;
@@ -119,7 +120,15 @@ class Profile extends Component
 
 
 
+    }
+    public function deletegroupe($groupeId)
+    {
+        $admin = Admin::findOrFail($this->id);
+        $admin->groupes()->detach($groupeId);
 
+        // Reload the matiers
+        $this->info = Admin::find($this->id);
+        toastr()->success("groupe deleted successfully.");
 
-  }
+    }
 }
