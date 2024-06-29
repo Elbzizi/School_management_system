@@ -34,7 +34,7 @@ class ListEmployer extends Component
         'sexe' => 'required',
         'dateNaissance' => 'required',
         'cin' => 'required|min:8|max:8',
-        // 'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         'adress' => 'required|min:5|max:250',
         'email' => 'required|email',
         'tel' => 'required|min:10|max:10',
