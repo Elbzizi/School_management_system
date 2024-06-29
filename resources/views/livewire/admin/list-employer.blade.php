@@ -162,7 +162,7 @@
                                             <div class="form-group">
                                                 <label for="photo">Photo</label>
                                                 <input type="file" id="photo" class="form-control"
-                                                    wire:model="photo" disabled />
+                                                    wire:model="photo"  />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
