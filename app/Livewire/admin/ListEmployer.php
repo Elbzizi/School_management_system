@@ -13,46 +13,49 @@ class ListEmployer extends Component
   public $Employers, $name, $prenom, $sexe, $dateNaissance, $cin, $adress, $matier, $email, $tel, $photo, $password, $inputrole;
   public $role;
 
-    public function mount(){
-        $this->Employers = Admin::where('role','!=','directeur')->get();
+  public function mount()
+  {
+    $this->Employers = Admin::where('role', '!=', 'directeur')->get();
+  }
+  public function render()
+  {
+    return view('livewire.admin.list-employer');
+  }
+  public function filter()
+  {
+    if ($this->role === 'all') {
+      $this->Employers = Admin::where('role', '!=', 'directeur')->get();
+    } else {
+      $this->Employers = Admin::where('role', $this->role)->get();
     }
-    public function render()
-    {
-        return view('livewire.admin.list-employer');
-    }
-    public function filter(){
-        if ($this->role==='all') {
-            $this->Employers = Admin::where('role','!=','directeur')->get();
-        } else {
-            $this->Employers = Admin::where('role',$this->role)->get();
-        }
-    }
+  }
 
-    protected $rules = [
-        'name' => 'required|max:50',
-        'prenom' => 'required|max:50',
-        'sexe' => 'required',
-        'dateNaissance' => 'required',
-        'cin' => 'required|min:8|max:8',
-        'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-        'adress' => 'required|min:5|max:250',
-        'email' => 'required|email',
-        'tel' => 'required|min:10|max:10',
-        'role' => 'required'
-    ];
+  protected $rules = [
+    'name' => 'required|max:50',
+    'prenom' => 'required|max:50',
+    'sexe' => 'required',
+    'dateNaissance' => 'required',
+    'cin' => 'required|min:8|max:8',
+    'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+    'adress' => 'required|min:5|max:250',
+    'email' => 'required|email',
+    'tel' => 'required|min:10|max:10',
+    'role' => 'required'
+  ];
 
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
-        $this->resetValidation();
-    }
+  public function updated($propertyName)
+  {
+    $this->validateOnly($propertyName);
+    $this->resetValidation();
+  }
 
-    public function addEmployer(){
-        $this->validate();
+  public function addEmployer()
+  {
+    $this->validate();
 
     $password = $this->cin;
     $path = $this->photo?->store("Profile_Image");
-    // dd($path);
+    dd($this->all());
     Admin::create([
       'name' => $this->name,
       'prenom' => $this->prenom,
