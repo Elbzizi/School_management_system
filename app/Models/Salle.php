@@ -9,8 +9,8 @@ class Salle extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public function emploi()
-    {
-        return $this->hasMany(Emploi_temp::class);
-    }
+    // public function emploi()
+    // {
+    //     return $this->hasMany(Emploi_temp::class);
+    // }
 }
