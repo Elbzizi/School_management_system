@@ -82,9 +82,10 @@ class ListEmployer extends Component
 
     $this->resetInput();
     toastr()->success("L'employé a été ajouté avec succès");
-    $this->employers->prepend($employer);
+    // $this->employers->prepend($employer);
     // $this->dispatchBrowserEvent('closeModal');
     $this->dispatch('close-modal');
+    $this->mount();
 
 
   }
