@@ -48,14 +48,24 @@ class ListEmployer extends Component
     $this->validateOnly($propertyName);
     $this->resetValidation();
   }
-
   public function addEmployer()
   {
-    $this->validate();
+    $this->validate([
+      'name' => 'required|string|max:255',
+      'prenom' => 'required|string|max:255',
+      'sexe' => 'required|string',
+      'dateNaissance' => 'required|date',
+      'cin' => 'required|string|max:20',
+      'adress' => 'required|string|max:255',
+      'email' => 'required|email|max:255|unique:admins,email',
+      'tel' => 'required|string|max:20',
+      'photo' => 'nullable|image|max:1024',
+      'inputrole' => 'required|string',
+    ]);
 
     $password = $this->cin;
-    $path = $this->photo?->store("Profile_Image");
-    dd($this->all());
+    $path = $this->photo ? $this->photo->store('Profile_Image') : null;
+
     Admin::create([
       'name' => $this->name,
       'prenom' => $this->prenom,
@@ -63,33 +73,30 @@ class ListEmployer extends Component
       'dateNaissance' => $this->dateNaissance,
       'cin' => $this->cin,
       'adress' => $this->adress,
-      // 'matier'=>$this->matier,
       'email' => $this->email,
       'tel' => $this->tel,
       'photo' => $path,
       'password' => bcrypt($password),
       'role' => $this->inputrole,
     ]);
+
     $this->resetInput();
-    toastr()->success("L'étudiant a été ajouté avec succès");
-    $this->dispatch('close-modal');
+    toastr()->success("L'employé a été ajouté avec succès");
+    $this->emit('closeModal');
   }
 
-
-  // resetInput ------------------------------------------------------------------
-  public function resetInput()
+  private function resetInput()
   {
-
-    $this->name = null;
-    $this->prenom = null;
-    $this->sexe = null;
-    $this->cin = null;
+    $this->name = '';
+    $this->prenom = '';
+    $this->sexe = '';
+    $this->dateNaissance = '';
+    $this->cin = '';
+    $this->adress = '';
+    $this->email = '';
+    $this->tel = '';
     $this->photo = null;
-    $this->adress = null;
-    $this->statut = null;
-    $this->tel = null;
-    $this->email = null;
-    $this->password = null;
+    $this->inputrole = '';
   }
 
   public function supprimer($id)
