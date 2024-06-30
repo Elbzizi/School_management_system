@@ -66,7 +66,7 @@ class ListEmployer extends Component
     $password = $this->cin;
     $path = $this->photo ? $this->photo->store('Profile_Image') : null;
     // dd($path);
-    Admin::create([
+    $employer = Admin::create([
       'name' => $this->name,
       'prenom' => $this->prenom,
       'sexe' => $this->sexe,
@@ -82,7 +82,11 @@ class ListEmployer extends Component
 
     $this->resetInput();
     toastr()->success("L'employé a été ajouté avec succès");
-    $this->dispatchBrowserEvent('closeModal');
+    $this->employers->prepend($employer);
+    // $this->dispatchBrowserEvent('closeModal');
+    $this->dispatch('close-modal');
+
+
   }
 
   private function resetInput()
