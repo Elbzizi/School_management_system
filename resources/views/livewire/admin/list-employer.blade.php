@@ -35,18 +35,16 @@
                                     aria-label="Close">Fermer</button>
                             </div>
                             <div class="modal-body p-4">
-                                <form wire:submit.prevent='addEmployer()'>
+                                <form wire:submit.prevent='addEmployer'>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <!-- Name input -->
                                             <div class="form-group">
                                                 <label for="name">Nom</label>
                                                 <input type="text" id="name" class="form-control"
-                                                    wire:model.live='name' />
+                                                    wire:model='name' />
                                                 @error('name')
-                                                    <p class="error" role="alert">
-                                                        {{ $message }}
-                                                    </p>
+                                                    <p class="error" role="alert">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -55,11 +53,9 @@
                                             <div class="form-group">
                                                 <label for="prenom">Prenom</label>
                                                 <input type="text" id="prenom" class="form-control"
-                                                    wire:model.live="prenom" />
+                                                    wire:model="prenom" />
                                                 @error('prenom')
-                                                    <p class="error" role="alert">
-                                                        {{ $message }}
-                                                    </p>
+                                                    <p class="error" role="alert">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -67,14 +63,12 @@
                                             <!-- Sexe select -->
                                             <div class="form-group">
                                                 <label for="sexe">Sexe</label>
-                                                <select id="sexe" class="form-control" wire:model.live="sexe">
+                                                <select id="sexe" class="form-control" wire:model="sexe">
                                                     <option value="homme">Homme</option>
                                                     <option value="femme">Femme</option>
                                                 </select>
                                                 @error('sexe')
-                                                    <p class="error" role="alert">
-                                                        {{ $message }}
-                                                    </p>
+                                                    <p class="error" role="alert">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -85,11 +79,9 @@
                                             <div class="form-group">
                                                 <label for="dateNaissance">Date de naissance</label>
                                                 <input type="date" id="dateNaissance" class="form-control"
-                                                    wire:model.live="dateNaissance" />
+                                                    wire:model="dateNaissance" />
                                                 @error('dateNaissance')
-                                                    <p class="error" role="alert">
-                                                        {{ $message }}
-                                                    </p>
+                                                    <p class="error" role="alert">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -98,11 +90,9 @@
                                             <div class="form-group">
                                                 <label for="cin">CIN</label>
                                                 <input type="text" id="cin" class="form-control"
-                                                    wire:model.live="cin" />
+                                                    wire:model="cin" />
                                                 @error('cin')
-                                                    <p class="error" role="alert">
-                                                        {{ $message }}
-                                                    </p>
+                                                    <p class="error" role="alert">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -111,17 +101,14 @@
                                             <div class="form-group">
                                                 <label for="adress">Adress</label>
                                                 <input type="text" id="adress" class="form-control"
-                                                    wire:model.live="adress" />
+                                                    wire:model="adress" />
                                                 @error('adress')
-                                                    <p class="error" role="alert">
-                                                        {{ $message }}
-                                                    </p>
+                                                    <p class="error" role="alert">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-
                                         <div class="col-md-4">
                                             <!-- Parent input -->
                                             <div class="form-group">
@@ -134,11 +121,9 @@
                                             <div class="form-group">
                                                 <label for="email">Email</label>
                                                 <input type="email" id="email" class="form-control"
-                                                    wire:model.live="email" />
+                                                    wire:model="email" />
                                                 @error('email')
-                                                    <p class="error" role="alert">
-                                                        {{ $message }}
-                                                    </p>
+                                                    <p class="error" role="alert">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -147,11 +132,9 @@
                                             <div class="form-group">
                                                 <label for="tel">Télephone</label>
                                                 <input type="tel" id="tel" class="form-control"
-                                                    wire:model.live="tel" />
+                                                    wire:model="tel" />
                                                 @error('tel')
-                                                    <p class="error" role="alert">
-                                                        {{ $message }}
-                                                    </p>
+                                                    <p class="error" role="alert">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -162,7 +145,7 @@
                                             <div class="form-group">
                                                 <label for="photo">Photo</label>
                                                 <input type="file" id="photo" class="form-control"
-                                                    wire:model="photo"  />
+                                                    wire:model="photo" />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -170,29 +153,27 @@
                                                 <div class="radio-inputs">
                                                     <label class="radio">
                                                         <input type="radio" name="role" value="surveillant"
-                                                            checked="" wire:model.live='inputrole'>
+                                                            checked="" wire:model='inputrole'>
                                                         <span class="name">Surveillant</span>
                                                     </label>
                                                     <label class="radio">
                                                         <input type="radio" name="role" value="directeur"
-                                                            wire:model.live='inputrole'>
+                                                            wire:model='inputrole'>
                                                         <span class="name">Directeur</span>
                                                     </label>
-
                                                     <label class="radio">
                                                         <input type="radio" name="role" value="enseignant"
-                                                            wire:model.live='inputrole'>
+                                                            wire:model='inputrole'>
                                                         <span class="name">Enseignant</span>
                                                     </label>
-
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary btn-block">submit</button>
+                                    <button class="btn btn-primary btn-block" type="submit">Submit</button>
                                 </form>
                             </div>
+
                         </div>
                     </div>
                 </div>
