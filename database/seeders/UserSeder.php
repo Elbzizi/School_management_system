@@ -13,7 +13,7 @@ class UserSeder extends Seeder
    */
   public function run(): void
   {
-    User::factory()->count(30)->create();
+    User::factory()->count(20)->create();
 
     // $sexe = Arr::random(['homme', 'femme']);
     // $role = 'etudiant';

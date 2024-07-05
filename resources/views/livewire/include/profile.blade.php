@@ -127,12 +127,7 @@
                                         <input type="email" id="email" class="form-control"
                                             wire:model.live='email'>
                                     </div>
-                                    <div class="col-md-1 ms-auto">
-                                        <label for="password" class="col-form-label">Password </label>
-                                    </div>
-                                    <div class="col-md-5 ms-auto mb-3">
-                                        <input type="password" class="form-control" wire:model.live='newpassword'>
-                                    </div>
+                                    
 
                                     <div class="col-md-7 ms-auto mb-3 d-flex justify-content-end">
                                         @if (Auth::guard('admin')->user())
@@ -163,9 +158,17 @@
                                         <label for="nom" class="col-form-label">un {{ $role }} de
                                             :</label>
                                         <p>Matiers : </p>
-                                        {{-- @foreach ($info->matiers as $matier)
-                                          <li>{{ $matier->name }}</li>
-                                      @endforeach --}}
+
+                                        @foreach ($info->groupes as $groupe)
+                                        <p>{{ $groupe->nom }}
+                                            @foreach ($groupe->matiers as $matier)
+                                                {{ $matier->nom_matier }}
+                                            @endforeach
+
+                                            <button class="btn btn-danger" wire:click="deletegroupe({{ $groupe->id }})">Delete</button>
+                                        </p>
+
+                                        @endforeach
                                     </div>
                                     <div class="col-md-4 ms-auto mb-3">
 
@@ -173,7 +176,6 @@
 
                                     <div class="col-md-6 ms-auto mb-3 d-flex justify-content-end">
                                         @if (Auth::guard('admin')->user())
-                                            <button type="submit" class="btn btn-primary ">Modiffier</button>
                                         @else
                                             <a href="#" class="disabled-link">Modifier</a>
                                         @endif

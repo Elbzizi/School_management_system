@@ -24,10 +24,17 @@ class DatabaseSeeder extends Seeder
     $this->call(CycleSeeder::class);
     $this->call(NiveauxSeeder::class);
     $this->call(GroupesSeeder::class);
+
     $this->call(UserSeder::class);
     $this->call(absence::class);
-    Matier::factory(30)->create();
-    admin_matier_groupe::factory(10)->create();
+
+
+
+
+
+    $this->call([EnseignantSeeder::class]);
+    // Matier::factory(30)->create();
+    // admin_matier_groupe::factory(10)->create();
 
   }
 }

@@ -16,14 +16,13 @@ use App\Livewire\admin\CycleEtude;
 use App\Livewire\Admin\ListEmployer;
 use App\Livewire\Admin\ListEtudiant;
 use Illuminate\Support\Facades\Route;
+
+
 use App\Livewire\Admin\DemandeInscription;
 
 
 
-
-
 Route::prefix('admin')->name('admin.')->group(function () {
- // ghadi tdkhl lhna ghir ila knti admin
     Route::middleware('isadmin')->group(function () {
                 Route::get('home', Home::class)->name('home');
                 Route::get('Cycles_etude', CycleEtude::class)->name('Cycles');
