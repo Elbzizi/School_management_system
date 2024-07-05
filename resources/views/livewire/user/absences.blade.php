@@ -25,7 +25,6 @@
                                         <th>Matire</th>
                                         <th>date Absence</th>
                                         <th>Justification </th>
-                                        <th>Descripton</th>
 
                                     </tr>
                                 </thead>
@@ -36,7 +35,7 @@
                                             <td> {{ $item->matier }} </td>
                                             <td> {{ $item->date_Absences }} </td>
                                             <td>{{ $item->justife ? 'justifié' : 'non justifié' }}</td>
-                                            <td> {{ $item->description }} </td>
+                                            
                                         </tr>
                                     @endforeach
                                 </tbody>

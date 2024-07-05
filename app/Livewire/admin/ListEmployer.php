@@ -13,95 +13,80 @@ class ListEmployer extends Component
   public $Employers, $name, $prenom, $sexe, $dateNaissance, $cin, $adress, $matier, $email, $tel, $photo, $password, $inputrole;
   public $role;
 
-  public function mount()
-  {
-    $this->Employers = Admin::where('role', '!=', 'directeur')->get();
-  }
-  public function render()
-  {
-    return view('livewire.admin.list-employer');
-  }
-  public function filter()
-  {
-    if ($this->role === 'all') {
-      $this->Employers = Admin::where('role', '!=', 'directeur')->get();
-    } else {
-      $this->Employers = Admin::where('role', $this->role)->get();
+    public function mount(){
     }
-  }
+    public function render()
+    {
+        $this->Employers = Admin::get();
+        return view('livewire.admin.list-employer');
+    }
+    public function filter(){
+        if ($this->role==='all') {
+            $this->Employers = Admin::get();
+        } else {
+            $this->Employers = Admin::where('role',$this->role)->get();
+        }
+    }
 
-  protected $rules = [
-    'name' => 'required|max:50',
-    'prenom' => 'required|max:50',
-    'sexe' => 'required',
-    'dateNaissance' => 'required',
-    'cin' => 'required|min:8|max:8',
-    'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-    'adress' => 'required|min:5|max:250',
-    'email' => 'required|email',
-    'tel' => 'required|min:10|max:10',
-    'role' => 'required'
-  ];
+    // protected $rules = [
+    //     'name' => 'required|max:50',
+    //     'prenom' => 'required|max:50',
+    //     'sexe' => 'required',
+    //     'dateNaissance' => 'required',
+    //     'cin' => 'required|min:8|max:8',
+    //     // 'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+    //     'adress' => 'required|min:5|max:250',
+    //     'email' => 'required|email',
+    //     'tel' => 'required|min:10|max:10',
+    //     'role' => 'required'
+    // ];
 
-  public function updated($propertyName)
-  {
-    $this->validateOnly($propertyName);
-    $this->resetValidation();
-  }
-  public function addEmployer()
-  {
-    $this->validate([
-      'name' => 'required|string|max:255',
-      'prenom' => 'required|string|max:255',
-      'sexe' => 'required|string',
-      'dateNaissance' => 'required|date',
-      'cin' => 'required|string|max:20',
-      'adress' => 'required|string|max:255',
-      'email' => 'required|email|max:255|unique:admins,email',
-      'tel' => 'required|string|max:20',
-      'photo' => 'nullable|image|max:1024',
-      'inputrole' => 'required|string',
-    ]);
+    // public function updated($propertyName)
+    // {
+    //     $this->validateOnly($propertyName);
+    //     $this->resetValidation();
+    // }
+
+    public function addEmployer(){
+        // $this->validate();
 
     $password = $this->cin;
-    $path = $this->photo ? $this->photo->store('Profile_Image') : null;
+    $path = $this->photo?->store("Profile_Image");
     // dd($path);
-    $employer = Admin::create([
+    Admin::create([
       'name' => $this->name,
       'prenom' => $this->prenom,
       'sexe' => $this->sexe,
       'dateNaissance' => $this->dateNaissance,
       'cin' => $this->cin,
       'adress' => $this->adress,
+      // 'matier'=>$this->matier,
       'email' => $this->email,
       'tel' => $this->tel,
       'photo' => $path,
       'password' => bcrypt($password),
       'role' => $this->inputrole,
     ]);
-
     $this->resetInput();
-    toastr()->success("L'employé a été ajouté avec succès");
-    // $this->employers->prepend($employer);
-    // $this->dispatchBrowserEvent('closeModal');
+    toastr()->success("L'étudiant a été ajouté avec succès");
     $this->dispatch('close-modal');
-    $this->mount();
-
-
   }
 
-  private function resetInput()
+
+  // resetInput ------------------------------------------------------------------
+  public function resetInput()
   {
-    $this->name = '';
-    $this->prenom = '';
-    $this->sexe = '';
-    $this->dateNaissance = '';
-    $this->cin = '';
-    $this->adress = '';
-    $this->email = '';
-    $this->tel = '';
+
+    $this->name = null;
+    $this->prenom = null;
+    $this->sexe = null;
+    $this->cin = null;
     $this->photo = null;
-    $this->inputrole = '';
+    $this->adress = null;
+    $this->statut = null;
+    $this->tel = null;
+    $this->email = null;
+    $this->password = null;
   }
 
   public function supprimer($id)

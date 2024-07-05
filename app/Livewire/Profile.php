@@ -110,7 +110,6 @@ class Profile extends Component
         'email' => $this->email,
         'role' => $this->role,
         'statut' => $this->statut,
-        'password'=>$this->newpassword,
       ]);
 
     }

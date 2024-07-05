@@ -128,12 +128,7 @@
                                         <input type="email" id="email" class="form-control"
                                             wire:model.live='email'>
                                     </div>
-                                    <div class="col-md-1 ms-auto">
-                                        <label for="password" class="col-form-label">Password </label>
-                                    </div>
-                                    <div class="col-md-5 ms-auto mb-3">
-                                        <input type="password" class="form-control" wire:model.live='newpassword'>
-                                    </div>
+                                    
 
                                     <div class="col-md-7 ms-auto mb-3 d-flex justify-content-end">
                                         @if (Auth::guard('admin')->user())
@@ -167,6 +162,13 @@
 
                                         @foreach ($info->groupes as $groupe)
                                         <p>{{ $groupe->nom }}
+<<<<<<< HEAD
+                                            @foreach ($groupe->matiers as $matier)
+                                                {{ $matier->nom_matier }}
+                                            @endforeach
+
+=======
+>>>>>>> b657c9b96ed12f65e6d7b05f791b40265a781d62
                                             <button class="btn btn-danger" wire:click="deletegroupe({{ $groupe->id }})">Delete</button>
                                         </p>
 
@@ -178,7 +180,6 @@
 
                                     <div class="col-md-6 ms-auto mb-3 d-flex justify-content-end">
                                         @if (Auth::guard('admin')->user())
-                                            <button type="submit" class="btn btn-primary ">Modiffier</button>
                                         @else
                                             <a href="#" class="disabled-link">Modifier</a>
                                         @endif

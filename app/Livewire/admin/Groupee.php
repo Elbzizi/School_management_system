@@ -3,12 +3,26 @@
 namespace App\Livewire\Admin;
 
 use App\Models\Groupe;
+use App\Models\Absence;
 use Livewire\Component;
 use Illuminate\Support\Collection;
 
 class Groupee extends Component
 {
     public $id_route , $etudiants, $groupe ,$niveau , $cycle, $groupName;
+<<<<<<< HEAD
+
+    public $selectedGroupe = null;
+    public $selectedEtudiant = null;
+    public $matierId;
+    public $matieres;
+    public $Matier;
+
+    public $justification;
+    public $date;
+    public $studentIdToRemove;
+=======
+>>>>>>> b657c9b96ed12f65e6d7b05f791b40265a781d62
 
 
     public function mount($id) {
@@ -21,11 +35,42 @@ class Groupee extends Component
         $this->niveau = $this->groupe->niveau;
         $this->cycle = $this->niveau->cycle;
         $this->etudiants = $this->groupe->users;
+        $this->matieres = $this->groupe->matiers;
+
 
         // dd($this->etudiant);
         return view('livewire.admin.groupee');
     }
 
+<<<<<<< HEAD
+    public function submit()
+    {
+        // $this->validate([
+        //     'selectedEtudiant' => 'required',
+        //     'matierId' => 'required',
+        //     'justification' => 'required',
+        //     'date' => 'required|date',
+        // ]);
+
+        Absence::create([
+            'user_id' => $this->selectedEtudiant,
+            'matier' => $this->Matier,
+            'justife' => $this->justification,
+            'description' =>'null',
+            'date_Absences' => $this->date,
+        ]);
+
+        toastr()->success('Absence recorded successfully.');
+        $this->selectedEtudiant = '';
+        $this->matierId = '';
+        $this->justification = '';
+        $this->date = '';
+        
+
+    }
+
+
+=======
 
     public function retire($studentId)
     {
@@ -42,5 +87,6 @@ class Groupee extends Component
         // Close the modal after deletion
         $this->dispatchBrowserEvent('closeDeleteModal');
     }
+>>>>>>> b657c9b96ed12f65e6d7b05f791b40265a781d62
 
 }
