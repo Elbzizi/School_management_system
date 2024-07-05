@@ -9,10 +9,11 @@ use App\Models\Niveau;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
+use Livewire\WithFileUploads;
 
 class ListEtudiant extends Component
 {
-
+  use WithFileUploads;
   public $cycles, $niveaux, $groupes;
   public $cycle, $niveau, $groupe;
   public $id, $name, $prenom, $sexe, $cin, $photo, $adress, $role, $dateNaissance, $statut, $tel, $email, $password;
@@ -64,7 +65,7 @@ class ListEtudiant extends Component
     'sexe' => 'required',
     'cin' => 'required|min:8|max:8',
     'dateNaissance' => 'required',
-    // 'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+    'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
     'adress' => 'required|min:5|max:250',
     'tel' => 'required|min:10|max:10',
     'email' => 'required|email',
@@ -81,12 +82,13 @@ class ListEtudiant extends Component
   {
     $this->validate();
     $this->password = $this->cin;
+    $path = $this->photo?->store("Profile_Image");
     $user = User::create([
       'name' => $this->name,
       'prenom' => $this->prenom,
       'sexe' => $this->sexe,
       'cin' => $this->cin,
-      // 'photo' => $this->photo,
+      'photo' => $path,
       'adress' => $this->adress,
       'date_naissance' => $this->dateNaissance,
       'tel' => $this->tel,

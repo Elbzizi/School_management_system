@@ -4,11 +4,14 @@ namespace App\Livewire\Admin;
 
 use App\Models\Admin;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class ListEmployer extends Component
 {
-    public $Employers , $name , $prenom, $sexe, $dateNaissance, $cin, $adress, $matier, $email,$tel , $photo ,$password ,$inputrole;
-    public $role;
+  use WithFileUploads;
+
+  public $Employers, $name, $prenom, $sexe, $dateNaissance, $cin, $adress, $matier, $email, $tel, $photo, $password, $inputrole;
+  public $role;
 
     public function mount(){
     }
@@ -47,27 +50,32 @@ class ListEmployer extends Component
     public function addEmployer(){
         // $this->validate();
 
-        $password = $this->cin;
-        Admin::create([
-            'name'=>$this->name,
-            'prenom'=>$this->prenom,
-            'sexe'=>$this->sexe,
-            'dateNaissance'=>$this->dateNaissance,
-            'cin'=>$this->cin,
-            'adress'=>$this->adress,
-            // 'matier'=>$this->matier,
-            'email'=>$this->email,
-            'tel'=>$this->tel,
-            // 'photo'=>$this->photo,
-            'password'=>bcrypt($password),
-            'role'=>$this->inputrole,
-        ]);
-        $this->resetInput();
-        toastr()->success("L'étudiant a été ajouté avec succès");
-        $this->dispatch('close-modal');
-    }
-// resetInput ------------------------------------------------------------------
-public function resetInput() {
+    $password = $this->cin;
+    $path = $this->photo?->store("Profile_Image");
+    // dd($path);
+    Admin::create([
+      'name' => $this->name,
+      'prenom' => $this->prenom,
+      'sexe' => $this->sexe,
+      'dateNaissance' => $this->dateNaissance,
+      'cin' => $this->cin,
+      'adress' => $this->adress,
+      // 'matier'=>$this->matier,
+      'email' => $this->email,
+      'tel' => $this->tel,
+      'photo' => $path,
+      'password' => bcrypt($password),
+      'role' => $this->inputrole,
+    ]);
+    $this->resetInput();
+    toastr()->success("L'étudiant a été ajouté avec succès");
+    $this->dispatch('close-modal');
+  }
+
+
+  // resetInput ------------------------------------------------------------------
+  public function resetInput()
+  {
 
     $this->name = null;
     $this->prenom = null;
@@ -79,9 +87,9 @@ public function resetInput() {
     $this->tel = null;
     $this->email = null;
     $this->password = null;
-}
+  }
 
-public function supprimer($id)
+  public function supprimer($id)
   {
     $admin = Admin::find($id);
     if ($admin) {
@@ -92,3 +100,5 @@ public function supprimer($id)
     }
   }
 }
+
+

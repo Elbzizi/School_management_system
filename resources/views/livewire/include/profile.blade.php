@@ -19,7 +19,8 @@
                         <div class="card-body box-profile">
                             <form class="form-horizontal" wire:submit.prevent='modifier({{ $id }})'>
                                 <div class="text-center">
-                                    <img class="profile-user-img img-fluid img-circle" src="{{ asset($photo) }}"
+                                    <img class="profile-user-img img-fluid img-circle" 
+                                    src="{{ asset($photo) }}"
                                         alt="User profile picture">
                                 </div>
                                 <p class="text-muted text-center cursur-pointer"><a href="#"><label
@@ -161,10 +162,13 @@
 
                                         @foreach ($info->groupes as $groupe)
                                         <p>{{ $groupe->nom }}
+<<<<<<< HEAD
                                             @foreach ($groupe->matiers as $matier)
                                                 {{ $matier->nom_matier }}
                                             @endforeach
 
+=======
+>>>>>>> b657c9b96ed12f65e6d7b05f791b40265a781d62
                                             <button class="btn btn-danger" wire:click="deletegroupe({{ $groupe->id }})">Delete</button>
                                         </p>
 

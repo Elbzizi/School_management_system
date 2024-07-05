@@ -1,4 +1,5 @@
 <div class="content-wrapper">
+<<<<<<< HEAD
     <section class="content">
         <div class="container" style="margin-top: 5px;">
             <div class="row">
@@ -17,6 +18,29 @@
                             <div class="d-flex justify-content-between">
                                 <p class="">le Groupe {{ $groupName }}</p>
                                 <p class=""></p>
+=======
+    <section class="content" >
+        <div class="row">
+            <div class="container" style="margin-top: 5px;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card ">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between">
+                                    <p class="">Le cycle {{ $cycle->nom_cycle }}</p>
+                                    <h5><strong> Liste des Etudiants</strong></h5>
+                                    <p class=""> date d'aujourduit : {{ now()->format('Y-m-d') }}</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p class="">Niveau {{ $niveau->nom }}</p>
+                                    <p class="">Nombre des Etudiant :
+                                        {{ $etudiants->count() }}/{{ $groupe->capacite }}</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p class="">le Groupe {{ $groupName }}</p>
+                                    <p class=""></p>
+                                </div>
+>>>>>>> b657c9b96ed12f65e6d7b05f791b40265a781d62
                             </div>
                         </div>
                         <div class="card-body">
@@ -24,6 +48,7 @@
                                 <div class="alert alert-success">
                                     {{ session('message') }}
                                 </div>
+<<<<<<< HEAD
                             @endif
                             <form wire:submit.prevent="submit">
                                 <div class="form-group">
@@ -34,6 +59,53 @@
                                             <option value="{{ $etudiant->id }}">{{ $etudiant->name }} {{ $etudiant->prenom }}</option>
                                         @endforeach
                                     </select>
+=======
+
+
+                                <br>
+                                {{-- <div class="col-md-11">
+
+                                </div> --}}
+                                <div class="card-body">
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>id</th>
+                                                <th>Nom</th>
+                                                <th>Prenom</th>
+                                                <th>Date Naissance</th>
+                                                <th>Selectionnez</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($etudiants as $etudiant)
+                                            <tr wire:key="etudiant-{{ $etudiant->id }}">
+                                                <td>{{ $etudiant->id }}</td>
+                                                    <td><a style="color: black;" wire:click=''
+                                                            href='#'>{{ $etudiant->name }}</a></td>
+                                                    <td><a style="color: black;" wire:click=''
+                                                            href='#'>{{ $etudiant->prenom }}</a></td>
+                                                    <td>{{ $etudiant->date_naissance }}</td>
+                                                    <td>
+                                                        <a href="/admin/profile/{{ $etudiant->id }}?type=etudiant" class="btn btn-primary">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>id</th>
+                                                <th>Nom</th>
+                                                <th>Prenom</th>
+                                                <th>Date Naissance</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+>>>>>>> b657c9b96ed12f65e6d7b05f791b40265a781d62
                                 </div>
                                 <div class="form-group">
                                     <label for="matierId">Matière</label>
@@ -104,6 +176,7 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <!-- Delete Modal -->
         <div wire:ignore.self class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -124,6 +197,16 @@
                 </div>
             </div>
         </div>
+=======
+
+
+    @livewireScripts
+
+
+
+</div>
+</section>
+>>>>>>> b657c9b96ed12f65e6d7b05f791b40265a781d62
 
     </section>
 </div>
@@ -134,6 +217,7 @@
         $('#deleteModal').modal('show');
     });
 
+<<<<<<< HEAD
     window.addEventListener('closeDeleteModal', event => {
         $('#deleteModal').modal('hide');
     });
@@ -143,4 +227,7 @@
     });
 </script>
 @endpush
+=======
+</body>
+>>>>>>> b657c9b96ed12f65e6d7b05f791b40265a781d62
 
