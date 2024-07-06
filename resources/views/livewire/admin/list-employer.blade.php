@@ -9,7 +9,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h6 style="float: left;"><strong>Liste des Employers</strong></h6>
-                                <form name="frm" wire:submit.prevent='filter'>
+                                <form name="frm" id="frm" wire:submit.prevent='filter'>
                                     @csrf
                                     <select class="form-select " style="margin-left:10px;" wire:model='role'
                                         wire:change="filter">
@@ -35,7 +35,7 @@
                                     aria-label="Close">Fermer</button>
                             </div>
                             <div class="modal-body p-4">
-                                <form wire:submit.prevent='addEmployer'>
+                                <form id="form" wire:submit.prevent='addEmployer'>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <!-- Name input -->
@@ -226,6 +226,8 @@
     </section>
     <script>
         window.addEventListener('close-modal', event => {
+            $("#frm")[0].reset();
+            $("#form")[0].reset();
             $('#employermodal').modal('hide');
         });
     </script>

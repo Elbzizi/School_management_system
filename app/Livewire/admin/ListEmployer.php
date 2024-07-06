@@ -56,7 +56,7 @@ class ListEmployer extends Component
     try {
       $this->validate();
       $password = $this->cin;
-      $path = $this->photo?->store("Profile_Image");
+      $path = $this->photo ? $this->photo->store("Profile_Image") : "assets/img/logonull.jpg";
       $employer = Admin::create([
         'name' => $this->name,
         'prenom' => $this->prenom,
@@ -72,7 +72,7 @@ class ListEmployer extends Component
       ]);
 
       $this->resetInput();
-      toastr()->success("L'étudiant a été ajouté avec succès");
+      toastr()->success(" {{$this->inputrole}} a été ajouté avec succès");
       $this->Employers->prepend($employer);
       // $this->dispatchBrowserEvent('closeModal');
       $this->dispatch('close-modal');
@@ -90,7 +90,6 @@ class ListEmployer extends Component
   // resetInput ------------------------------------------------------------------
   public function resetInput()
   {
-
     $this->name = null;
     $this->prenom = null;
     $this->sexe = null;
