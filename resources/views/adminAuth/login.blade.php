@@ -155,12 +155,12 @@
             display: none;
         }
 
-        .container {
+        /* .container {
             position: relative;
             z-index: 1;
             max-width: 300px;
             margin: 0 auto;
-        }
+        } */
 
         .container:before,
         .container:after {
@@ -228,10 +228,21 @@
             transform: translateX(-50%) translateY(-50%);
         }
 
+        .voir-container {
+            position: relative;
+            z-index: 1;
+            max-width: 300px;
+            margin: 0 auto
+        }
+
         .voir {
             position: absolute;
-            top: 295px;
-            left: 330px
+            top: -50px;
+            left: 260px
+        }
+
+        .login-form {
+            min-width: 340px;
         }
     </style>
     <div class="container">
@@ -244,19 +255,21 @@
             <input id="input" class="input" placeholder="E-mail" type="text" name="email"
                 value="{{ old('email') }}" required autofocus autocomplete="username" />
             {{-- <label for="input" class="label">Email</label> --}}
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <x-input-error :messages="$errors->get('email')" />
             {{-- <input id="input" class="input" type="password" name="password" placeholder="Password" required
                 autocomplete="current-password"> --}}
 
             <input type="password" class="form-control" name="password" id="password"
                 placeholder="Enter your password">
-            <div class="voir">
-                <span class="input-group-text" id="toggle-password">
-                    <i class="fa fa-eye"></i>
-                </span>
+            <div class="voir-container">
+                <div class="voir">
+                    <span class="input-group-text" id="toggle-password">
+                        <i class="fa fa-eye"></i>
+                    </span>
+                </div>
             </div>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <x-input-error :messages="$errors->get('password')" />
             {{-- <label for="password">Password</label> --}}
             <button>login</button>
             <p class="message">Not registered?<a href="#">Create an account</a></p>
