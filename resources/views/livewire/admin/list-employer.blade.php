@@ -64,6 +64,7 @@
                                             <div class="form-group">
                                                 <label for="sexe">Sexe</label>
                                                 <select id="sexe" class="form-control" wire:model="sexe">
+                                                    <option value="">Sélection le Genre</option>
                                                     <option value="homme">Homme</option>
                                                     <option value="femme">Femme</option>
                                                 </select>
@@ -153,7 +154,7 @@
                                                 <div class="radio-inputs">
                                                     <label class="radio">
                                                         <input type="radio" name="role" value="surveillant"
-                                                            checked="" wire:model='inputrole'>
+                                                            wire:model='inputrole'>
                                                         <span class="name">Surveillant</span>
                                                     </label>
                                                     <label class="radio">
